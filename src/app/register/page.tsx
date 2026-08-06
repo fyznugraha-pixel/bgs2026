@@ -85,7 +85,7 @@ export default function Register() {
           {/* Center Logo */}
           <div className="relative z-10 flex-grow flex items-center justify-center pointer-events-none">
             <Image 
-              src="/logo/LOGO BGS 2026.webp" 
+              src="/logo/Logo BGS 2026.webp" 
               alt="Bandung Great Sale 2026" 
               width={350} 
               height={140} 

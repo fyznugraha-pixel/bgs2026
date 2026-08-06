@@ -112,9 +112,21 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.5, rotate: 10 }}
             animate={{ opacity: 1, scale: 1, rotate: -2 }}
             transition={{ duration: 0.8, delay: 0.8, type: "spring", bounce: 0.5 }}
-            className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-xl shadow-orange-500/30 px-6 py-2 rounded-2xl inline-block my-2 lg:my-6"
+            className="inline-block my-2 lg:my-6 origin-center"
           >
-            GREAT SALE
+            <motion.span
+              animate={{ rotate: [0, 5, -5, 5, -5, 0] }}
+              transition={{
+                duration: 0.6,
+                repeat: Infinity,
+                repeatDelay: 3,
+                ease: "easeInOut",
+                delay: 2
+              }}
+              className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-xl shadow-orange-500/30 px-6 py-2 rounded-2xl inline-block origin-center"
+            >
+              GREAT SALE
+            </motion.span>
           </motion.span>
           <motion.span 
             initial={{ opacity: 0, y: 50 }}

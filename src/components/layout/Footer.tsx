@@ -66,7 +66,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col items-center md:items-end gap-2">
-            <a href="https://byfayiz.web.id/portofolio" target="_blank" rel="noopener noreferrer" className="text-sm text-on-surface-variant/60 hover:text-secondary transition-colors mt-2 md:mt-0">
+            <a href="https://byfayiz.web.id/portofolio" target="_blank" rel="author noopener noreferrer" className="text-sm text-on-surface-variant/60 hover:text-secondary transition-colors mt-2 md:mt-0">
               Made by <span className="font-bold">Fayiz Apriwansyah Nugraha</span>
             </a>
           </div>

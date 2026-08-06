@@ -143,7 +143,7 @@ export default function TenantDirectory() {
           ))}
         </div>
         
-        {visibleCount < filteredTenants.length && (
+        {visibleCount < filteredTenants.length ? (
           <div className="text-center mt-8">
             <button 
               onClick={() => setVisibleCount(prev => prev + 20)}
@@ -152,7 +152,19 @@ export default function TenantDirectory() {
               Tampilkan Lebih Banyak
             </button>
           </div>
-        )}
+        ) : filteredTenants.length > 20 ? (
+          <div className="text-center mt-8">
+            <button 
+              onClick={() => {
+                setVisibleCount(20);
+                document.getElementById('tenant')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-transparent border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary/5 transition-colors"
+            >
+              Tampilkan Lebih Sedikit
+            </button>
+          </div>
+        ) : null}
       </div>
     </section>
   );

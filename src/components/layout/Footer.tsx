@@ -15,9 +15,15 @@ export default function Footer() {
               height={56} 
               className="h-12 w-auto object-contain mb-4" 
             />
-            <p className="text-sm text-on-surface-variant leading-relaxed">
+            <p className="text-sm text-on-surface-variant leading-relaxed mb-4">
               Pemerintah Kota Bandung × Dinas Perdagangan Kota Bandung.
             </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={40} height={40} className="h-8 w-auto object-contain" />
+              <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan" width={80} height={40} className="h-8 w-auto object-contain" />
+              <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={80} height={40} className="h-8 w-auto object-contain" />
+              <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={30} className="h-8 w-auto object-contain" />
+            </div>
           </div>
           <div>
             <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
@@ -54,9 +60,10 @@ export default function Footer() {
               <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
             </div>
           </div>
-          <div className="flex gap-4 text-primary">
-            <a className="hover:text-secondary" href="#"><span className="material-symbols-outlined">share</span></a>
-            <a className="hover:text-secondary" href="#"><span className="material-symbols-outlined">mail</span></a>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <a href="https://byfayiz.web.id/portofolio" target="_blank" rel="noopener noreferrer" className="text-xs text-on-surface-variant/60 hover:text-secondary transition-colors mt-2 md:mt-0">
+              Made by <span className="font-bold">Fayiz Apriwansyah Nugraha</span>
+            </a>
           </div>
         </div>
       </div>

@@ -158,6 +158,7 @@ export default function Hero() {
           <div className="flex items-center gap-4 border-r-0 sm:border-r-2 border-white/20 sm:pr-6">
             <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={50} height={50} className="h-10 w-auto object-contain drop-shadow-md" />
             <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan Bandung" width={100} height={50} className="h-10 w-auto object-contain drop-shadow-md" />
+            <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={100} height={50} className="h-10 w-auto object-contain drop-shadow-md" />
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>

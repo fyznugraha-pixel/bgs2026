@@ -293,7 +293,7 @@ export default function Register() {
               <span>© 2026 Bandung Great Sale</span>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-xs opacity-70">Website by</span>
-                <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={80} height={20} className="h-4 w-auto object-contain" />
+                <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
               </div>
             </div>
             <div className="flex gap-4">

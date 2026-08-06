@@ -98,8 +98,6 @@ export default function Hero() {
             FREE ENTRY
           </span>
         </div>
-        <div className="text-xs text-surface/70 mt-2">TANGGAL FINAL MENUNGGU KONFIRMASI</div>
-        
         {/* Headline */}
         <h1 className="font-headline-lg text-6xl md:text-7xl lg:text-[100px] font-extrabold text-surface leading-[1.1] tracking-tight flex flex-col items-center">
           <motion.span 

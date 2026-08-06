@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-[1536px] mx-auto">
         <div className="flex items-center gap-4">
           <Image 
-            src="/logo/LOGO BGS 2026.webp" 
+            src="/logo/Logo BGS 2026.webp" 
             alt="Bandung Great Sale 2026" 
             width={180} 
             height={72} 

@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
             <Image 
-              src="/logo/LOGO BGS 2026.webp" 
+              src="/logo/Logo BGS 2026.webp" 
               alt="Bandung Great Sale 2026" 
               width={140} 
               height={56} 

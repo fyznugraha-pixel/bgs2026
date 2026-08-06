@@ -16,9 +16,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "BGS 2026 - Bandung Great Sale",
   description: "Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.",
-  icons: {
-    icon: "/logo/Logo BGS 2026.webp",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -63,7 +63,7 @@ export default function Hero() {
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.6, type: "spring", bounce: 0.5 }} className="absolute top-[60%] right-[8%] xl:right-[12%]">
           <div className="animate-bounce" style={{ animationDelay: '0.8s', animationDuration: '3.2s' }}>
             <div className="bg-error text-on-error px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-error/30 transform rotate-6 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
-              <span className="material-symbols-outlined text-2xl">stars</span> DOORPRIZE MILYARAN
+              <span className="material-symbols-outlined text-2xl">stars</span> DOORPRIZE MENARIK
             </div>
           </div>
         </motion.div>

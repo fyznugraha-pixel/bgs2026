@@ -12,8 +12,8 @@ const eventPartners = [
 const programPartners = [
   { tier: "SPARK", price: "1.500.000.000", color: "bg-primary-container text-on-primary-container" },
   { tier: "BOOST", price: "1.000.000.000", color: "bg-secondary-container text-on-secondary-container" },
-  { tier: "IMPACT", price: "750.000.000", color: "bg-primary/10 text-primary" },
-  { tier: "SUPPORT", price: "500.000.000", color: "bg-primary/5 text-primary" },
+  { tier: "IMPACT", price: "750.000.000", color: "bg-white/15 text-white" },
+  { tier: "SUPPORT", price: "500.000.000", color: "bg-white/5 text-white/80" },
 ];
 
 export default function Partnership() {

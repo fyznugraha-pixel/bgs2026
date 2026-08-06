@@ -84,17 +84,17 @@ export default function Hero() {
         className="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center space-y-8"
       >
         {/* Badges */}
-        <div className="flex flex-wrap justify-center gap-3">
-          <span className="inline-flex items-center gap-2 bg-surface/10 backdrop-blur-md text-surface px-4 py-1.5 rounded-full text-sm font-medium border border-surface/20">
-            <span className="material-symbols-outlined text-[16px]">calendar_month</span>
-            21–23 AGUSTUS 2026
+        <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-3 w-full overflow-x-auto no-scrollbar px-2">
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">calendar_month</span>
+            21-23 AGS 2026
           </span>
-          <span className="inline-flex items-center gap-2 bg-surface/10 backdrop-blur-md text-surface px-4 py-1.5 rounded-full text-sm font-medium border border-surface/20">
-            <span className="material-symbols-outlined text-[16px]">location_on</span>
-            LASWI HERITAGE, BANDUNG
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">location_on</span>
+            LASWI HERITAGE
           </span>
-          <span className="inline-flex items-center gap-2 bg-surface/10 backdrop-blur-md text-surface px-4 py-1.5 rounded-full text-sm font-medium border border-surface/20">
-            <span className="material-symbols-outlined text-[16px]">local_activity</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">local_activity</span>
             FREE ENTRY
           </span>
         </div>
@@ -144,25 +144,25 @@ export default function Hero() {
         </p>
         
         {/* CTAs */}
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
-          <a href="#tenant" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block">
+        <div className="flex flex-row flex-nowrap justify-center gap-2 sm:gap-4 pt-4 w-full">
+          <a href="#tenant" className="flex-1 sm:flex-none text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block text-xs sm:text-base whitespace-nowrap">
             JELAJAHI TENANT
           </a>
-          <Link href="/register" className="px-8 py-4 rounded-full border-2 border-surface text-surface font-bold text-sm hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+          <Link href="/register" className="flex-1 sm:flex-none text-center px-2 sm:px-8 py-3 sm:py-3.5 rounded-full border-2 border-surface text-surface font-bold hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-xs sm:text-base whitespace-nowrap">
             REGISTER NOW
           </Link>
         </div>
         
         {/* Badge/Credit */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
-          <div className="flex flex-wrap justify-center items-center gap-4 border-r-0 sm:border-r-2 border-white/20 sm:pr-6">
-            <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={50} height={50} className="h-8 sm:h-10 w-auto object-contain drop-shadow-md" />
-            <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan Bandung" width={100} height={50} className="h-8 sm:h-10 w-auto object-contain drop-shadow-md" />
-            <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={100} height={50} className="h-8 sm:h-10 w-auto object-contain drop-shadow-md" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-6">
+          <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 border-r-0 sm:border-r-2 border-white/20 sm:pr-6">
+            <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={50} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
+            <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan Bandung" width={100} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
+            <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={100} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
           </div>
-          <div className="flex items-center gap-2 mt-2 sm:mt-0">
-            <span className="text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>
-            <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={150} height={45} className="h-10 sm:h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
+          <div className="flex items-center gap-2 mt-1 sm:mt-0">
+            <span className="text-[10px] sm:text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>
+            <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={150} height={45} className="h-8 sm:h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
           </div>
         </div>
       </motion.div>

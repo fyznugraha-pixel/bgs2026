@@ -133,9 +133,9 @@ export default function Hero() {
         
         {/* CTAs */}
         <div className="flex flex-wrap justify-center gap-4 pt-4">
-          <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1">
+          <a href="#tenant" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block">
             JELAJAHI TENANT
-          </button>
+          </a>
           <Link href="/register" className="px-8 py-4 rounded-full border-2 border-surface text-surface font-bold text-sm hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
             REGISTER NOW
           </Link>

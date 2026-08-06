@@ -9,7 +9,6 @@ import Community from "@/components/home/Community";
 import TenantDirectory from "@/components/home/TenantDirectory";
 import Rundown from "@/components/home/Rundown";
 import VenueMap from "@/components/home/VenueMap";
-import Partnership from "@/components/home/Partnership";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -39,7 +38,6 @@ export default function Home() {
         <TenantDirectory />
         <Rundown />
         <VenueMap />
-        <Partnership />
       </main>
       <Footer />
     </>

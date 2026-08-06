@@ -30,7 +30,6 @@ export default function Navbar() {
           <a className="text-primary font-semibold hover:text-secondary transition-colors" href="#tenant">Tenant</a>
           <a className="text-primary font-semibold hover:text-secondary transition-colors" href="#konvoi">Rute Konvoi</a>
           <a className="text-primary font-semibold hover:text-secondary transition-colors" href="#venue">Venue Layout</a>
-          <a className="text-primary font-semibold hover:text-secondary transition-colors" href="#partnership">Partnership</a>
         </nav>
         <Link href="/register" className="hidden md:flex items-center gap-2 bg-secondary text-surface font-bold py-3 px-6 rounded-full hover:brightness-110 hover:-translate-y-0.5 transition-all shadow-md shadow-secondary/20">
           Register

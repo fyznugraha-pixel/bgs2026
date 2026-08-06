@@ -1,21 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import Footer from "@/components/layout/Footer";
+import { cities } from "../../lib/data/cities";
 
 export default function Register() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [citySearch, setCitySearch] = useState("");
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+  const [isDateDropdownOpen, setIsDateDropdownOpen] = useState(false);
+  const filteredCities = cities.filter(c => c.toLowerCase().includes(citySearch.toLowerCase())).slice(0, 50);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     whatsapp: "",
     city: "",
-    date: "August 21, 2026",
+    date: "21 Agustus 2026",
   });
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -46,264 +51,236 @@ export default function Register() {
   };
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{__html: `
-        .floating-input:focus ~ .floating-label,
-        .floating-input:not(:placeholder-shown) ~ .floating-label {
-            transform: translateY(-50%) scale(0.85);
-            top: 0;
-            background-color: white;
-            padding: 0 4px;
-            color: #006591;
-        }
-      `}} />
-      <div className="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col md:flex-row">
-        
-        {/* Left Split: Image/Brand Section (Hidden on small screens, takes half on lg) */}
-        <div className="hidden lg:flex lg:w-1/2 lg:sticky lg:top-0 lg:h-screen bg-primary-container relative flex-col justify-between overflow-hidden">
-          {/* Overlay Pattern/Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-container to-primary opacity-90 z-0"></div>
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} 
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} 
-            className="absolute -bottom-32 -left-32 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"
-          ></motion.div>
-          <motion.div 
-            animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }} 
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }} 
-            className="absolute -top-32 -right-32 w-96 h-96 bg-tertiary-container rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"
-          ></motion.div>
-          
-          {/* Navigation / Brand */}
-          <div className="relative z-10 p-12">
-            <Link className="inline-flex items-center gap-2 text-on-primary font-label-lg hover:text-secondary-fixed transition-colors" href="/">
-              <span className="material-symbols-outlined">chevron_left</span>
-              Kembali ke Beranda
-            </Link>
-          </div>
-          
-          {/* Center Logo */}
-          <div className="relative z-10 flex-grow flex items-center justify-center pointer-events-none">
-            <Image 
-              src="/logo/Logo BGS 2026.webp" 
-              alt="Bandung Great Sale 2026" 
-              width={350} 
-              height={140} 
-              className="w-72 md:w-80 h-auto drop-shadow-2xl opacity-95" 
-            />
-          </div>
-          
-          {/* Hero Content */}
-          <div className="relative z-10 p-12 mt-auto">
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold mb-6 shadow-md">
-              <span className="material-symbols-outlined text-sm">festival</span>
-              Bandung Great Sale 2026
-            </span>
-            <h1 className="font-display-lg text-display-lg text-on-primary mb-6 leading-tight">
-              Dapatkan <br /> Tiket Eksklusif Anda
-            </h1>
-            <p className="font-body-lg text-body-lg text-on-primary/80 max-w-md">
-              Bergabunglah dengan ribuan pengunjung di Laswi Heritage untuk festival belanja perayaan terbesar di Jawa Barat. Promo tak tertandingi menanti Anda.
-            </p>
-          </div>
-        </div>
-
-        {/* Right Split: Form Section */}
-        <div className="w-full lg:w-1/2 flex flex-col min-h-screen bg-surface overflow-y-auto" >
-          
-          {/* Mobile Header (Visible only on mobile/tablet) */}
-          <header className="lg:hidden w-full px-6 py-6 border-b border-outline-variant/30 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-20">
-            <Link className="inline-flex items-center gap-2 text-primary font-label-lg" href="/">
-              <span className="material-symbols-outlined">chevron_left</span>
-              Kembali
-            </Link>
-            <span className="font-label-lg text-primary-container font-bold">Pendaftaran</span>
-          </header>
-          
-          <main className="flex-grow flex flex-col justify-center px-6 md:px-12 py-12 w-full max-w-2xl mx-auto">
-            
-            {/* Mobile Title */}
-            <div className="lg:hidden mb-8">
-              <h1 className="font-headline-lg text-headline-lg text-primary mb-2">Pendaftaran</h1>
-              <p className="font-body-md text-body-md text-on-surface-variant">Ikuti Bandung Great Sale 2026. Dapatkan tiket Anda untuk menikmati promo eksklusif.</p>
-            </div>
-            
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,101,145,0.1)] border border-primary/10 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-              <form onSubmit={handleRegister} className="space-y-10 relative z-10">
-              
-              {/* Notice Box */}
-              <div className="bg-surface-container-low border-l-4 border-primary p-5 flex gap-4 rounded-r-3xl">
-                <span className="material-symbols-outlined text-primary shrink-0 mt-0.5">info</span>
-                <div>
-                  <h3 className="font-label-lg text-label-lg text-on-surface mb-1">Informasi Pendaftaran</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant text-sm">Pendaftaran Bandung Great Sale di Laswi Heritage. Lokasi tidak dapat diubah.</p>
-                </div>
-              </div>
-
-              {error && (
-                <div className="p-4 bg-error-container text-on-error-container rounded-lg text-sm border border-error/20 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-error">error</span>
-                  {error}
-                </div>
-              )}
-              
-              {/* Personal Information Section */}
-              <div>
-                <h2 className="font-headline-md text-headline-md text-primary mb-8 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>person</span>
-                  Informasi Pribadi
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
-                  {/* Tempat (Read-only) */}
-                  <div className="relative md:col-span-1">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="material-symbols-outlined text-outline/70">location_on</span>
-                    </div>
-                    <input 
-                      className="w-full pl-10 pr-4 py-3.5 bg-surface-container-low border border-outline-variant/30 text-on-surface font-body-md focus:ring-0 focus:border-outline-variant cursor-not-allowed text-sm rounded-xl" 
-                      readOnly 
-                      type="text" 
-                      value="Laswi Heritage" 
-                       
-                    />
-                    <label className="absolute left-10 top-0 -translate-y-1/2 text-xs font-label-md text-on-surface-variant bg-white px-1">Lokasi</label>
-                  </div>
-                  
-                  {/* Tanggal (Dropdown Style) */}
-                  <div className="relative md:col-span-1">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                      <span className="material-symbols-outlined text-outline/70">calendar_today</span>
-                    </div>
-                    <select 
-                      value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full pl-10 pr-10 py-3.5 bg-white border border-outline-variant/40 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 appearance-none text-sm transition-all duration-300 cursor-pointer rounded-xl hover:border-primary/50 shadow-sm" 
-                      
-                    >
-                      <option>21 Agustus 2026</option>
-                      <option>22 Agustus 2026</option>
-                      <option>23 Agustus 2026</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                      <span className="material-symbols-outlined text-outline">expand_more</span>
-                    </div>
-                    <label className="absolute left-10 top-0 -translate-y-1/2 text-xs font-label-md text-on-surface-variant bg-white px-1">Tanggal</label>
-                  </div>
-                  
-                  {/* Nama Lengkap (Floating Label) */}
-                  <div className="relative md:col-span-2">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="material-symbols-outlined text-outline/70">badge</span>
-                    </div>
-                    <input 
-                      className="floating-input w-full pl-10 pr-4 py-3.5 bg-white border-1.5 border border-outline-variant/40 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm transition-all duration-300 placeholder-transparent rounded-xl hover:border-primary/50 shadow-sm" 
-                      id="nama" 
-                      placeholder="Nama Anda" 
-                      type="text" 
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                       
-                    />
-                    <label className="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" htmlFor="nama">Nama Lengkap</label>
-                  </div>
-                  
-                  {/* Email (Floating Label) */}
-                  <div className="relative md:col-span-2">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="material-symbols-outlined text-outline/70">mail</span>
-                    </div>
-                    <input 
-                      className="floating-input w-full pl-10 pr-4 py-3.5 bg-white border-1.5 border border-outline-variant/40 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm transition-all duration-300 placeholder-transparent rounded-xl hover:border-primary/50 shadow-sm" 
-                      id="email" 
-                      placeholder="youremail@gmail.com" 
-                      type="email" 
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                       
-                    />
-                    <label className="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" htmlFor="email">Email</label>
-                  </div>
-                  
-                  {/* Nomor WhatsApp */}
-                  {/* Nomor WhatsApp */}
-                  <div className="md:col-span-1">
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span className="material-symbols-outlined text-outline/70">call</span>
-                      </div>
-                      <input 
-                        className="floating-input w-full pl-10 pr-4 py-3.5 bg-white border-1.5 border border-outline-variant/40 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm transition-all duration-300 placeholder-transparent rounded-xl hover:border-primary/50 shadow-sm" 
-                        id="whatsapp" 
-                        placeholder="081234567890" 
-                        type="tel" 
-                        required
-                        value={formData.whatsapp}
-                        onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                         
-                      />
-                      <label className="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" htmlFor="whatsapp">Nomor WhatsApp</label>
-                    </div>
-                  </div>
-                  
-                  {/* Kota / Wilayah (Floating Label) */}
-                  <div className="relative md:col-span-1">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="material-symbols-outlined text-outline/70">location_city</span>
-                    </div>
-                    <input 
-                      className="floating-input w-full pl-10 pr-4 py-3.5 bg-white border-1.5 border border-outline-variant/40 text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 text-sm transition-all duration-300 placeholder-transparent rounded-xl hover:border-primary/50 shadow-sm" 
-                      id="kota" 
-                      placeholder="Bandung, Jakarta, dll." 
-                      type="text" 
-                      required
-                      value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                       
-                    />
-                    <label className="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" htmlFor="kota">Kota / Domisili</label>
-                  </div>
-                </div>
-              </div>
-              
-
-              {/* Action Button */}
-              <div className="pt-6">
-                <button 
-                  className={`w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-400 hover:to-yellow-400 text-gray-900 font-headline-md text-headline-md py-4 px-8 rounded-xl transition-all shadow-lg shadow-yellow-400/30 hover:shadow-yellow-400/50 hover:-translate-y-0.5 active:scale-[0.98] duration-300 flex justify-center items-center gap-3 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`} 
-                  type="submit" 
-                  
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Sedang memproses..." : "Daftar Sekarang"}
-                  {!isLoading && <span className="material-symbols-outlined">arrow_forward</span>}
-                </button>
-              </div>
-            </form>
-            </div>
-          </main>
-          
-          {/* Simple Footer */}
-          <footer className="w-full py-8 px-6 md:px-12 mt-auto text-center border-t border-outline-variant/20 text-sm text-on-surface-variant flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col items-center md:items-start gap-1">
-              <span>© 2026 Bandung Great Sale</span>
-              <div className="flex items-center gap-2 mt-2">
-                <span className="text-xs opacity-70">Website by</span>
-                <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <Link className="hover:text-primary transition-colors" href="#">Privasi</Link>
-              <Link className="hover:text-primary transition-colors" href="#">Syarat</Link>
-              <Link className="hover:text-primary transition-colors" href="#">Bantuan</Link>
-            </div>
-          </footer>
-        </div>
+    <div className="font-body-md text-on-background antialiased relative min-h-screen flex flex-col">
+      {/* Global Background with Navy Overlay */}
+      <div className="fixed inset-0 z-[-1]">
+        <img alt="Bandung Great Sale Festive Atmosphere" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfne3wnji178Ya0D05qbjkujIenvtd6V1ySUAT92HQax-wgips0C1Zz78nqr9zUmvytTGJIUhRMSj80XIrQnJXce7vOi2w5ei7AbWTzV1dP-2W0lRPM_ksz8uJsr8_YOj6V0ftCBGeR-DrDk2pzgeXLUAXlaS58_ppHZmt3p2UHESD4NuwMgOZgLJQ2ytRIrieJID9uaxhfZqhli5liFBckXp7Vq33KAC44WF5XCHEL0qJ35XYp1ScLA" fetchPriority="high" />
+        <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" style={{ backgroundColor: "rgba(5, 22, 48, 0.8)" }}></div>
       </div>
-    </>
+      
+      {/* TopAppBar removed as per request */}
+      
+      {/* Main Content Area */}
+      <main className="flex-grow flex items-center justify-center py-20 px-6 md:px-[64px] mt-[80px]">
+        {/* Registration Card */}
+        <div className="w-full max-w-[672px] bg-surface rounded-[24px] shadow-2xl relative border border-outline-variant/30 bg-white">
+          
+          {/* Decorative Element Container */}
+          <div className="absolute inset-0 overflow-hidden rounded-[24px] pointer-events-none">
+            {/* Soft blurred blobs */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl -ml-16 -mb-16"></div>
+            
+            {/* Subtle dot pattern */}
+            <div className="absolute inset-0 opacity-50" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+          </div>
+          
+          <div className="p-8 md:p-12 relative z-10">
+            {/* Floating Badge */}
+            <div className="absolute -top-4 -left-4 md:-left-6 md:-top-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-5 py-2 rounded-2xl shadow-lg shadow-orange-500/30 transform -rotate-6 font-bold text-sm border-2 border-white flex items-center gap-1.5 z-20">
+              <span className="material-symbols-outlined text-[20px]">local_activity</span>
+              FREE ENTRY
+            </div>
+
+            <div className="text-center mb-10 relative z-10 mt-2">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/5 text-primary mb-5 ring-4 ring-white shadow-sm">
+                <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>confirmation_number</span>
+              </div>
+              <h1 className="font-headline-lg text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tight">Dapatkan Tiketmu</h1>
+              <p className="font-body-md text-on-surface-variant max-w-md mx-auto">
+                Bergabunglah dengan festival belanja paling dinanti tahun ini. Isi data diri Anda di bawah ini untuk mendapatkan tiket akses eksklusif.
+              </p>
+            </div>
+          
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-xl text-sm border border-red-100 flex items-center gap-2 relative z-10">
+              <span className="material-symbols-outlined">error</span>
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleRegister} className="space-y-8 relative z-10 mt-6">
+            
+            {/* Custom Dropdown: Date Selection */}
+            <div className="relative w-full">
+              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none z-10">
+                <span className="material-symbols-outlined text-[20px]">calendar_today</span>
+              </div>
+              
+              <div 
+                className={`w-full border-0 border-b-2 bg-transparent pt-6 pb-2 pl-9 pr-8 cursor-pointer font-body-md text-slate-800 transition-colors outline-none focus:border-primary ${isDateDropdownOpen ? 'border-primary' : 'border-slate-300'}`}
+                onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
+                tabIndex={0}
+                onBlur={() => setTimeout(() => setIsDateDropdownOpen(false), 200)}
+              >
+                {formData.date}
+              </div>
+              
+              <div className={`absolute right-0 top-6 text-slate-400 pointer-events-none transition-transform duration-200 ${isDateDropdownOpen ? "rotate-180" : ""}`}>
+                <span className="material-symbols-outlined">expand_more</span>
+              </div>
+              
+              <label 
+                className={`absolute left-0 -top-4 text-xs font-body-md transition-all ${isDateDropdownOpen ? 'text-primary' : 'text-slate-500'}`} 
+              >
+                Tanggal Kehadiran
+              </label>
+
+              {isDateDropdownOpen && (
+                <ul className="absolute z-20 w-full bg-white border border-slate-200 mt-1 rounded-xl shadow-lg overflow-hidden">
+                  {["21 Agustus 2026", "22 Agustus 2026", "23 Agustus 2026"].map((d, i) => (
+                    <li 
+                      key={i}
+                      className={`px-4 py-3 text-sm cursor-pointer border-b border-slate-100 last:border-0 transition-colors ${formData.date === d ? 'bg-[#f4f7fa] text-primary font-semibold' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'}`}
+                      onClick={() => {
+                        setFormData({ ...formData, date: d });
+                        setIsDateDropdownOpen(false);
+                      }}
+                    >
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {/* Floating Label Input: Full Name */}
+            <div className="relative w-full">
+              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
+                <span className="material-symbols-outlined text-[20px]">person</span>
+              </div>
+              <input 
+                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
+                id="fullname" 
+                placeholder="Nama Lengkap" 
+                required 
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              />
+              <label 
+                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
+                htmlFor="fullname"
+              >
+                Nama Lengkap
+              </label>
+            </div>
+            
+            {/* Floating Label Input: Email */}
+            <div className="relative w-full">
+              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
+                <span className="material-symbols-outlined text-[20px]">mail</span>
+              </div>
+              <input 
+                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
+                id="email" 
+                placeholder="Alamat Email" 
+                required 
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              />
+              <label 
+                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
+                htmlFor="email"
+              >
+                Alamat Email
+              </label>
+            </div>
+            
+            {/* Floating Label Input: WhatsApp */}
+            <div className="relative w-full">
+              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
+                <span className="material-symbols-outlined text-[20px]">call</span>
+              </div>
+              <input 
+                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
+                id="whatsapp" 
+                placeholder="Nomor WhatsApp" 
+                required 
+                type="tel"
+                value={formData.whatsapp}
+                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+              />
+              <label 
+                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
+                htmlFor="whatsapp"
+              >
+                Nomor WhatsApp
+              </label>
+            </div>
+            
+            {/* Floating Label Input: City (Searchable Dropdown) */}
+            <div className="relative w-full mb-10">
+              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
+                <span className="material-symbols-outlined text-[20px]">location_city</span>
+              </div>
+              <input 
+                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
+                id="city" 
+                placeholder="Kota / Kabupaten" 
+                required 
+                type="text"
+                autoComplete="off"
+                value={citySearch}
+                onChange={(e) => {
+                  setCitySearch(e.target.value);
+                  setFormData({ ...formData, city: e.target.value });
+                  setIsCityDropdownOpen(true);
+                }}
+                onFocus={() => setIsCityDropdownOpen(true)}
+                onBlur={() => setTimeout(() => setIsCityDropdownOpen(false), 200)}
+              />
+              <label 
+                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
+                htmlFor="city"
+              >
+                Kota / Kabupaten
+              </label>
+              
+              {isCityDropdownOpen && filteredCities.length > 0 && (
+                <ul className="absolute z-20 w-full bg-white border border-slate-200 mt-1 rounded-xl shadow-lg max-h-48 overflow-y-auto hide-scrollbar">
+                  {filteredCities.map((c, i) => (
+                    <li 
+                      key={i}
+                      className="px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary cursor-pointer border-b border-slate-100 last:border-0 transition-colors"
+                      onClick={() => {
+                        setCitySearch(c);
+                        setFormData({ ...formData, city: c });
+                        setIsCityDropdownOpen(false);
+                      }}
+                    >
+                      {c}
+                    </li>
+                  ))}
+                  {filteredCities.length === 0 && (
+                    <li className="px-4 py-3 text-sm text-slate-500 text-center">
+                      Tidak ditemukan
+                    </li>
+                  )}
+                </ul>
+              )}
+            </div>
+            
+            <div className="pt-4">
+              <button 
+                className={`w-full bg-[#facc15] hover:bg-[#eab308] text-[#574500] font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-3 transition-colors active:scale-[0.98] shadow-md ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`} 
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? "Memproses..." : "Daftar Sekarang"}
+                {!isLoading && <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_forward</span>}
+              </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </main>
+      
+      {/* Footer */}
+      <div className="w-full mt-auto bg-surface relative z-10">
+        <Footer />
+      </div>
+    </div>
   );
 }

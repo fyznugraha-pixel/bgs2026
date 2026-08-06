@@ -1,266 +1,255 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="id">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Registration - Bandung Great Sale 2026</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary-fixed": "#001e2e",
-                        "on-background": "#131d24",
-                        "inverse-primary": "#89ceff",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed": "#231b00",
-                        "on-secondary-fixed-variant": "#1e4b66",
-                        "secondary-container": "#b2dcfd",
-                        "error-container": "#ffdad6",
-                        "on-tertiary": "#ffffff",
-                        "tertiary-fixed-dim": "#eec200",
-                        "surface-container-low": "#ebf5ff",
-                        "secondary-fixed-dim": "#a2ccec",
-                        "surface-dim": "#d1dbe5",
-                        "surface-tint": "#006590",
-                        "surface-container-lowest": "#ffffff",
-                        "surface": "#f6faff",
-                        "on-primary-container": "#b5deff",
-                        "background": "#f6faff",
-                        "surface-container-high": "#dfe9f3",
-                        "on-error-container": "#93000a",
-                        "primary-fixed-dim": "#89ceff",
-                        "on-surface": "#131d24",
-                        "tertiary-container": "#cea700",
-                        "primary-fixed": "#c8e6ff",
-                        "inverse-surface": "#283239",
-                        "outline-variant": "#c0c7cf",
-                        "surface-container-highest": "#d9e4ee",
-                        "outline": "#70787f",
-                        "on-secondary": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "surface-bright": "#f6faff",
-                        "primary": "#004c6e",
-                        "on-surface-variant": "#40484e",
-                        "surface-container": "#e5eff9",
-                        "inverse-on-surface": "#e8f2fc",
-                        "on-primary-fixed-variant": "#004c6e",
-                        "on-primary-fixed": "#001e2f",
-                        "secondary-fixed": "#c8e6ff",
-                        "primary-container": "#006591",
-                        "tertiary": "#735c00",
-                        "on-error": "#ffffff",
-                        "secondary": "#39637f",
-                        "on-tertiary-container": "#4e3e00",
-                        "on-tertiary-fixed-variant": "#574500",
-                        "on-secondary-container": "#37627e",
-                        "tertiary-fixed": "#ffe083",
-                        "surface-variant": "#d9e4ee",
-                        "gold": "#FACC15"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "card-padding": "32px",
-                        "margin-mobile": "20px",
-                        "section-gap": "80px",
-                        "gutter": "24px",
-                        "container-max": "1280px",
-                        "margin-desktop": "64px"
-                    },
-                    "fontFamily": {
-                        "headline-md": ["Plus Jakarta Sans"],
-                        "headline-lg": ["Plus Jakarta Sans"],
-                        "display-lg-mobile": ["Plus Jakarta Sans"],
-                        "label-lg": ["Hanken Grotesk"],
-                        "display-lg": ["Plus Jakarta Sans"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "label-md": ["Hanken Grotesk"],
-                        "body-md": ["Hanken Grotesk"]
-                    },
-                    "fontSize": {
-                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
-                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
-                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'body-md': ['Hanken Grotesk', 'sans-serif'],
+        'headline-lg': ['Hanken Grotesk', 'sans-serif'],
+      },
+      colors: {
+        primary: '#005c8a',
+        'primary-container': '#00344d',
+      }
+    }
+  }
+}
+</script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        /* Floating label styles */
-        .floating-input:focus ~ .floating-label,
-        .floating-input:not(:placeholder-shown) ~ .floating-label {
-            transform: translateY(-50%) scale(0.85);
-            top: 0;
-            background-color: white;
-            padding: 0 4px;
-            color: #006591;
-        }
-    </style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex items-center justify-center p-6 md:p-12 relative overflow-x-hidden" style="background-image: linear-gradient(rgba(0, 30, 46, 0.85), rgba(0, 30, 46, 0.85)), url('https://lh3.googleusercontent.com/aida/AP1WRLsJPEbYHFYvms2hTf9n-56AmDOmXfMvumhGGhpX1HCXESBFUS5w_GEjE4K1fpXo6G7vH7LheIJowFpYFQEwJ9e1koSEXc7fGsCaxn5vwVQP8osL72jeJdD9fGmAvnuhZQD17-8FR4ZP6SbZCqxh7DKpeK2ZhaZEILYEpT-fgTq5gpAucapFwHDAo_PfVzjzWzZEbY7iEWznrskf6ECgnNhF9AQysodzZJQrm_rzQMNP2_1UB34w4uaS7Eu2'); background-size: cover; background-position: center; background-attachment: fixed;"><div class="absolute inset-0 z-0 opacity-50 pointer-events-none"><div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 to-transparent"></div><div class="absolute -top-32 -right-32 w-96 h-96 bg-gold rounded-full blur-3xl opacity-20"></div><div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary-container rounded-full blur-3xl opacity-30"></div><div class="absolute top-1/4 -left-20 w-40 h-40 border-4 border-gold/20 rounded-full rotate-12"></div><div class="absolute bottom-1/4 -right-20 w-64 h-64 border-4 border-primary/20 rounded-3xl rotate-45"></div></div>
-<!-- Left Split: Image/Brand Section (Hidden on small screens, takes half on lg) -->
-<!-- Right Split: Form Section -->
-<div class="relative z-10 w-full max-w-2xl bg-surface-container-lowest shadow-xl border border-outline-variant/30 flex flex-col overflow-hidden bg-white" style="border-radius: 10px;">
-<!-- Mobile Header (Visible only on mobile/tablet) -->
-<main class="flex-grow flex flex-col px-8 md:px-16 py-12 w-full"><div class="mb-10 text-center"><a class="inline-flex items-center gap-2 text-primary font-label-lg hover:text-secondary transition-colors mb-6" href="#"><span class="material-symbols-outlined">chevron_left</span> Back to Home</a><div class="flex flex-col items-center gap-4"><span class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold text-on-tertiary-fixed-variant rounded-full text-sm font-bold shadow-sm"><span class="material-symbols-outlined text-sm">festival</span> Bandung Great Sale 2026</span><h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary leading-tight">Secure Your Pass</h1><p class="font-body-md text-on-surface-variant max-w-md mx-auto">Join thousands of shoppers at Laswi Heritage for the biggest festive shopping event in West Java.</p></div></div>
-<!-- Mobile Title -->
-<form action="#" class="space-y-10" method="POST">
-<!-- Notice Box -->
-<div class="bg-surface-container-low border-l-4 border-primary p-5 flex gap-4 rounded-r-3xl">
-<span class="material-symbols-outlined text-primary shrink-0 mt-0.5">info</span>
-<div>
-<h3 class="font-label-lg text-label-lg text-on-surface mb-1">Registration Information</h3>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm">Bandung Great Sale registration at Laswi Heritage. Venue cannot be changed.</p>
-</div>
-</div>
-<!-- Personal Information Section -->
-<div>
-<h2 class="font-headline-md text-headline-md text-primary mb-8 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">person</span>
-                    Personal Information
-                </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
-<!-- Tempat (Read-only) -->
-<div class="relative md:col-span-1">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline/70">location_on</span>
-</div>
-<input class="w-full pl-10 pr-4 py-3 bg-surface-container border-b-2 border-outline-variant bg-transparent text-on-surface font-body-md focus:ring-0 focus:border-outline-variant cursor-not-allowed text-sm" readonly="" style="border-radius: 10px;" type="text" value="Laswi Heritage"/>
-<label class="absolute left-10 top-0 -translate-y-1/2 text-xs font-label-md text-on-surface-variant bg-surface-container-lowest px-1">Venue</label>
-</div>
-<!-- Tanggal (Dropdown Style) -->
-<div class="relative md:col-span-1">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-<span class="material-symbols-outlined text-outline/70">calendar_today</span>
-</div>
-<select class="w-full pl-10 pr-10 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary appearance-none text-sm transition-colors" style="border-radius: 10px;">
-<option>August 21, 2026</option>
-<option>August 22, 2026</option>
-<option>August 23, 2026</option>
-</select>
-<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline">expand_more</span>
-</div>
-<label class="absolute left-10 top-0 -translate-y-1/2 text-xs font-label-md text-on-surface-variant bg-surface-container-lowest px-1">Date</label>
-</div>
-<!-- Nama Lengkap (Floating Label) -->
-<div class="relative md:col-span-2">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline/70">badge</span>
-</div>
-<input class="floating-input w-full pl-10 pr-4 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary text-sm transition-colors placeholder-transparent" id="nama" placeholder="Your Name" style="border-radius: 10px;" type="text"/>
-<label class="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" for="nama">Full Name</label>
-</div>
-<!-- Email (Floating Label) -->
-<div class="relative md:col-span-2">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline/70">mail</span>
-</div>
-<input class="floating-input w-full pl-10 pr-4 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary text-sm transition-colors placeholder-transparent" id="email" placeholder="youremail@gmail.com" style="border-radius: 10px;" type="email"/>
-<label class="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" for="email">Email</label>
-</div>
-<!-- Nomor WhatsApp -->
-<div class="md:col-span-2 space-y-1">
-<div class="flex gap-4">
-<div class="relative w-28">
-<select class="w-full pl-3 pr-8 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary appearance-none text-sm transition-colors" style="border-radius: 10px;">
-<option>ID +62</option>
-<option>US +1</option>
-</select>
-<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
-</div>
-</div>
-<div class="relative flex-grow">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline/70">call</span>
-</div>
-<input class="floating-input w-full pl-10 pr-4 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary text-sm transition-colors placeholder-transparent" id="whatsapp" placeholder="81234567890" style="border-radius: 10px;" type="tel"/>
-<label class="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" for="whatsapp">WhatsApp Number</label>
-</div>
-</div>
-<p class="text-xs text-on-surface-variant mt-1 ml-32">Enter number without country code.</p>
-</div>
-<!-- Kota / Wilayah (Floating Label) -->
-<div class="relative md:col-span-2">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-outline/70">location_city</span>
-</div>
-<input class="floating-input w-full pl-10 pr-4 py-3 bg-transparent border-b-2 border-outline-variant text-on-surface font-body-md focus:ring-0 focus:border-primary text-sm transition-colors placeholder-transparent" id="kota" placeholder="Bandung, Jakarta, etc." style="border-radius: 10px;" type="text"/>
-<label class="floating-label absolute left-10 top-1/2 -translate-y-1/2 text-sm font-body-md text-outline transition-all duration-200 pointer-events-none" for="kota">City / Region</label>
-</div>
-</div>
-</div>
-<!-- Enhanced Ticket Availability Widget -->
-<div class="border border-outline-variant/50 p-6 bg-surface-container-lowest shadow-sm relative overflow-hidden rounded-3xl">
-<div class="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-full z-0"></div>
-<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-<div>
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
-<span class="font-label-lg text-label-lg text-on-surface">Ticket Availability</span>
-</div>
-<p class="text-sm text-on-surface-variant">Tickets are very limited. Secure your seat now.</p>
-</div>
-<!-- Progress Ring / Widget -->
-<div class="flex items-center gap-6">
-<div class="text-right hidden md:block">
-<div class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold mb-1">Status</div>
-<span class="bg-gold/20 text-on-tertiary-fixed-variant font-label-md text-label-md px-3 py-1 rounded-full border border-gold/50">Selling Fast</span>
-</div>
-<div class="relative w-20 h-20 flex items-center justify-center">
-<!-- SVG Progress Ring -->
-<svg class="transform -rotate-90 w-20 h-20">
-<circle class="text-surface-variant" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-width="6"></circle>
-<circle class="text-primary-container" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-dasharray="226.2" stroke-dashoffset="22.6" stroke-linecap="round" stroke-width="6"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="font-headline-md text-primary leading-none">18</span>
-<span class="text-[10px] text-on-surface-variant leading-none mt-1">left</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative z-10 mt-4 pt-4 border-t border-outline-variant/30 flex justify-between items-center text-xs text-on-surface-variant">
-<span class="">182 Registered</span>
-<span class="">Total 200 Quota</span>
-</div>
-</div>
-<!-- Action Button -->
-<div class="pt-6">
-<button class="w-full hover:bg-gold/90 text-on-tertiary-fixed-variant font-headline-md text-headline-md py-4 px-8 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98] duration-200 bg-gold flex justify-center items-center gap-3" style="border-radius: 10px;" type="button">
-                    Register Now
-                    <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</form>
-</main>
-<!-- Simple Footer -->
-<footer class="w-full py-8 px-6 md:px-12 mt-auto text-center border-t border-outline-variant/20 text-sm flex flex-col md:flex-row justify-between items-center gap-4 text-white/80">
-<span class="">© 2026 Bandung Great Sale</span>
-<div class="flex gap-4">
-<a class="hover:text-primary transition-colors" href="#">Privacy</a>
-<a class="hover:text-primary transition-colors" href="#">Terms</a>
-<a class="hover:text-primary transition-colors" href="#">Help</a>
-</div>
-</footer>
-</div>
-</body></html>
+<body class="bg-[#f8fbff] text-slate-800 font-body-md antialiased min-h-screen flex flex-col lg:flex-row">
+  <!-- Left Split -->
+  <div class="hidden lg:flex lg:w-1/2 lg:sticky lg:top-0 lg:h-screen bg-primary-container relative flex-col justify-between overflow-hidden shadow-2xl z-30">
+    <!-- Overlay Pattern/Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#00344d] to-[#001e2e] opacity-95 z-0"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-[#006591] rounded-full mix-blend-multiply filter blur-3xl z-0 opacity-40"></div>
+    
+    <!-- Navigation / Brand -->
+    <div class="relative z-10 p-12">
+      <a class="inline-flex items-center gap-2 text-white/90 font-medium hover:text-white transition-colors" href="/">
+        <span class="material-symbols-outlined">chevron_left</span>
+        Kembali ke Beranda
+      </a>
+    </div>
+    
+    <!-- Center Logo -->
+    <div class="relative z-10 flex-grow flex items-center justify-center pointer-events-none">
+      <img src="logo/Logo BGS 2026.webp" alt="Bandung Great Sale 2026" class="w-72 md:w-80 h-auto drop-shadow-2xl" />
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 p-12 mt-auto">
+      <span class="inline-flex items-center gap-2 px-3 py-1 bg-[#facc15] text-black rounded-full text-xs font-bold mb-6 shadow-md">
+        <span class="material-symbols-outlined text-[16px]">festival</span>
+        Bandung Great Sale 2026
+      </span>
+      <h1 class="font-headline-lg text-4xl lg:text-5xl text-white mb-4 leading-tight font-bold">
+        Dapatkan <br /> Tiket Eksklusif Anda
+      </h1>
+      <p class="font-body-md text-white/80 max-w-md text-sm leading-relaxed">
+        Bergabunglah dengan ribuan pengunjung di Laswi Heritage untuk festival belanja perayaan terbesar di Jawa Barat. Promo tak tertandingi menanti Anda.
+      </p>
+    </div>
+  </div>
+
+  <!-- Right Split -->
+  <div class="w-full lg:w-1/2 flex flex-col min-h-screen bg-[#f8fbff] overflow-y-auto">
+    <!-- Mobile Header -->
+    <header class="lg:hidden w-full px-6 py-5 flex items-center justify-between sticky top-0 bg-[#f8fbff]/90 backdrop-blur-md z-20">
+      <a class="inline-flex items-center gap-1 text-[#005c8a] font-semibold text-sm hover:text-primary transition-colors" href="/">
+        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        Kembali
+      </a>
+      <span class="font-semibold text-[#005c8a] text-sm">Pendaftaran</span>
+    </header>
+
+    <main class="flex-grow flex flex-col justify-center px-5 md:px-12 py-6 w-full max-w-xl mx-auto">
+      <!-- Mobile Title -->
+      <div class="mb-6">
+        <h1 class="font-headline-lg text-[22px] font-bold text-[#005c8a] mb-2">Pendaftaran</h1>
+        <p class="font-body-md text-[13px] text-slate-600 leading-relaxed">
+          Ikuti Bandung Great Sale 2026. Dapatkan tiket Anda untuk menikmati promo eksklusif.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 md:p-8 rounded-[28px] shadow-sm border border-slate-100">
+        <form action="#" class="space-y-6">
+          <!-- Notice Box -->
+          <div class="bg-[#eef6ff] border-l-[3px] border-[#005c8a] p-4 flex gap-3 rounded-r-xl">
+            <span class="material-symbols-outlined text-[#005c8a] shrink-0 text-xl">info</span>
+            <div>
+              <h3 class="text-[13px] font-semibold text-slate-800 mb-0.5">Informasi Pendaftaran</h3>
+              <p class="text-[12px] text-slate-600 leading-relaxed">Pendaftaran Bandung Great Sale di Laswi Heritage. Lokasi tidak dapat diubah.</p>
+            </div>
+          </div>
+
+          <!-- Personal Information Section -->
+          <div>
+            <h2 class="text-[15px] font-semibold text-[#005c8a] mb-5 flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">person</span>
+              Informasi Pribadi
+            </h2>
+            
+            <div class="flex flex-col gap-4">
+              <!-- Lokasi -->
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-slate-400 text-[20px]">location_on</span>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 bg-[#f4f7fa] border border-[#e2e8f0] text-slate-700 font-body-md focus:outline-none cursor-not-allowed text-[13px] rounded-xl" readonly type="text" value="Laswi Heritage" />
+                <label class="absolute left-8 top-0 -translate-y-1/2 text-[10px] text-slate-500 bg-[#f4f7fa] px-1 font-medium tracking-wide">Lokasi</label>
+              </div>
+
+              <!-- Tanggal -->
+              <div class="relative mt-2">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                  <span class="material-symbols-outlined text-slate-400 text-[18px]">calendar_today</span>
+                </div>
+                <select class="w-full pl-10 pr-10 py-3 bg-white border border-[#e2e8f0] text-slate-700 font-body-md focus:outline-none focus:border-[#005c8a] appearance-none text-[13px] cursor-pointer rounded-xl transition-colors">
+                  <option>21 Agustus 2026</option>
+                  <option>22 Agustus 2026</option>
+                  <option>23 Agustus 2026</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-slate-400">expand_more</span>
+                </div>
+                <label class="absolute left-8 top-0 -translate-y-1/2 text-[10px] text-slate-500 bg-white px-1 font-medium tracking-wide">Tanggal</label>
+              </div>
+
+              <!-- Nama Lengkap -->
+              <div class="relative mt-2">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-slate-400 text-[20px]">badge</span>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 bg-white border border-[#e2e8f0] text-slate-800 placeholder:text-slate-400 font-body-md focus:outline-none focus:border-[#005c8a] focus:ring-1 focus:ring-[#005c8a] text-[13px] rounded-xl transition-colors" placeholder="Nama Lengkap" type="text" required />
+              </div>
+
+              <!-- Email -->
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-slate-400 text-[20px]">mail</span>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 bg-white border border-[#e2e8f0] text-slate-800 placeholder:text-slate-400 font-body-md focus:outline-none focus:border-[#005c8a] focus:ring-1 focus:ring-[#005c8a] text-[13px] rounded-xl transition-colors" placeholder="Email" type="email" required />
+              </div>
+
+              <!-- Nomor WhatsApp -->
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-slate-400 text-[20px]">call</span>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 bg-white border border-[#e2e8f0] text-slate-800 placeholder:text-slate-400 font-body-md focus:outline-none focus:border-[#005c8a] focus:ring-1 focus:ring-[#005c8a] text-[13px] rounded-xl transition-colors" placeholder="Nomor WhatsApp" type="tel" required />
+              </div>
+
+              <!-- Kota / Wilayah dengan Searchable Dropdown -->
+              <div class="relative" id="city-dropdown-container">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                  <span class="material-symbols-outlined text-slate-400 text-[20px]">location_city</span>
+                </div>
+                <input 
+                  id="city-input"
+                  class="w-full pl-10 pr-4 py-3 bg-white border border-[#e2e8f0] text-slate-800 placeholder:text-slate-400 font-body-md focus:outline-none focus:border-[#005c8a] focus:ring-1 focus:ring-[#005c8a] text-[13px] rounded-xl transition-colors" 
+                  placeholder="Cari Kota / Domisili" 
+                  type="text" 
+                  autocomplete="off"
+                  required 
+                />
+                <!-- Dropdown list -->
+                <ul id="city-list" class="hidden absolute z-20 w-full bg-white border border-[#e2e8f0] mt-1 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] max-h-48 overflow-y-auto hide-scrollbar">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-4">
+            <button class="w-full bg-[#facc15] hover:bg-[#fadb14] text-slate-900 font-semibold text-[14px] py-3.5 px-8 rounded-xl transition-all active:scale-[0.98] duration-200 flex justify-center items-center gap-2" type="button">
+              Daftar Sekarang
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="w-full py-8 mt-auto text-center flex flex-col items-center gap-4">
+      <span class="text-[11px] text-slate-500">© 2026 Bandung Great Sale</span>
+      <div class="flex items-center gap-1.5">
+        <span class="text-[10px] text-slate-400">Website by</span>
+        <img src="logo/LOGO TACTLINK.png" alt="Tactlink" class="h-[14px] w-auto object-contain opacity-60" />
+      </div>
+      <div class="flex gap-6 mt-1">
+        <a class="text-[11px] text-slate-500 hover:text-[#005c8a] transition-colors" href="#">Privasi</a>
+        <a class="text-[11px] text-slate-500 hover:text-[#005c8a] transition-colors" href="#">Syarat</a>
+        <a class="text-[11px] text-slate-500 hover:text-[#005c8a] transition-colors" href="#">Bantuan</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Script for Searchable Dropdown -->
+  <script>
+    const cities = [
+      "Aceh Selatan","Aceh Tenggara","Aceh Timur","Aceh Tengah","Aceh Barat","Aceh Besar","Pidie","Aceh Utara","Simeulue","Aceh Singkil","Bireuen","Aceh Barat Daya","Gayo Lues","Aceh Jaya","Nagan Raya","Aceh Tamiang","Bener Meriah","Pidie Jaya","Kota Banda Aceh","Kota Sabang","Kota Lhokseumawe","Kota Langsa","Kota Subulussalam","Tapanuli Tengah","Tapanuli Utara","Tapanuli Selatan","Nias","Langkat","Karo","Deli Serdang","Simalungun","Asahan","Labuhanbatu","Dairi","Toba","Mandailing Natal","Nias Selatan","Pakpak Bharat","Humbang Hasundutan","Samosir","Serdang Bedagai","Batu Bara","Padang Lawas Utara","Padang Lawas","Labuhanbatu Selatan","Labuhanbatu Utara","Nias Utara","Nias Barat","Kota Medan","Kota Pematangsiantar","Kota Sibolga","Kota Tanjung Balai","Kota Binjai","Kota Tebing Tinggi","Kota Padangsidimpuan","Kota Gunungsitoli","Pesisir Selatan","Solok","Sijunjung","Tanah Datar","Padang Pariaman","Agam","Lima Puluh Kota","Pasaman","Kepulauan Mentawai","Dharmasraya","Solok Selatan","Pasaman Barat","Kota Padang","Kota Solok","Kota Sawahlunto","Kota Padang Panjang","Kota Bukittinggi","Kota Payakumbuh","Kota Pariaman","Kampar","Indragiri Hulu","Bengkalis","Indragiri Hilir","Pelalawan","Rokan Hulu","Rokan Hilir","Siak","Kuantan Singingi","Kepulauan Meranti","Kota Pekanbaru","Kota Dumai","Kerinci","Merangin","Sarolangun","Batanghari","Muaro Jambi","Tanjung Jabung Barat","Tanjung Jabung Timur","Bungo","Tebo","Kota Jambi","Kota Sungai Penuh","Ogan Komering Ulu","Ogan Komering Ilir","Muara Enim","Lahat","Musi Rawas","Musi Banyuasin","Banyuasin","Ogan Komering Ulu Timur","Ogan Komering Ulu Selatan","Ogan Ilir","Empat Lawang","Penukal Abab Lematang Ilir","Musi Rawas Utara","Kota Palembang","Kota Pagar Alam","Kota Lubuk Linggau","Kota Prabumulih","Bengkulu Selatan","Rejang Lebong","Bengkulu Utara","Kaur","Seluma","Muko Muko","Lebong","Kepahiang","Bengkulu Tengah","Kota Bengkulu","Lampung Selatan","Lampung Tengah","Lampung Utara","Lampung Barat","Tulang Bawang","Tanggamus","Lampung Timur","Way Kanan","Pesawaran","Pringsewu","Mesuji","Tulang Bawang Barat","Pesisir Barat","Kota Bandar Lampung","Kota Metro","Bangka","Belitung","Bangka Selatan","Bangka Tengah","Bangka Barat","Belitung Timur","Kota Pangkal Pinang","Bintan","Karimun","Natuna","Lingga","Kepulauan Anambas","Kota Batam","Kota Tanjung Pinang","Kepulauan Seribu","Kota Jakarta Pusat","Kota Jakarta Utara","Kota Jakarta Barat","Kota Jakarta Selatan","Kota Jakarta Timur","Bogor","Sukabumi","Cianjur","Bandung","Garut","Tasikmalaya","Ciamis","Kuningan","Cirebon","Majalengka","Sumedang","Indramayu","Subang","Purwakarta","Karawang","Bekasi","Bandung Barat","Pangandaran","Kota Bogor","Kota Sukabumi","Kota Bandung","Kota Cirebon","Kota Bekasi","Kota Depok","Kota Cimahi","Kota Tasikmalaya","Kota Banjar","Cilacap","Banyumas","Purbalingga","Banjarnegara","Kebumen","Purworejo","Wonosobo","Magelang","Boyolali","Klaten","Sukoharjo","Wonogiri","Karanganyar","Sragen","Grobogan","Blora","Rembang","Pati","Kudus","Jepara","Demak","Semarang","Temanggung","Kendal","Batang","Pekalongan","Pemalang","Tegal","Brebes","Kota Magelang","Kota Surakarta","Kota Salatiga","Kota Semarang","Kota Pekalongan","Kota Tegal","Kulon Progo","Bantul","Gunungkidul","Sleman","Kota Yogyakarta","Pacitan","Ponorogo","Trenggalek","Tulungagung","Blitar","Kediri","Malang","Lumajang","Jember","Banyuwangi","Bondowoso","Situbondo","Probolinggo","Pasuruan","Sidoarjo","Mojokerto","Jombang","Nganjuk","Madiun","Magetan","Ngawi","Bojonegoro","Tuban","Lamongan","Gresik","Bangkalan","Sampang","Pamekasan","Sumenep","Kota Kediri","Kota Blitar","Kota Malang","Kota Probolinggo","Kota Pasuruan","Kota Mojokerto","Kota Madiun","Kota Surabaya","Kota Batu","Pandeglang","Lebak","Tangerang","Serang","Kota Tangerang","Kota Cilegon","Kota Serang","Kota Tangerang Selatan","Jembrana","Tabanan","Badung","Gianyar","Klungkung","Bangli","Karangasem","Buleleng","Kota Denpasar","Lombok Barat","Lombok Tengah","Lombok Timur","Sumbawa","Dompu","Bima","Sumbawa Barat","Lombok Utara","Kota Mataram","Kota Bima","Kupang","Timor Tengah Selatan","Timor Tengah Utara","Belu","Alor","Flores Timur","Sikka","Ende","Ngada","Manggarai","Sumba Timur","Sumba Barat","Lembata","Rote Ndao","Manggarai Barat","Nagekeo","Sumba Tengah","Sumba Barat Daya","Manggarai Timur","Sabu Raijua","Malaka","Kota Kupang","Sambas","Mempawah","Sanggau","Ketapang","Sintang","Kapuas Hulu","Bengkayang","Landak","Sekadau","Melawi","Kayong Utara","Kubu Raya","Kota Pontianak","Kota Singkawang","Kotawaringin Barat","Kotawaringin Timur","Kapuas","Barito Selatan","Barito Utara","Katingan","Seruyan","Sukamara","Lamandau","Gunung Mas","Pulang Pisau","Murung Raya","Barito Timur","Kota Palangkaraya","Tanah Laut","Kotabaru","Banjar","Barito Kuala","Tapin","Hulu Sungai Selatan","Hulu Sungai Tengah","Hulu Sungai Utara","Tabalong","Tanah Bumbu","Balangan","Kota Banjarmasin","Kota Banjarbaru","Paser","Kutai Kartanegara","Berau","Kutai Barat","Kutai Timur","Penajam Paser Utara","Mahakam Ulu","Kota Balikpapan","Kota Samarinda","Kota Bontang","Bulungan","Malinau","Nunukan","Tana Tidung","Kota Tarakan","Bolaang Mongondow","Minahasa","Kepulauan Sangihe","Kepulauan Talaud","Minahasa Selatan","Minahasa Utara","Minahasa Tenggara","Bolaang Mongondow Utara","Kepulauan Siau Tagulandang Biaro (Sitaro)","Bolaang Mongondow Timur","Bolaang Mongondow Selatan","Kota Manado","Kota Bitung","Kota Tomohon","Kota Kotamobagu","Banggai","Poso","Donggala","Toli Toli","Buol","Morowali","Banggai Kepulauan","Parigi Moutong","Tojo Una Una","Sigi","Banggai Laut","Morowali Utara","Kota Palu","Kepulauan Selayar","Bulukumba","Bantaeng","Jeneponto","Takalar","Gowa","Sinjai","Bone","Maros","Pangkajene Kepulauan","Barru","Soppeng","Wajo","Sidenreng Rappang","Pinrang","Enrekang","Luwu","Tana Toraja","Luwu Utara","Luwu Timur","Toraja Utara","Kota Makassar","Kota Pare Pare","Kota Palopo","Kolaka","Konawe","Muna","Buton","Konawe Selatan","Bombana","Wakatobi","Kolaka Utara","Konawe Utara","Buton Utara","Kolaka Timur","Konawe Kepulauan","Muna Barat","Buton Tengah","Buton Selatan","Kota Kendari","Kota Bau Bau","Gorontalo","Boalemo","Bone Bolango","Pahuwato","Gorontalo Utara","Kota Gorontalo","Pasangkayu (Mamuju Utara)","Mamuju","Mamasa","Polewali Mandar","Majene","Mamuju Tengah","Maluku Tengah","Maluku Tenggara","Kepulauan Tanimbar (Maluku Tenggara Barat)","Buru","Seram Bagian Timur","Seram Bagian Barat","Kepulauan Aru","Maluku Barat Daya","Buru Selatan","Kota Ambon","Kota Tual","Halmahera Barat","Halmahera Tengah","Halmahera Utara","Halmahera Selatan","Kepulauan Sula","Halmahera Timur","Pulau Morotai","Pulau Taliabu","Kota Ternate","Kota Tidore Kepulauan","Jayapura","Kepulauan Yapen","Biak Numfor","Sarmi","Keerom","Waropen","Supiori","Mamberamo Raya","Kota Jayapura","Manokwari","Fak Fak","Teluk Bintuni","Teluk Wondama","Kaimana","Manokwari Selatan","Pegunungan Arfak","Merauke","Boven Digoel","Mappi","Asmat","Nabire","Puncak Jaya","Paniai","Mimika","Puncak","Dogiyai","Intan Jaya","Deiyai","Jayawijaya","Pegunungan Bintang","Yahukimo","Tolikara","Mamberamo Tengah","Yalimo","Lanny Jaya","Nduga","Sorong","Sorong Selatan","Raja Ampat","Tambrauw","Maybrat","Kota Sorong"
+    ];
+
+    const cityInput = document.getElementById('city-input');
+    const cityList = document.getElementById('city-list');
+    const container = document.getElementById('city-dropdown-container');
+
+    function renderCities(filterText = "") {
+      cityList.innerHTML = '';
+      const filtered = cities
+        .filter(c => c.toLowerCase().includes(filterText.toLowerCase()))
+        .slice(0, 50); // limit to 50
+      
+      if (filtered.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'px-4 py-2.5 text-[13px] text-slate-500 text-center';
+        li.textContent = 'Tidak ditemukan';
+        cityList.appendChild(li);
+        return;
+      }
+
+      filtered.forEach(city => {
+        const li = document.createElement('li');
+        li.className = 'px-4 py-2.5 text-[13px] text-slate-700 hover:bg-[#f0f7ff] hover:text-[#005c8a] cursor-pointer border-b border-[#f1f5f9] last:border-0 transition-colors';
+        li.textContent = city;
+        li.onmousedown = () => { // use mousedown to fire before blur
+          cityInput.value = city;
+          cityList.classList.add('hidden');
+        };
+        cityList.appendChild(li);
+      });
+    }
+
+    cityInput.addEventListener('input', (e) => {
+      renderCities(e.target.value);
+      cityList.classList.remove('hidden');
+    });
+
+    cityInput.addEventListener('focus', () => {
+      renderCities(cityInput.value);
+      cityList.classList.remove('hidden');
+    });
+
+    cityInput.addEventListener('blur', () => {
+      // Small delay to allow mousedown to fire on the list items
+      setTimeout(() => {
+        cityList.classList.add('hidden');
+      }, 150);
+    });
+  </script>
+</body>
+</html>

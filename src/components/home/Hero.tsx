@@ -151,7 +151,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>
-            <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={30} className="h-4 w-auto object-contain drop-shadow-md brightness-0 invert" />
+            <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={150} height={45} className="h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
           </div>
         </div>
       </motion.div>

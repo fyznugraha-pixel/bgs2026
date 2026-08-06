@@ -6,8 +6,9 @@ export default function Footer() {
   return (
     <footer className="bg-surface-variant text-on-surface font-body-md w-full pt-16 pb-8 border-t border-outline/20">
       <div className="px-margin-mobile md:px-margin-desktop w-full max-w-[1536px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          <div className="md:col-span-1">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-12">
+          {/* Logo & Description */}
+          <div className="w-full md:w-1/3 lg:w-1/4">
             <Image 
               src="/logo/Logo BGS 2026.webp" 
               alt="Bandung Great Sale 2026" 
@@ -25,29 +26,33 @@ export default function Footer() {
               <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={30} className="h-8 w-auto object-contain" />
             </div>
           </div>
-          <div>
-            <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-on-surface-variant">
-              <li><a className="hover:text-secondary transition-colors" href="#">Tentang</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Lineup</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Rute Konvoi</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Tenant</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Support</h4>
-            <ul className="space-y-2 text-sm text-on-surface-variant">
-              <li><a className="hover:text-secondary transition-colors" href="#">FAQ</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Partnership</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Legal</h4>
-            <ul className="space-y-2 text-sm text-on-surface-variant">
-              <li><a className="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-              <li><a className="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
-            </ul>
+          
+          {/* Links Section */}
+          <div className="w-full md:w-2/3 lg:w-3/4 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div>
+              <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-on-surface-variant">
+                <li><a className="hover:text-secondary transition-colors" href="#">Tentang</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#">Lineup</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#">Rute Konvoi</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#tenant">Tenant</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Support</h4>
+              <ul className="space-y-2 text-sm text-on-surface-variant">
+                <li><a className="hover:text-secondary transition-colors" href="#">FAQ</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#">Partnership</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Legal</h4>
+              <ul className="space-y-2 text-sm text-on-surface-variant">
+                <li><a className="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+                <li><a className="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="pt-8 border-t border-outline/20 flex flex-col md:flex-row justify-between items-center gap-4">

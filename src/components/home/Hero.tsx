@@ -99,7 +99,7 @@ export default function Hero() {
           </span>
         </div>
         {/* Headline */}
-        <h1 className="font-headline-lg text-6xl md:text-7xl lg:text-[100px] font-extrabold text-surface leading-[1.1] tracking-tight flex flex-col items-center">
+        <h1 className="font-headline-lg text-[13vw] sm:text-6xl md:text-7xl lg:text-[100px] font-extrabold text-surface leading-[1.1] tracking-tight flex flex-col items-center">
           <motion.span 
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 2
               }}
-              className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-xl shadow-orange-500/30 px-6 py-2 rounded-2xl inline-block origin-center"
+              className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-xl shadow-orange-500/30 px-4 sm:px-6 py-2 rounded-2xl inline-block origin-center whitespace-nowrap text-[12vw] sm:text-6xl md:text-7xl lg:text-[100px]"
             >
               GREAT SALE
             </motion.span>

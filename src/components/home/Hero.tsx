@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden py-24 md:py-32">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img alt="Bandung Great Sale Festive Atmosphere" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfne3wnji178Ya0D05qbjkujIenvtd6V1ySUAT92HQax-wgips0C1Zz78nqr9zUmvytTGJIUhRMSj80XIrQnJXce7vOi2w5ei7AbWTzV1dP-2W0lRPM_ksz8uJsr8_YOj6V0ftCBGeR-DrDk2pzgeXLUAXlaS58_ppHZmt3p2UHESD4NuwMgOZgLJQ2ytRIrieJID9uaxhfZqhli5liFBckXp7Vq33KAC44WF5XCHEL0qJ35XYp1ScLA" />
+        <img alt="Bandung Great Sale Festive Atmosphere" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfne3wnji178Ya0D05qbjkujIenvtd6V1ySUAT92HQax-wgips0C1Zz78nqr9zUmvytTGJIUhRMSj80XIrQnJXce7vOi2w5ei7AbWTzV1dP-2W0lRPM_ksz8uJsr8_YOj6V0ftCBGeR-DrDk2pzgeXLUAXlaS58_ppHZmt3p2UHESD4NuwMgOZgLJQ2ytRIrieJID9uaxhfZqhli5liFBckXp7Vq33KAC44WF5XCHEL0qJ35XYp1ScLA" fetchPriority="high" />
         <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" style={{ backgroundColor: "rgba(5, 22, 48, 0.8)" }}></div>
       </div>
       

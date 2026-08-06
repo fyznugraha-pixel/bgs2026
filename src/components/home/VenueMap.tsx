@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function VenueMap() {
   return (
-    <section id="venue" className="bg-primary text-surface py-[80px] relative" style={{ backgroundColor: "rgb(5, 22, 48)" }}>
+    <section id="venue" className="bg-primary text-surface pt-[80px] relative" style={{ backgroundColor: "rgb(5, 22, 48)" }}>
       <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop mb-8 z-10 relative text-center">
         <h2 className="font-headline-md text-4xl font-bold mb-4">Venue Layout: Laswi Heritage</h2>
       </div>

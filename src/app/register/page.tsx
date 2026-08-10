@@ -18,7 +18,6 @@ export default function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
     city: "",
     date: "21 Agustus 2026",
   });
@@ -188,28 +187,7 @@ export default function Register() {
               </label>
             </div>
             
-            {/* Floating Label Input: WhatsApp */}
-            <div className="relative w-full">
-              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
-                <span className="material-symbols-outlined text-[20px]">call</span>
-              </div>
-              <input 
-                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
-                id="whatsapp" 
-                placeholder="Nomor WhatsApp" 
-                required 
-                type="tel"
-                value={formData.whatsapp}
-                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-              />
-              <label 
-                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
-                htmlFor="whatsapp"
-              >
-                Nomor WhatsApp
-              </label>
-            </div>
-            
+
             {/* Floating Label Input: City (Searchable Dropdown) */}
             <div className="relative w-full mb-10">
               <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">

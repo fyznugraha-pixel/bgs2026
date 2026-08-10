@@ -16,7 +16,6 @@ model Registration {
   id        String   @id @default(uuid())
   name      String
   email     String   @unique
-  whatsapp  String
   city      String
   date      String
   createdAt DateTime @default(now())

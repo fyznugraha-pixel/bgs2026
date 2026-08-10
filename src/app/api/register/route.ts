@@ -4,10 +4,10 @@ import prisma from '@/lib/prisma';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, whatsapp, city, date } = body;
+    const { name, email, city, date } = body;
 
     // Validate
-    if (!name || !email || !whatsapp || !city || !date) {
+    if (!name || !email || !city || !date) {
       return NextResponse.json(
         { error: 'Semua field wajib diisi' },
         { status: 400 }
@@ -19,7 +19,6 @@ export async function POST(request: Request) {
       data: {
         name,
         email,
-        whatsapp,
         city,
         date,
       },

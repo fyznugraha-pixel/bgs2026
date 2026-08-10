@@ -14,6 +14,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bandunggreatsale.id"),
   title: "BGS 2026 - Bandung Great Sale",
   description: "Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.",
   authors: [{ name: "Fayiz Apriwansyah Nugraha", url: "https://byfayiz.web.id/portofolio" }],
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "BGS 2026 - Bandung Great Sale",
-              "url": "https://bgs2026.vercel.app",
+              "url": "https://bandunggreatsale.id",
               "author": {
                 "@type": "Person",
                 "name": "Fayiz Apriwansyah Nugraha",

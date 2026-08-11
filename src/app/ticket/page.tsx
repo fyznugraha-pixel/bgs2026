@@ -172,7 +172,7 @@ export default async function Ticket({ searchParams }: { searchParams: Promise<{
             <span className="text-sm opacity-80">© 2026 Bandung Great Sale. Hak Cipta Dilindungi. Didukung oleh Dinas Perdagangan Kota Bandung.</span>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
               <span className="text-xs opacity-70">Website by</span>
-              <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
+              <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
             </div>
           </div>
           <nav className="flex flex-wrap justify-center gap-6">

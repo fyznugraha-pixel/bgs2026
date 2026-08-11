@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutStats() {
   const containerVariants = {
@@ -25,12 +26,16 @@ export default function AboutStats() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="space-y-6"
+        className="space-y-6 relative"
       >
-        <h2 className="font-headline-md text-4xl font-bold text-primary">About the Festival</h2>
-        <p className="text-lg text-on-surface-variant leading-relaxed">
+
+        <h2 className="font-headline-md text-4xl font-bold text-primary relative z-10 pt-8 md:pt-4">About the Festival</h2>
+        <p className="text-lg text-on-surface-variant leading-relaxed relative z-10">
           Digelar selama 3 hari puncak di bulan Agustus, event ini menjadi klimaks perayaan promo lintas sektor fashion, kuliner, dan produk kreatif. Sepanjang bulan Agustus, seluruh pelaku usaha di Bandung turut memberi penawaran spesial, menjadikan kota ini surga belanja penuh kejutan.
         </p>
+        <div className="pt-4 relative z-10 flex justify-center md:justify-start">
+          <Image src="/aset visual/Maskot (Robel).webp" alt="Maskot Robel BGS" width={400} height={500} className="w-56 md:w-72 h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" />
+        </div>
       </motion.div>
       
       <motion.div 

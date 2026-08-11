@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const zones = [
   { icon: "checkroom", name: "Clothing Brand" },
@@ -13,9 +14,9 @@ const zones = [
 
 export default function Zones() {
   return (
-    <section className="bg-surface-variant/30 py-[80px]">
-      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="text-center mb-12">
+    <section className="bg-surface-variant/30 py-[80px] overflow-hidden">
+      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop relative">
+        <div className="text-center mb-12 relative z-10">
           <h2 className="font-headline-md text-4xl font-bold text-primary mb-4">Shop by Venue Zones</h2>
         </div>
         

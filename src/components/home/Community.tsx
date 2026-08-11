@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const communities = [
   "BBQRIDE", "Pickers Store", "Ride with Dad", "Terror Garage",
@@ -11,9 +12,9 @@ const communities = [
 
 export default function Community() {
   return (
-    <section id="komunitas" className="py-[80px]">
-      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+    <section id="komunitas" className="py-[80px] overflow-hidden">
+      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop relative">
+        <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

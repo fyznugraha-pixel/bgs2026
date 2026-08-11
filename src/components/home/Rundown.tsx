@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const timelineEvents = [
   {
@@ -50,9 +51,11 @@ export default function Rundown() {
                 <div className={`absolute left-[-9px] md:left-1/4 md:-ml-[9px] top-8 w-4 h-4 rounded-full border-4 border-surface shadow-sm z-10 ${event.color}`}></div>
                 
                 <div className="md:w-3/4 md:pl-8">
-                  <div className="bg-surface p-6 rounded-2xl shadow-sm border border-surface-variant hover:shadow-md transition-shadow">
-                    <h3 className="font-headline-md text-xl font-bold text-primary mb-2">{event.title}</h3>
-                    <p className="text-on-surface-variant text-sm mb-3">{event.desc}</p>
+                  <div className="bg-surface p-6 rounded-2xl shadow-sm border border-surface-variant hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div className="relative z-10">
+                      <h3 className="font-headline-md text-xl font-bold text-primary mb-2">{event.title}</h3>
+                      <p className="text-on-surface-variant text-sm mb-3">{event.desc}</p>
+                    </div>
                   </div>
                 </div>
               </div>

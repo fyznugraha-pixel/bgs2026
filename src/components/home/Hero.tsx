@@ -16,63 +16,70 @@ export default function Hero() {
       {/* Scattered Floating Promotional Tags (Desktop Only) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none z-10 overflow-hidden">
         {/* Left Side */}
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, type: "spring", bounce: 0.5 }} className="absolute top-[15%] left-[5%] xl:left-[8%]">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} 
+          animate={{ opacity: 1, y: [0, -15, 0] }} 
+          transition={{ opacity: { delay: 1.0 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }} 
+          className="absolute top-[8%] left-[2%] xl:left-[5%] z-0"
+        >
+          <Image src="/aset visual/qris.webp" alt="QRIS" width={150} height={200} className="w-24 xl:w-32 h-auto object-contain drop-shadow-2xl opacity-90 transform -rotate-12" />
+        </motion.div>
+        
+        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, type: "spring", bounce: 0.5 }} className="absolute top-[20%] left-[8%] xl:left-[12%] z-10">
           <div className="animate-bounce" style={{ animationDuration: '3.5s' }}>
             <div className="bg-error text-on-error px-6 py-3 rounded-2xl font-extrabold text-xl shadow-xl shadow-error/30 transform -rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
               <span className="material-symbols-outlined text-3xl">local_offer</span> DISKON s/d 70%
             </div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, type: "spring", bounce: 0.5 }} className="absolute top-[35%] left-[2%] xl:left-[4%]">
+        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, type: "spring", bounce: 0.5 }} className="absolute top-[40%] left-[3%] xl:left-[6%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '1s', animationDuration: '4.2s' }}>
             <div className="bg-tertiary text-on-tertiary px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-tertiary/30 transform rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">shopping_cart_checkout</span> FLASH SALE
             </div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, type: "spring", bounce: 0.5 }} className="absolute top-[55%] left-[8%] xl:left-[12%]">
+        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, type: "spring", bounce: 0.5 }} className="absolute top-[60%] left-[10%] xl:left-[15%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '3.8s' }}>
             <div className="bg-surface text-primary px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-black/20 transform -rotate-6 border-2 border-white/40 backdrop-blur-sm flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">redeem</span> BUY 1 GET 1
             </div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.7, type: "spring", bounce: 0.5 }} className="absolute top-[75%] left-[3%] xl:left-[6%]">
-          <div className="animate-bounce" style={{ animationDelay: '1.2s', animationDuration: '4.5s' }}>
-            <div className="bg-secondary text-on-secondary px-5 py-2.5 rounded-2xl font-bold text-lg shadow-lg shadow-secondary/30 transform rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
-              <span className="material-symbols-outlined text-2xl">card_giftcard</span> FREE MERCH
-            </div>
-          </div>
-        </motion.div>
-
+        
         {/* Right Side */}
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.0, type: "spring", bounce: 0.5 }} className="absolute top-[20%] right-[6%] xl:right-[10%]">
+
+        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.0, type: "spring", bounce: 0.5 }} className="absolute top-[18%] right-[8%] xl:right-[12%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3.8s' }}>
             <div className="bg-secondary text-on-secondary px-6 py-3 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/30 transform rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">storefront</span> FASHION & KULINER
             </div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.3, type: "spring", bounce: 0.5 }} className="absolute top-[40%] right-[3%] xl:right-[5%]">
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }} 
+          animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }} 
+          transition={{ opacity: { delay: 1.2 }, scale: { delay: 1.2, type: "spring", bounce: 0.6 }, y: { delay: 2.2, duration: 4, repeat: Infinity, ease: "easeInOut" } }} 
+          className="absolute top-[35%] right-[5%] xl:right-[8%] z-10 pointer-events-none"
+        >
+          <Image src="/aset visual/Great Deals.webp" alt="Great Deals" width={180} height={180} className="w-32 md:w-40 h-auto object-contain drop-shadow-2xl transform -rotate-12" />
+        </motion.div>
+        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.3, type: "spring", bounce: 0.5 }} className="absolute top-[50%] right-[3%] xl:right-[5%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '4.5s' }}>
             <div className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-extrabold text-lg shadow-lg shadow-primary/30 transform -rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">celebration</span> PESTA RAKYAT
             </div>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.6, type: "spring", bounce: 0.5 }} className="absolute top-[60%] right-[8%] xl:right-[12%]">
-          <div className="animate-bounce" style={{ animationDelay: '0.8s', animationDuration: '3.2s' }}>
-            <div className="bg-error text-on-error px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-error/30 transform rotate-6 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
-              <span className="material-symbols-outlined text-2xl">stars</span> DOORPRIZE MENARIK
-            </div>
-          </div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.9, type: "spring", bounce: 0.5 }} className="absolute top-[80%] right-[4%] xl:right-[7%]">
-          <div className="animate-bounce" style={{ animationDelay: '2s', animationDuration: '4s' }}>
-            <div className="bg-tertiary-container text-on-tertiary-container px-6 py-3 rounded-2xl font-bold text-lg shadow-lg shadow-tertiary/30 transform -rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
-              <span className="material-symbols-outlined text-2xl">nightlife</span> LATE NIGHT SALE
-            </div>
-          </div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }} 
+          animate={{ opacity: 1, x: 0, y: [0, -10, 0] }} 
+          transition={{ opacity: { delay: 1.5 }, x: { delay: 1.5, type: "spring", bounce: 0.4 }, y: { delay: 2.5, duration: 7, repeat: Infinity, ease: "easeInOut" } }} 
+          className="absolute top-[8%] right-[2%] xl:right-[5%] z-0"
+        >
+          <Image src="/aset visual/tas.webp" alt="Tas Belanja" width={100} height={100} className="w-16 xl:w-24 h-auto object-contain drop-shadow-2xl opacity-60 transform rotate-12" />
         </motion.div>
       </div>
 
@@ -139,16 +146,16 @@ export default function Hero() {
         </h1>
         
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-surface-variant max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-surface-variant max-w-2xl mx-auto leading-relaxed relative">
           Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.
         </p>
         
         {/* CTAs */}
-        <div className="flex flex-row flex-nowrap justify-center gap-2 sm:gap-4 pt-4 w-full">
-          <a href="#tenant" className="flex-1 sm:flex-none text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block text-xs sm:text-base whitespace-nowrap">
+        <div className="flex flex-row flex-nowrap justify-center gap-2 sm:gap-4 pt-4 w-full relative">
+          <a href="#tenant" className="flex-1 sm:flex-none text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block text-xs sm:text-base whitespace-nowrap relative z-20">
             JELAJAHI TENANT
           </a>
-          <Link href="/register" className="flex-1 sm:flex-none text-center px-2 sm:px-8 py-3 sm:py-3.5 rounded-full border-2 border-surface text-surface font-bold hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-xs sm:text-base whitespace-nowrap">
+          <Link href="/register" className="flex-1 sm:flex-none text-center px-2 sm:px-8 py-3 sm:py-3.5 rounded-full border-2 border-surface text-surface font-bold hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-xs sm:text-base whitespace-nowrap relative z-20">
             REGISTER NOW
           </Link>
         </div>
@@ -162,7 +169,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2 mt-1 sm:mt-0">
             <span className="text-[10px] sm:text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>
-            <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={150} height={45} className="h-8 sm:h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
+            <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={150} height={45} className="h-8 sm:h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
           </div>
         </div>
       </motion.div>

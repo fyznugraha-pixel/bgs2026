@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const highlights = [
   {
@@ -8,18 +9,21 @@ const highlights = [
     title: "Bandung Mirah Pisan",
     desc: "Bazar pelaku usaha & brand lokal (fashion, kuliner, craft, komunitas)",
     colorClass: "bg-primary-container text-on-primary-container",
+    imgSrc: "/aset visual/Untitled design ().webp"
   },
   {
     prefix: "MERIAH",
     title: "Bandung Meriah Pisan",
     desc: "Hiburan, brand activation, pertunjukan musik",
     colorClass: "bg-secondary-container text-on-secondary-container",
+    imgSrc: "/aset visual/Untitled design (11).webp"
   },
   {
     prefix: "AING",
     title: "Bandung Aing Pisan",
     desc: "Booth komunitas & merchandise khas Bandung (cth. Persib Store)",
     colorClass: "bg-tertiary-container text-on-tertiary-container",
+    imgSrc: "/aset visual/Selfie Full Body.webp"
   },
 ];
 
@@ -40,8 +44,9 @@ export default function Highlights() {
             transition={{ delay: i * 0.2 }}
             className="bg-surface rounded-3xl overflow-hidden shadow-sm border border-surface-variant flex flex-col hover:shadow-md transition-shadow group"
           >
-            <div className={`h-48 relative flex items-center justify-center transition-colors duration-300 ${item.colorClass} group-hover:brightness-110`}>
-              <span className="font-headline-md text-5xl font-extrabold opacity-80 uppercase tracking-wider">{item.prefix}</span>
+            <div className={`h-48 relative flex items-center justify-center transition-colors duration-300 ${item.colorClass} group-hover:brightness-110 overflow-hidden`}>
+              <span className="font-headline-md text-6xl md:text-7xl font-extrabold opacity-10 absolute z-0 tracking-widest">{item.prefix}</span>
+              <Image src={item.imgSrc} alt={item.title} width={200} height={200} className="h-44 w-auto object-contain z-10 relative drop-shadow-lg transform transition-transform group-hover:scale-110" />
             </div>
             <div className="p-8 flex-grow">
               <h3 className="font-headline-md text-2xl font-bold text-primary mb-3">{item.title}</h3>

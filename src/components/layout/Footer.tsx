@@ -23,7 +23,7 @@ export default function Footer() {
               <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={40} height={40} className="h-8 w-auto object-contain" />
               <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan" width={80} height={40} className="h-8 w-auto object-contain" />
               <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={80} height={40} className="h-8 w-auto object-contain" />
-              <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={30} className="h-8 w-auto object-contain" />
+              <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={100} height={30} className="h-8 w-auto object-contain" />
             </div>
           </div>
           
@@ -62,7 +62,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
               <span className="text-xs opacity-70">Website by</span>
-              <Image src="/logo/LOGO TACTLINK.png" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
+              <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
             </div>
           </div>
           <div className="flex flex-col items-center md:items-end gap-2">

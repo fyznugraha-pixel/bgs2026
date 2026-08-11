@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 // Full list from PDF
 const tenantsData = [
@@ -89,8 +90,24 @@ export default function TenantDirectory() {
 
   return (
     <section id="tenant" className="py-[80px]" style={{ backgroundColor: "rgba(5, 22, 48, 0.05)" }}>
-      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="text-center mb-10">
+      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop relative">
+        {/* Decorative Assets */}
+        <motion.div 
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-10 left-0 md:left-20 w-24 md:w-32 z-10 pointer-events-none hidden sm:block"
+        >
+          <Image src="/aset visual/Batagor.webp" alt="Kuliner" width={150} height={150} className="w-full h-auto object-contain transform -rotate-12 drop-shadow-xl" />
+        </motion.div>
+        <motion.div 
+          animate={{ y: [0, -12, 0] }}
+          transition={{ delay: 1, duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-16 right-0 md:right-20 w-24 md:w-32 z-10 pointer-events-none hidden sm:block"
+        >
+          <Image src="/aset visual/tas.webp" alt="Fashion" width={150} height={150} className="w-full h-auto object-contain transform rotate-12 drop-shadow-xl" />
+        </motion.div>
+
+        <div className="text-center mb-10 relative z-10">
           <h2 className="font-headline-md text-4xl font-bold text-primary mb-4">Direktori Tenant</h2>
         </div>
         

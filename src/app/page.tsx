@@ -8,6 +8,7 @@ import Lineup from "@/components/home/Lineup";
 import Community from "@/components/home/Community";
 import TenantDirectory from "@/components/home/TenantDirectory";
 import Rundown from "@/components/home/Rundown";
+import CallToAction from "@/components/home/CallToAction";
 import VenueMap from "@/components/home/VenueMap";
 import Footer from "@/components/layout/Footer";
 
@@ -37,6 +38,7 @@ export default function Home() {
         <Community />
         <TenantDirectory />
         <Rundown />
+        <CallToAction />
         <VenueMap />
       </main>
       <Footer />

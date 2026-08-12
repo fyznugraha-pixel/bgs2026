@@ -4,17 +4,13 @@ import { motion } from "framer-motion";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const artists = [
-  "The Changcuters",
-  "Kuburan",
-  "The Sigit",
-  "Pas Band",
-  "Rocket Rockers",
-  "Danilla",
-  "Club Dangdut Racun",
-  "The Panturas",
-  "Stand Here Alone",
-  "Ebie Beat A",
-  "Sundanis"
+  "Ebith Beat A",
+  "Plat Merah",
+  "Tonewaves",
+  "Pinky Cong",
+  "Sundanis",
+  "Katakita",
+  "MC BDG"
 ];
 
 export default function Lineup() {

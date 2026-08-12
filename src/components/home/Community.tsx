@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const communities = [
-  "BBQRIDE", "Pickers Store", "Ride with Dad", "Terror Garage",
-  "Wahon Indonesia", "Old School BMX", "Jumat Blarr", "Kamis Inggris",
-  "Bujang Rimba", "Kemis Motret", "Duck Garage", "Sukaria Bertamasya",
-  "Reborn Royal Enfield", "Iron Pipe", "Kaki Besi Club"
+  "BBQRIDE", "Pickers Store", "Iron Pipe", "Wahon Indonesia",
+  "Old School BMX", "Jumat Blarr", "Daily Car", "Kamis Inggris",
+  "Bujang Rimba", "Kemis Motret", "Duck Garage", 
+  "Reborn Royal Enfield", "IMX Hub", "RC 4WD"
 ];
 
 export default function Community() {

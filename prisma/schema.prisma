@@ -18,5 +18,6 @@ model Registration {
   email     String   @unique
   city      String
   date      String
+  whatsapp  String?
   createdAt DateTime @default(now())
 }

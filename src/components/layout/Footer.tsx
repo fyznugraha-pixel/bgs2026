@@ -39,11 +39,12 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Support</h4>
+              <h4 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Partnership & Support</h4>
               <ul className="space-y-2 text-sm text-on-surface-variant">
-                <li><a className="hover:text-secondary transition-colors" href="#">FAQ</a></li>
-                <li><a className="hover:text-secondary transition-colors" href="#">Partnership</a></li>
-                <li><a className="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
+                <li className="font-bold text-primary">NBA Indonesia Event</li>
+                <li>Jl. H. Bardan Raya No. 33A, Bandung 40287, West Jawa</li>
+                <li>+62 813 953 382 05</li>
+                <li><a className="hover:text-secondary transition-colors" href="mailto:nbaorganizer@gmail.com">nbaorganizer@gmail.com</a></li>
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">

@@ -19,7 +19,7 @@ const timelineEvents = [
   {
     time: "[TBA]",
     title: "Live Music Performance",
-    desc: "Menampilkan: The Changcuters, Kuburan, The Sigit, PAS Band, Rocket Rockers, Danilla.",
+    desc: "Menampilkan: Ebith Beat A, Plat Merah, Tonewaves, Pinky Cong, Sundanis, Katakita.",
     color: "bg-surface-variant",
   },
 ];

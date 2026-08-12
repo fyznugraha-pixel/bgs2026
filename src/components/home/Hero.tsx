@@ -98,17 +98,17 @@ export default function Hero() {
         </div>
 
         {/* Badges */}
-        <div className="flex flex-row flex-nowrap justify-center items-center gap-1.5 sm:gap-4 w-full px-1 mb-4 overflow-hidden">
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-red text-white comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-2 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">calendar_month</span>
+        <div className="flex flex-row flex-nowrap justify-center items-center gap-1 sm:gap-4 w-full px-4 sm:px-2 mb-4 overflow-hidden">
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-red text-white comic-border px-1.5 min-[375px]:px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[8px] min-[375px]:text-[9px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-2 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[10px] min-[375px]:text-[12px] sm:text-[20px]">calendar_month</span>
             21-23 AGS 2026
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-yellow text-black comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform rotate-1 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">location_on</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-yellow text-black comic-border px-1.5 min-[375px]:px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[8px] min-[375px]:text-[9px] sm:text-sm font-bold uppercase comic-shadow-sm transform rotate-1 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[10px] min-[375px]:text-[12px] sm:text-[20px]">location_on</span>
             LASWI HERITAGE
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-green text-white comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-1 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">local_activity</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-green text-white comic-border px-1.5 min-[375px]:px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[8px] min-[375px]:text-[9px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-1 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[10px] min-[375px]:text-[12px] sm:text-[20px]">local_activity</span>
             FREE ENTRY
           </span>
         </div>
@@ -153,18 +153,18 @@ export default function Hero() {
         </h1>
         
         {/* Subheadline */}
-        <div className="max-w-2xl mx-auto mt-8 mb-8">
-          <p className="text-lg md:text-xl text-black font-bold leading-relaxed bg-bgs-yellow p-4 md:p-6 rounded-2xl comic-border comic-shadow-sm transform -rotate-1">
+        <div className="max-w-2xl mx-auto mt-8 mb-8 px-4 sm:px-0">
+          <p className="text-sm min-[375px]:text-base md:text-xl text-black font-bold leading-relaxed bg-bgs-yellow p-4 md:p-6 rounded-2xl comic-border comic-shadow-sm transform -rotate-1">
             Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.
           </p>
         </div>
         
         {/* CTAs */}
-        <div className="flex flex-row flex-nowrap justify-center gap-2 min-[375px]:gap-3 sm:gap-6 pt-4 w-full relative overflow-hidden px-2">
-          <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-3 min-[375px]:px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-xs min-[375px]:text-sm md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
+        <div className="flex flex-row flex-nowrap justify-center gap-2 sm:gap-6 pt-4 w-full relative px-4 sm:px-2">
+          <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-2 min-[375px]:px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-[10px] min-[375px]:text-[11px] sm:text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             JELAJAHI TENANT
           </a>
-          <Link href="/register" className="bg-white text-black comic-border px-3 min-[375px]:px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-xs min-[375px]:text-sm md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
+          <Link href="/register" className="bg-white text-black comic-border px-2 min-[375px]:px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-[10px] min-[375px]:text-[11px] sm:text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             REGISTER NOW
           </Link>
         </div>

@@ -93,7 +93,6 @@ export default function Hero() {
         <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-2xl mx-auto w-max mb-6 sm:mb-8 comic-border comic-shadow transform rotate-1">
           <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/PEMKOT BANDUNG.png" alt="Pemkot Bandung" width={40} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
           <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BANDUNG.png" alt="Bandung" width={90} height={40} className="h-5 sm:h-8 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
-          <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Disdagin Bandung" width={110} height={30} className="h-4 sm:h-6 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
           <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BULAN BELANJA BANDUNG.PNG" alt="Bulan Belanja Bandung" width={90} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
           <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO HUT RI 81.png" alt="HUT RI 81" width={40} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
         </div>

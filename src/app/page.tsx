@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
+import PromoPopup from "@/components/home/PromoPopup";
 import Hero from "@/components/home/Hero";
 import Countdown from "@/components/home/Countdown";
 import AboutStats from "@/components/home/AboutStats";
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <PromoPopup />
 
       {/* Global Dynamic Background for all sections */}
       <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-background">

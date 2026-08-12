@@ -64,13 +64,13 @@ export default function Footer() {
               </a>
               
               {/* Card 3 */}
-              <a href="https://www.instagram.com/tic.bandung/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm hover:-translate-y-1 hover:-translate-x-1 hover:comic-shadow transition-all group">
+              <a href="https://www.instagram.com/nbaindonesiaevent/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm hover:-translate-y-1 hover:-translate-x-1 hover:comic-shadow transition-all group">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform border-2 border-black">
                   <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 0" }}>photo_camera</span>
                 </div>
                 <div className="flex-grow">
-                  <h5 className="font-black text-lg text-black group-hover:text-bgs-blue transition-colors leading-tight">@tic.bandung</h5>
-                  <p className="text-sm text-gray-700 font-bold leading-tight mt-1">Tourist Info Center BDG</p>
+                  <h5 className="font-black text-lg text-black group-hover:text-bgs-blue transition-colors leading-tight">@nbaindonesiaevent</h5>
+                  <p className="text-sm text-gray-700 font-bold leading-tight mt-1">NBA Indonesia Event</p>
                 </div>
                 <div className="bg-bgs-yellow p-1 rounded-full border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform">
                   <span className="material-symbols-outlined text-black text-sm font-bold">open_in_new</span>

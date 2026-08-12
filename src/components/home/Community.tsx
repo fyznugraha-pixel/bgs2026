@@ -45,8 +45,8 @@ export default function Community() {
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/2"
           >
-            <div className="bg-white text-black comic-border p-4 inline-block transform rotate-1 comic-shadow-sm mb-4">
-              <h2 className="font-headline-md text-4xl font-black uppercase">Community Act</h2>
+            <div className="bg-white text-black comic-border p-4 sm:p-5 inline-block transform rotate-1 comic-shadow-sm mb-4 max-w-full overflow-hidden">
+              <h2 className="font-headline-md text-2xl min-[375px]:text-[26px] sm:text-4xl font-black uppercase whitespace-nowrap text-ellipsis">Community Act</h2>
             </div>
             <h3 className="text-3xl font-black text-bgs-yellow mb-4 uppercase text-outline-black-sm italic">Bandung Collective</h3>
             <div className="bg-white comic-border p-4 rounded-xl comic-shadow-sm transform -rotate-1">

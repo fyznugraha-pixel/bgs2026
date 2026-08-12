@@ -98,17 +98,17 @@ export default function Hero() {
         </div>
 
         {/* Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 w-full px-2 mb-4">
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-red text-white comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-2">
-            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">calendar_month</span>
+        <div className="flex flex-row flex-nowrap justify-center items-center gap-1.5 sm:gap-4 w-full px-1 mb-4 overflow-hidden">
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-red text-white comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-2 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">calendar_month</span>
             21-23 AGS 2026
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-yellow text-black comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform rotate-1">
-            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">location_on</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-yellow text-black comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform rotate-1 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">location_on</span>
             LASWI HERITAGE
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-green text-white comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-1">
-            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">local_activity</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-green text-white comic-border px-2 min-[375px]:px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl text-[9px] min-[375px]:text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-1 whitespace-nowrap">
+            <span className="material-symbols-outlined text-[12px] min-[375px]:text-[14px] sm:text-[20px]">local_activity</span>
             FREE ENTRY
           </span>
         </div>
@@ -160,11 +160,11 @@ export default function Hero() {
         </div>
         
         {/* CTAs */}
-        <div className="flex flex-row flex-wrap justify-center gap-4 sm:gap-6 pt-4 w-full relative">
-          <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-8 py-4 rounded-xl font-black text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-block whitespace-nowrap z-20">
+        <div className="flex flex-row flex-nowrap justify-center gap-2 min-[375px]:gap-3 sm:gap-6 pt-4 w-full relative overflow-hidden px-2">
+          <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-3 min-[375px]:px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-xs min-[375px]:text-sm md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             JELAJAHI TENANT
           </a>
-          <Link href="/register" className="bg-white text-black comic-border px-8 py-4 rounded-xl font-black text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-block whitespace-nowrap z-20">
+          <Link href="/register" className="bg-white text-black comic-border px-3 min-[375px]:px-5 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-xs min-[375px]:text-sm md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             REGISTER NOW
           </Link>
         </div>

@@ -45,13 +45,13 @@ export default function Sponsors() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-16 bg-white comic-border comic-shadow p-6 md:p-8 rounded-2xl md:rounded-3xl transform rotate-1 mx-auto w-full"
+            className="flex flex-row flex-nowrap justify-center items-center gap-3 sm:gap-8 md:gap-16 bg-white comic-border comic-shadow p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl transform rotate-1 mx-auto w-full"
           >
             {supportEventPartners.map((logo, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="relative w-28 h-12 min-[375px]:w-32 min-[375px]:h-14 sm:w-40 sm:h-20 md:w-48 md:h-24 group transition-all"
+                className="relative flex-1 h-10 min-[375px]:h-12 sm:h-20 md:h-24 group transition-all"
               >
                 <Image
                   src={logo.src}
@@ -74,13 +74,13 @@ export default function Sponsors() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap justify-center items-center gap-5 sm:gap-8 md:gap-16 bg-white comic-border comic-shadow p-6 md:p-8 rounded-2xl md:rounded-3xl transform -rotate-1 mx-auto w-full"
+            className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-6 md:gap-16 bg-white comic-border comic-shadow p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl transform -rotate-1 mx-auto w-full"
           >
             {eventContributions.map((logo, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="relative w-20 h-10 min-[375px]:w-24 min-[375px]:h-12 sm:w-32 sm:h-16 md:w-36 md:h-16 group transition-all"
+                className="relative flex-1 h-8 min-[375px]:h-10 sm:h-16 md:h-16 group transition-all"
               >
                 <Image
                   src={logo.src}

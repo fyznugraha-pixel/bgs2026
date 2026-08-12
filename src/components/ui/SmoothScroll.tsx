@@ -4,34 +4,13 @@ import { ReactLenis } from 'lenis/react';
 import { useEffect } from 'react';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  // Matikan pointer events di body saat lagi scroll (bikin mobile jauh lebih lancar!)
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    
-    const handleScroll = () => {
-      document.body.style.pointerEvents = 'none';
-      
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        document.body.style.pointerEvents = 'auto';
-      }, 150);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
-
+  // Hanya menggunakan ReactLenis dengan opsi standar untuk performa terbaik
   return (
     <ReactLenis root options={{ 
-      lerp: 0.08,
-      duration: 1.5,
+      lerp: 0.1,
+      duration: 1.2,
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
     }}>
       {children}
     </ReactLenis>

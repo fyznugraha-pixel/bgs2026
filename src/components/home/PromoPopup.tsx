@@ -9,18 +9,12 @@ export default function PromoPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Check if the user has already seen the popup in this session
-    const hasSeenPopup = sessionStorage.getItem("bgs_promo_seen");
+    // Show popup after 1.5 seconds every time the component mounts
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1500);
     
-    if (!hasSeenPopup) {
-      // Show popup after 1.5 seconds
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem("bgs_promo_seen", "true");
-      }, 1500);
-      
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   return (

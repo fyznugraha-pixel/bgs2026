@@ -8,10 +8,7 @@ import { useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <header 
       className="bg-bgs-blue comic-border border-b-8 border-black text-white font-body-md fixed top-0 w-full z-50 transition-all duration-300"
     >
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-[1536px] mx-auto">
@@ -61,6 +58,6 @@ export default function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

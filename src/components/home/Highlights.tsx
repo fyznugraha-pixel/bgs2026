@@ -33,7 +33,7 @@ export default function Highlights() {
       <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="mb-12 flex justify-center px-4 sm:px-0 overflow-hidden">
           <div className="bg-bgs-blue comic-border px-4 sm:px-8 py-2 sm:py-3 inline-block transform -rotate-1 comic-shadow-sm rounded-2xl max-w-full">
-            <h2 className="font-headline-md text-2xl min-[375px]:text-3xl md:text-5xl font-black text-white uppercase italic text-outline-black-sm whitespace-nowrap">Event Highlights</h2>
+            <h2 className="font-headline-md text-lg min-[375px]:text-xl sm:text-3xl md:text-5xl font-black text-white uppercase italic text-outline-black-sm whitespace-nowrap overflow-hidden text-ellipsis">Event Highlights</h2>
           </div>
         </div>
         

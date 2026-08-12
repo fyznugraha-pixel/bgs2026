@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
+import { Hanken_Grotesk, Plus_Jakarta_Sans, Anybody } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 
@@ -13,6 +13,12 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
+const anybody = Anybody({
+  variable: "--font-anybody",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://bandunggreatsale.id"),
   title: "BGS 2026 - Bandung Great Sale",
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${hankenGrotesk.variable} ${plusJakartaSans.variable}`}>
+    <html lang="id" className={`${hankenGrotesk.variable} ${plusJakartaSans.variable} ${anybody.variable}`}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
         <script

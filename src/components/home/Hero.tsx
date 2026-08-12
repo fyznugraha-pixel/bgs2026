@@ -6,11 +6,10 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden py-24 md:py-32">
+    <section className="relative w-full min-h-[700px] flex items-start justify-center overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 bg-halftone border-b-8 border-black">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-30">
         <img alt="Bandung Great Sale Festive Atmosphere" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfne3wnji178Ya0D05qbjkujIenvtd6V1ySUAT92HQax-wgips0C1Zz78nqr9zUmvytTGJIUhRMSj80XIrQnJXce7vOi2w5ei7AbWTzV1dP-2W0lRPM_ksz8uJsr8_YOj6V0ftCBGeR-DrDk2pzgeXLUAXlaS58_ppHZmt3p2UHESD4NuwMgOZgLJQ2ytRIrieJID9uaxhfZqhli5liFBckXp7Vq33KAC44WF5XCHEL0qJ35XYp1ScLA" fetchPriority="high" />
-        <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" style={{ backgroundColor: "rgba(5, 22, 48, 0.8)" }}></div>
       </div>
       
       {/* Scattered Floating Promotional Tags (Desktop Only) */}
@@ -27,21 +26,21 @@ export default function Hero() {
         
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, type: "spring", bounce: 0.5 }} className="absolute top-[20%] left-[8%] xl:left-[12%] z-10">
           <div className="animate-bounce" style={{ animationDuration: '3.5s' }}>
-            <div className="bg-error text-on-error px-6 py-3 rounded-2xl font-extrabold text-xl shadow-xl shadow-error/30 transform -rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
+            <div className="bg-bgs-red text-white px-6 py-3 rounded-2xl font-black text-xl comic-shadow-sm comic-border transform -rotate-12 flex items-center gap-2">
               <span className="material-symbols-outlined text-3xl">local_offer</span> DISKON s/d 70%
             </div>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, type: "spring", bounce: 0.5 }} className="absolute top-[40%] left-[3%] xl:left-[6%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '1s', animationDuration: '4.2s' }}>
-            <div className="bg-tertiary text-on-tertiary px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-tertiary/30 transform rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
+            <div className="bg-bgs-yellow text-black px-5 py-2.5 rounded-full font-black text-lg comic-shadow-sm comic-border transform rotate-12 flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">shopping_cart_checkout</span> FLASH SALE
             </div>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, type: "spring", bounce: 0.5 }} className="absolute top-[60%] left-[10%] xl:left-[15%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '3.8s' }}>
-            <div className="bg-surface text-primary px-5 py-2.5 rounded-full font-bold text-lg shadow-lg shadow-black/20 transform -rotate-6 border-2 border-white/40 backdrop-blur-sm flex items-center gap-2">
+            <div className="bg-white text-black px-5 py-2.5 rounded-full font-black text-lg comic-shadow-sm comic-border transform -rotate-6 flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">redeem</span> BUY 1 GET 1
             </div>
           </div>
@@ -51,7 +50,7 @@ export default function Hero() {
 
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.0, type: "spring", bounce: 0.5 }} className="absolute top-[18%] right-[8%] xl:right-[12%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3.8s' }}>
-            <div className="bg-secondary text-on-secondary px-6 py-3 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/30 transform rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
+            <div className="bg-bgs-blue text-white px-6 py-3 rounded-2xl font-black text-lg comic-shadow-sm comic-border transform rotate-12 flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">storefront</span> FASHION & KULINER
             </div>
           </div>
@@ -67,7 +66,7 @@ export default function Hero() {
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.3, type: "spring", bounce: 0.5 }} className="absolute top-[50%] right-[3%] xl:right-[5%] z-10">
           <div className="animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '4.5s' }}>
-            <div className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-extrabold text-lg shadow-lg shadow-primary/30 transform -rotate-12 border-2 border-white/20 backdrop-blur-sm flex items-center gap-2">
+            <div className="bg-bgs-green text-white px-5 py-2.5 rounded-full font-black text-lg comic-shadow-sm comic-border transform -rotate-12 flex items-center gap-2">
               <span className="material-symbols-outlined text-2xl">celebration</span> PESTA RAKYAT
             </div>
           </div>
@@ -90,28 +89,37 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center space-y-8"
       >
+        {/* Top Partner Logos */}
+        <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-2xl mx-auto w-max mb-6 sm:mb-8 comic-border comic-shadow transform rotate-1">
+          <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/PEMKOT BANDUNG.png" alt="Pemkot Bandung" width={40} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
+          <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BANDUNG.png" alt="Bandung" width={90} height={40} className="h-5 sm:h-8 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
+          <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Disdagin Bandung" width={110} height={30} className="h-4 sm:h-6 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
+          <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BULAN BELANJA BANDUNG.PNG" alt="Bulan Belanja Bandung" width={90} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
+          <Image src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO HUT RI 81.png" alt="HUT RI 81" width={40} height={40} className="h-6 sm:h-10 w-auto object-contain drop-shadow-[0_1px_0_rgba(0,0,0,0.5)]" />
+        </div>
+
         {/* Badges */}
-        <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-3 w-full overflow-x-auto no-scrollbar px-2">
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">calendar_month</span>
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 w-full px-2 mb-4">
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-red text-white comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-2">
+            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">calendar_month</span>
             21-23 AGS 2026
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">location_on</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-yellow text-black comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform rotate-1">
+            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">location_on</span>
             LASWI HERITAGE
           </span>
-          <span className="inline-flex items-center gap-1 sm:gap-2 bg-surface/10 backdrop-blur-md text-surface px-2 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-medium border border-surface/20 whitespace-nowrap">
-            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">local_activity</span>
+          <span className="inline-flex items-center gap-1 sm:gap-2 bg-bgs-green text-white comic-border px-3 sm:px-5 py-2 rounded-xl text-[10px] sm:text-sm font-bold uppercase comic-shadow-sm transform -rotate-1">
+            <span className="material-symbols-outlined text-[14px] sm:text-[20px]">local_activity</span>
             FREE ENTRY
           </span>
         </div>
         {/* Headline */}
-        <h1 className="font-headline-lg text-[13vw] sm:text-6xl md:text-7xl lg:text-[100px] font-extrabold text-surface leading-[1.1] tracking-tight flex flex-col items-center">
+        <h1 className="font-headline-lg text-[13vw] sm:text-6xl md:text-8xl lg:text-[100px] font-black text-white leading-none tracking-tighter italic text-outline-black flex flex-col items-center">
           <motion.span 
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="block"
+            className="z-20 relative"
           >
             BANDUNG
           </motion.span>
@@ -119,7 +127,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.5, rotate: 10 }}
             animate={{ opacity: 1, scale: 1, rotate: -2 }}
             transition={{ duration: 0.8, delay: 0.8, type: "spring", bounce: 0.5 }}
-            className="inline-block my-2 lg:my-6 origin-center"
+            className="inline-block origin-center -mt-2 lg:-mt-4 z-10 relative"
           >
             <motion.span
               animate={{ rotate: [0, 5, -5, 5, -5, 0] }}
@@ -130,7 +138,7 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 2
               }}
-              className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-xl shadow-orange-500/30 px-4 sm:px-6 py-2 rounded-2xl inline-block origin-center whitespace-nowrap text-[12vw] sm:text-6xl md:text-7xl lg:text-[100px]"
+              className="bg-bgs-red text-bgs-yellow comic-border px-6 sm:px-8 py-2 rounded-3xl inline-block origin-center whitespace-nowrap text-[12vw] sm:text-5xl md:text-7xl lg:text-[90px] transform -rotate-3 comic-shadow"
             >
               GREAT SALE
             </motion.span>
@@ -139,38 +147,27 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="block"
+            className="z-20 relative -mt-2 lg:-mt-4"
           >
             2026
           </motion.span>
         </h1>
         
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-surface-variant max-w-2xl mx-auto leading-relaxed relative">
-          Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.
-        </p>
-        
-        {/* CTAs */}
-        <div className="flex flex-row flex-nowrap justify-center gap-2 sm:gap-4 pt-4 w-full relative">
-          <a href="#tenant" className="flex-1 sm:flex-none text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all hover:-translate-y-1 inline-block text-xs sm:text-base whitespace-nowrap relative z-20">
-            JELAJAHI TENANT
-          </a>
-          <Link href="/register" className="flex-1 sm:flex-none text-center px-2 sm:px-8 py-3 sm:py-3.5 rounded-full border-2 border-surface text-surface font-bold hover:bg-surface hover:text-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-xs sm:text-base whitespace-nowrap relative z-20">
-            REGISTER NOW
-          </Link>
+        <div className="max-w-2xl mx-auto mt-8 mb-8">
+          <p className="text-lg md:text-xl text-black font-bold leading-relaxed bg-bgs-yellow p-4 md:p-6 rounded-2xl comic-border comic-shadow-sm transform -rotate-1">
+            Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.
+          </p>
         </div>
         
-        {/* Badge/Credit */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-6">
-          <div className="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 border-r-0 sm:border-r-2 border-white/20 sm:pr-6">
-            <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={50} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
-            <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan Bandung" width={100} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
-            <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={100} height={50} className="h-6 sm:h-10 w-auto object-contain drop-shadow-md" />
-          </div>
-          <div className="flex items-center gap-2 mt-1 sm:mt-0">
-            <span className="text-[10px] sm:text-xs font-bold text-white/70 uppercase tracking-widest">Website by</span>
-            <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={150} height={45} className="h-8 sm:h-12 w-auto object-contain drop-shadow-md brightness-0 invert" />
-          </div>
+        {/* CTAs */}
+        <div className="flex flex-row flex-wrap justify-center gap-4 sm:gap-6 pt-4 w-full relative">
+          <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-8 py-4 rounded-xl font-black text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-block whitespace-nowrap z-20">
+            JELAJAHI TENANT
+          </a>
+          <Link href="/register" className="bg-white text-black comic-border px-8 py-4 rounded-xl font-black text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-block whitespace-nowrap z-20">
+            REGISTER NOW
+          </Link>
         </div>
       </motion.div>
     </section>

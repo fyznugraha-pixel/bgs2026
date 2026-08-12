@@ -29,10 +29,12 @@ export default function AboutStats() {
         className="space-y-6 relative"
       >
 
-        <h2 className="font-headline-md text-4xl font-bold text-primary relative z-10 pt-8 md:pt-4">About the Festival</h2>
-        <p className="text-lg text-on-surface-variant leading-relaxed relative z-10">
-          Digelar selama 3 hari puncak di bulan Agustus, event ini menjadi klimaks perayaan promo lintas sektor fashion, kuliner, dan produk kreatif. Sepanjang bulan Agustus, seluruh pelaku usaha di Bandung turut memberi penawaran spesial, menjadikan kota ini surga belanja penuh kejutan.
-        </p>
+        <h2 className="font-headline-md text-5xl md:text-6xl font-black text-bgs-blue italic uppercase relative z-10 pt-8 md:pt-4 mb-6">About the Festival</h2>
+        <div className="bg-white comic-border comic-shadow p-6 md:p-8 rounded-2xl transform rotate-1 relative z-10">
+          <p className="text-lg md:text-xl text-black font-bold leading-relaxed">
+            Digelar selama 3 hari puncak di bulan Agustus, event ini menjadi klimaks perayaan promo lintas sektor fashion, kuliner, dan produk kreatif. Sepanjang bulan Agustus, seluruh pelaku usaha di Bandung turut memberi penawaran spesial, menjadikan kota ini surga belanja penuh kejutan.
+          </p>
+        </div>
         <div className="pt-4 relative z-10 flex justify-center md:justify-start">
           <Image src="/aset visual/Maskot (Robel).webp" alt="Maskot Robel BGS" width={400} height={500} className="w-56 md:w-72 h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" />
         </div>
@@ -45,21 +47,21 @@ export default function AboutStats() {
         viewport={{ once: true }}
         className="grid grid-cols-2 gap-6"
       >
-        <motion.div variants={itemVariants} className="bg-surface p-8 rounded-3xl shadow-sm border border-surface-variant text-center flex flex-col items-center justify-center">
-          <span className="font-headline-md text-4xl md:text-5xl font-extrabold text-secondary mb-2">120+</span>
-          <span className="text-xs font-bold text-outline uppercase tracking-wider">TENANT</span>
+        <motion.div variants={itemVariants} className="bg-bgs-yellow comic-border comic-shadow-sm p-6 rounded-2xl text-center flex flex-col items-center justify-center transform -rotate-2">
+          <span className="font-headline-md text-5xl md:text-6xl font-black text-black mb-2">120+</span>
+          <span className="text-sm font-bold text-black uppercase tracking-wider">TENANT</span>
         </motion.div>
-        <motion.div variants={itemVariants} className="bg-surface p-8 rounded-3xl shadow-sm border border-surface-variant text-center flex flex-col items-center justify-center">
-          <span className="font-headline-md text-4xl md:text-5xl font-extrabold text-tertiary mb-2">15+</span>
-          <span className="text-xs font-bold text-outline uppercase tracking-wider">KOMUNITAS PARTISIPAN</span>
+        <motion.div variants={itemVariants} className="bg-bgs-green comic-border comic-shadow-sm p-6 rounded-2xl text-center flex flex-col items-center justify-center transform rotate-2">
+          <span className="font-headline-md text-5xl md:text-6xl font-black text-white mb-2">15+</span>
+          <span className="text-sm font-bold text-white uppercase tracking-wider">KOMUNITAS PARTISIPAN</span>
         </motion.div>
-        <motion.div variants={itemVariants} className="bg-surface p-8 rounded-3xl shadow-sm border border-surface-variant text-center flex flex-col items-center justify-center">
-          <span className="font-headline-md text-4xl md:text-5xl font-extrabold text-primary mb-2">11</span>
-          <span className="text-xs font-bold text-outline uppercase tracking-wider">ARTIST LINEUP</span>
+        <motion.div variants={itemVariants} className="bg-bgs-blue comic-border comic-shadow-sm p-6 rounded-2xl text-center flex flex-col items-center justify-center transform rotate-1">
+          <span className="font-headline-md text-5xl md:text-6xl font-black text-white mb-2">11</span>
+          <span className="text-sm font-bold text-white uppercase tracking-wider">ARTIST LINEUP</span>
         </motion.div>
-        <motion.div variants={itemVariants} className="bg-surface p-8 rounded-3xl shadow-sm border border-surface-variant text-center flex flex-col items-center justify-center">
-          <span className="font-headline-md text-4xl md:text-5xl font-extrabold text-secondary mb-2">3</span>
-          <span className="text-xs font-bold text-outline uppercase tracking-wider">HARI PUNCAK EVENT</span>
+        <motion.div variants={itemVariants} className="bg-bgs-red comic-border comic-shadow-sm p-6 rounded-2xl text-center flex flex-col items-center justify-center transform -rotate-1">
+          <span className="font-headline-md text-5xl md:text-6xl font-black text-white mb-2">3</span>
+          <span className="text-sm font-bold text-white uppercase tracking-wider">HARI PUNCAK EVENT</span>
         </motion.div>
       </motion.div>
     </section>

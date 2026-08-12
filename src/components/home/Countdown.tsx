@@ -35,9 +35,8 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="bg-primary text-surface w-full py-12 relative overflow-hidden" style={{ backgroundColor: "rgb(5, 22, 48)" }}>
-      <div className="absolute top-0 left-0 w-full h-1 bg-tertiary-container"></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-tertiary-container"></div>
+    <section className="bg-bgs-red text-black w-full py-16 relative overflow-hidden border-b-8 border-black bg-grid">
+      <div className="absolute top-0 left-0 w-full h-8 bg-black"></div>
       
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
@@ -46,30 +45,30 @@ export default function Countdown() {
         transition={{ duration: 0.5 }}
         className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10"
       >
-        <p className="text-tertiary-container text-sm font-bold mb-6 uppercase tracking-widest">EVENT STARTS IN</p>
+        <div className="bg-black text-white px-6 py-2 comic-border rounded-xl transform -rotate-2 inline-block font-black text-lg mb-8 uppercase tracking-widest shadow-[4px_4px_0_0_#fff]">EVENT STARTS IN</div>
         
-        <div className="flex justify-center items-center gap-4 md:gap-8 font-headline-md">
-          <div className="flex flex-col items-center">
-            <span className="text-5xl md:text-7xl font-extrabold text-surface">{String(timeLeft.days).padStart(2, "0")}</span>
-            <span className="text-xs md:text-sm text-surface-variant uppercase mt-2 tracking-widest">DAYS</span>
+        <div className="flex justify-center items-center gap-2 md:gap-6 font-headline-md">
+          <div className="flex flex-col items-center bg-white comic-border comic-shadow p-4 md:p-6 rounded-2xl transform rotate-2">
+            <span className="text-5xl md:text-7xl font-black text-black">{String(timeLeft.days).padStart(2, "0")}</span>
+            <span className="text-xs md:text-sm font-bold text-black uppercase mt-2 tracking-widest">DAYS</span>
           </div>
-          <span className="text-4xl md:text-6xl text-tertiary-container font-light pb-6">:</span>
+          <span className="text-4xl md:text-6xl text-black font-black pb-6">:</span>
           
-          <div className="flex flex-col items-center">
-            <span className="text-5xl md:text-7xl font-extrabold text-surface">{String(timeLeft.hours).padStart(2, "0")}</span>
-            <span className="text-xs md:text-sm text-surface-variant uppercase mt-2 tracking-widest">HOURS</span>
+          <div className="flex flex-col items-center bg-white comic-border comic-shadow p-4 md:p-6 rounded-2xl transform -rotate-2">
+            <span className="text-5xl md:text-7xl font-black text-black">{String(timeLeft.hours).padStart(2, "0")}</span>
+            <span className="text-xs md:text-sm font-bold text-black uppercase mt-2 tracking-widest">HOURS</span>
           </div>
-          <span className="text-4xl md:text-6xl text-tertiary-container font-light pb-6">:</span>
+          <span className="text-4xl md:text-6xl text-black font-black pb-6">:</span>
           
-          <div className="flex flex-col items-center">
-            <span className="text-5xl md:text-7xl font-extrabold text-surface">{String(timeLeft.minutes).padStart(2, "0")}</span>
-            <span className="text-xs md:text-sm text-surface-variant uppercase mt-2 tracking-widest">MINS</span>
+          <div className="flex flex-col items-center bg-white comic-border comic-shadow p-4 md:p-6 rounded-2xl transform rotate-1">
+            <span className="text-5xl md:text-7xl font-black text-black">{String(timeLeft.minutes).padStart(2, "0")}</span>
+            <span className="text-xs md:text-sm font-bold text-black uppercase mt-2 tracking-widest">MINS</span>
           </div>
-          <span className="text-4xl md:text-6xl text-tertiary-container font-light pb-6 hidden md:block">:</span>
+          <span className="text-4xl md:text-6xl text-black font-black pb-6 hidden md:block">:</span>
           
-          <div className="flex-col items-center hidden md:flex">
-            <span className="text-5xl md:text-7xl font-extrabold text-surface">{String(timeLeft.seconds).padStart(2, "0")}</span>
-            <span className="text-xs md:text-sm text-surface-variant uppercase mt-2 tracking-widest">SECS</span>
+          <div className="flex-col items-center bg-white comic-border comic-shadow p-4 md:p-6 rounded-2xl transform -rotate-1 hidden md:flex">
+            <span className="text-5xl md:text-7xl font-black text-black">{String(timeLeft.seconds).padStart(2, "0")}</span>
+            <span className="text-xs md:text-sm font-bold text-black uppercase mt-2 tracking-widest">SECS</span>
           </div>
         </div>
       </motion.div>

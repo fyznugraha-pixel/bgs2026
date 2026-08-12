@@ -5,9 +5,11 @@ import Image from "next/image";
 
 export default function VenueMap() {
   return (
-    <section id="venue" className="bg-primary text-surface pt-[80px] relative" style={{ backgroundColor: "rgb(5, 22, 48)" }}>
-      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop mb-8 z-10 relative text-center">
-        <h2 className="font-headline-md text-4xl font-bold mb-4">Venue Layout: Laswi Heritage</h2>
+    <section id="venue" className="bg-[#0A192F] text-white pt-[80px] relative border-b-8 border-black pb-[80px]">
+      <div className="max-w-[1536px] mx-auto px-margin-mobile md:px-margin-desktop mb-8 z-10 relative flex justify-center text-center">
+        <div className="bg-white text-black comic-border p-4 inline-block transform rotate-1 comic-shadow-sm mb-4">
+          <h2 className="font-headline-md text-4xl font-black uppercase">Venue Layout: Laswi Heritage</h2>
+        </div>
       </div>
       
       <motion.div 
@@ -15,7 +17,7 @@ export default function VenueMap() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="w-full bg-secondary/20 relative rounded-none overflow-hidden border border-surface/20 hover:border-surface/40 transition-colors shadow-xl group"
+        className="w-[90%] md:w-[80%] mx-auto bg-white relative rounded-2xl overflow-hidden comic-border comic-shadow-sm group p-2 transform -rotate-1"
       >
         <Image 
           src="/venue-layout.webp" 

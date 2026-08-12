@@ -25,7 +25,20 @@ export const metadata: Metadata = {
   description: "Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.",
   authors: [{ name: "Fayiz Apriwansyah Nugraha", url: "https://byfayiz.web.id/portofolio" }],
   creator: "Fayiz Apriwansyah Nugraha",
-  keywords: ["Bandung Great Sale 2026", "BGS 2026", "Fayiz Apriwansyah Nugraha", "Web Developer", "Tactlink", "Event Bandung"],
+  keywords: ["Bandung Great Sale 2026", "BGS 2026", "Fayiz Apriwansyah Nugraha", "Web Developer", "Tactlink", "Event Bandung", "Festival Belanja Bandung", "Diskon Bandung"],
+  openGraph: {
+    title: "BGS 2026 - Bandung Great Sale",
+    description: "Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif. Ayo dapatkan tiket GRATIS sekarang!",
+    url: "https://bandunggreatsale.id",
+    siteName: "Bandung Great Sale",
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BGS 2026 - Bandung Great Sale",
+    description: "Festival belanja terbesar di Kota Kembang dengan diskon spektakuler dari fashion, kuliner, hingga produk kreatif.",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-[1536px] mx-auto">
         <div className="flex items-center gap-4">
           <Image 
-            src="/logo/Logo BGS 2026.webp" 
+            src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BGS 2026.png" 
             alt="Bandung Great Sale 2026" 
             width={180} 
             height={72} 
@@ -30,7 +30,6 @@ export default function Navbar() {
           <a className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#lineup">Lineup Artis</a>
           <a className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#komunitas">Komunitas</a>
           <a className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#tenant">Tenant</a>
-          <a className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#konvoi">Rute Konvoi</a>
           <a className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#venue">Venue Layout</a>
         </nav>
         <Link href="/register" className="hidden md:flex items-center justify-center bg-bgs-yellow text-black comic-border px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors comic-shadow-sm uppercase">
@@ -54,7 +53,6 @@ export default function Navbar() {
               <a onClick={() => setIsOpen(false)} className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#lineup">Lineup Artis</a>
               <a onClick={() => setIsOpen(false)} className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#komunitas">Komunitas</a>
               <a onClick={() => setIsOpen(false)} className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#tenant">Tenant</a>
-              <a onClick={() => setIsOpen(false)} className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#konvoi">Rute Konvoi</a>
               <a onClick={() => setIsOpen(false)} className="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#venue">Venue Layout</a>
               <Link onClick={() => setIsOpen(false)} href="/register" className="inline-block text-center bg-bgs-yellow text-black comic-border px-6 py-3 rounded-xl font-bold hover:bg-white transition-colors comic-shadow-sm uppercase mt-4">
                 Register

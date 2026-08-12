@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-6">
             <div className="bg-white p-4 rounded-xl comic-border inline-block transform -rotate-2">
               <Image 
-                src="/logo/Logo BGS 2026.webp" 
+                src="/aset logo/LOGO ASET BGS 2026/LOGO ASET BGS 2026/LOGO BGS 2026.png" 
                 alt="Bandung Great Sale 2026" 
                 width={180} 
                 height={64} 

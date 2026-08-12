@@ -5,12 +5,6 @@ import Image from "next/image";
 
 const timelineEvents = [
   {
-    time: "08:00",
-    title: "Konvoi Bandros (Happening Art)",
-    desc: "Start dari Balai Kota Bandung, rute: Jl. Merdeka → Jl. Wastukencana → Jl. Riau → Jl. Laswi → Jl. Sukabumi, finish di Laswi Heritage, dipimpin Walikota Bandung.",
-    color: "bg-bgs-yellow",
-  },
-  {
     time: "[TBA]",
     title: "Grand Opening Ceremony",
     desc: "Berlokasi di panggung utama Laswi Heritage.",
@@ -26,10 +20,10 @@ const timelineEvents = [
 
 export default function Rundown() {
   return (
-    <section id="konvoi" className="py-[80px] w-full mx-auto px-margin-mobile md:px-margin-desktop bg-white border-y-8 border-black">
+    <section id="rundown" className="py-[80px] w-full mx-auto px-margin-mobile md:px-margin-desktop bg-white border-y-8 border-black">
       <div className="text-center mb-16">
         <div className="bg-bgs-red comic-border p-4 inline-block transform -rotate-1 comic-shadow-sm mx-auto">
-          <h2 className="font-headline-md text-4xl md:text-5xl font-black text-white uppercase italic text-outline-black">Rundown & Konvoi</h2>
+          <h2 className="font-headline-md text-4xl md:text-5xl font-black text-white uppercase italic text-outline-black">Rundown</h2>
         </div>
       </div>
       

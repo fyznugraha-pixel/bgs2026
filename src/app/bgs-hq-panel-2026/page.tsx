@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import prisma from '@/lib/prisma';
 import ExportButton from '@/components/admin/ExportButton';
+import DeleteButton from '@/components/admin/DeleteButton';
 import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AdminDashboard({
-  searchParams,
-}: {
-  searchParams: { page?: string; date?: string };
+export default async function AdminDashboard(props: {
+  searchParams: Promise<{ page?: string; date?: string }>;
 }) {
-  const page = parseInt(searchParams.page || '1', 10);
+  const searchParams = await props.searchParams;
+  const page = parseInt(searchParams?.page || '1', 10);
   const limit = 50;
-  const filterDate = searchParams.date || 'all';
+  const filterDate = searchParams?.date || 'all';
 
   // Build where clause based on filter
   const whereClause = filterDate !== 'all' ? { date: filterDate } : {};
@@ -132,7 +132,6 @@ export default async function AdminDashboard({
                 <select 
                   name="date" 
                   defaultValue={filterDate}
-                  onChange={(e) => e.target.form?.submit()}
                   className="text-sm border-gray-300 rounded-md shadow-sm focus:border-bgs-blue focus:ring-bgs-blue py-1.5 pl-3 pr-8"
                 >
                   <option value="all">Semua Tanggal</option>
@@ -140,6 +139,9 @@ export default async function AdminDashboard({
                   <option value="22 Agustus 2026">22 Agustus 2026</option>
                   <option value="23 Agustus 2026">23 Agustus 2026</option>
                 </select>
+                <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1.5 rounded-md font-medium border border-gray-300 transition-colors">
+                  Filter
+                </button>
               </form>
             </div>
 
@@ -161,6 +163,9 @@ export default async function AdminDashboard({
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Status Hadir
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Aksi
                   </th>
                 </tr>
               </thead>
@@ -201,6 +206,9 @@ export default async function AdminDashboard({
                             Belum Hadir
                           </span>
                         )}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <DeleteButton id={reg.id} />
                       </td>
                     </tr>
                   ))

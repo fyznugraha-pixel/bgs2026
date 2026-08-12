@@ -50,87 +50,62 @@ export default function Register() {
   };
 
   return (
-    <div className="font-body-md text-on-background antialiased relative min-h-screen flex flex-col">
-      {/* Global Background with Navy Overlay */}
-      <div className="fixed inset-0 z-[-1]">
-        <img alt="Bandung Great Sale Festive Atmosphere" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfne3wnji178Ya0D05qbjkujIenvtd6V1ySUAT92HQax-wgips0C1Zz78nqr9zUmvytTGJIUhRMSj80XIrQnJXce7vOi2w5ei7AbWTzV1dP-2W0lRPM_ksz8uJsr8_YOj6V0ftCBGeR-DrDk2pzgeXLUAXlaS58_ppHZmt3p2UHESD4NuwMgOZgLJQ2ytRIrieJID9uaxhfZqhli5liFBckXp7Vq33KAC44WF5XCHEL0qJ35XYp1ScLA" fetchPriority="high" />
-        <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" style={{ backgroundColor: "rgba(5, 22, 48, 0.8)" }}></div>
-      </div>
-      
-      {/* TopAppBar removed as per request */}
+    <div className="font-body-md text-black antialiased relative min-h-screen flex flex-col bg-bgs-yellow bg-polka">
       
       {/* Main Content Area */}
-      <main className="flex-grow flex items-center justify-center py-20 px-6 md:px-[64px] mt-[80px]">
+      <main className="flex-grow flex items-center justify-center py-20 px-6 md:px-[64px] relative z-10">
         {/* Registration Card */}
-        <div className="w-full max-w-[672px] bg-surface rounded-[24px] shadow-2xl relative border border-outline-variant/30 bg-white">
-          
-          {/* Decorative Element Container */}
-          <div className="absolute inset-0 overflow-hidden rounded-[24px] pointer-events-none">
-            {/* Soft blurred blobs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl -ml-16 -mb-16"></div>
-            
-            {/* Subtle dot pattern */}
-            <div className="absolute inset-0 opacity-50" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-          </div>
+        <div className="w-full max-w-[672px] bg-white rounded-3xl comic-border comic-shadow-lg relative transform rotate-1 mt-8">
           
           <div className="p-8 md:p-12 relative z-10">
             {/* Floating Badge */}
-            <div className="absolute -top-4 -left-4 md:-left-6 md:-top-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-5 py-2 rounded-2xl shadow-lg shadow-orange-500/30 transform -rotate-6 font-bold text-sm border-2 border-white flex items-center gap-1.5 z-20">
-              <span className="material-symbols-outlined text-[20px]">local_activity</span>
+            <div className="absolute -top-6 -left-6 bg-bgs-red text-white px-6 py-2 rounded-2xl comic-border comic-shadow-sm transform -rotate-6 font-black text-lg uppercase flex items-center gap-2 z-20">
+              <span className="material-symbols-outlined text-[24px]">local_activity</span>
               FREE ENTRY
             </div>
 
             <div className="text-center mb-10 relative z-10 mt-2">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/5 text-primary mb-5 ring-4 ring-white shadow-sm">
-                <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>confirmation_number</span>
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-bgs-yellow comic-border comic-shadow-sm mb-5 transform rotate-2">
+                <span className="material-symbols-outlined text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>confirmation_number</span>
               </div>
-              <h1 className="font-headline-lg text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tight">Dapatkan Tiketmu</h1>
-              <p className="font-body-md text-on-surface-variant max-w-md mx-auto">
-                Bergabunglah dengan festival belanja paling dinanti tahun ini. Isi data diri Anda di bawah ini untuk mendapatkan tiket akses eksklusif.
+              <h1 className="font-headline-lg text-4xl md:text-5xl font-black text-black mb-3 uppercase italic transform -rotate-1">Dapatkan Tiketmu</h1>
+              <p className="font-body-md text-black font-bold max-w-md mx-auto bg-white p-4 rounded-xl comic-border comic-shadow-sm mt-4">
+                Bergabunglah dengan festival belanja paling dinanti tahun ini. Isi data diri Anda di bawah ini!
               </p>
             </div>
           
           {error && (
-            <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-xl text-sm border border-red-100 flex items-center gap-2 relative z-10">
+            <div className="mb-6 p-4 bg-bgs-red text-white comic-border comic-shadow-sm rounded-xl font-bold flex items-center gap-2 relative z-10 transform -rotate-1">
               <span className="material-symbols-outlined">error</span>
               {error}
             </div>
           )}
 
-          <form onSubmit={handleRegister} className="space-y-8 relative z-10 mt-6">
+          <form onSubmit={handleRegister} className="space-y-6 relative z-10 mt-6 text-left">
             
             {/* Custom Dropdown: Date Selection */}
             <div className="relative w-full">
-              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none z-10">
-                <span className="material-symbols-outlined text-[20px]">calendar_today</span>
-              </div>
+              <label className="block text-black font-black uppercase mb-2 text-lg">Tanggal Kehadiran</label>
               
               <div 
-                className={`w-full border-0 border-b-2 bg-transparent pt-6 pb-2 pl-9 pr-8 cursor-pointer font-body-md text-slate-800 transition-colors outline-none focus:border-primary ${isDateDropdownOpen ? 'border-primary' : 'border-slate-300'}`}
+                className={`w-full bg-white comic-border p-4 rounded-xl font-bold text-black cursor-pointer flex justify-between items-center transition-all ${isDateDropdownOpen ? 'comic-shadow-sm' : 'shadow-[2px_2px_0_0_rgba(0,0,0,1)]'}`}
                 onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
                 tabIndex={0}
                 onBlur={() => setTimeout(() => setIsDateDropdownOpen(false), 200)}
               >
-                {formData.date}
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-black">calendar_today</span>
+                  {formData.date}
+                </div>
+                <span className={`material-symbols-outlined transition-transform duration-200 ${isDateDropdownOpen ? "rotate-180" : ""}`}>expand_more</span>
               </div>
               
-              <div className={`absolute right-0 top-6 text-slate-400 pointer-events-none transition-transform duration-200 ${isDateDropdownOpen ? "rotate-180" : ""}`}>
-                <span className="material-symbols-outlined">expand_more</span>
-              </div>
-              
-              <label 
-                className={`absolute left-0 -top-4 text-xs font-body-md transition-all ${isDateDropdownOpen ? 'text-primary' : 'text-slate-500'}`} 
-              >
-                Tanggal Kehadiran
-              </label>
-
               {isDateDropdownOpen && (
-                <ul className="absolute z-20 w-full bg-white border border-slate-200 mt-1 rounded-xl shadow-lg overflow-hidden">
+                <ul className="absolute z-20 w-full bg-white comic-border comic-shadow-sm mt-2 rounded-xl overflow-hidden">
                   {["21 Agustus 2026", "22 Agustus 2026", "23 Agustus 2026"].map((d, i) => (
                     <li 
                       key={i}
-                      className={`px-4 py-3 text-sm cursor-pointer border-b border-slate-100 last:border-0 transition-colors ${formData.date === d ? 'bg-[#f4f7fa] text-primary font-semibold' : 'text-slate-700 hover:bg-slate-50 hover:text-primary'}`}
+                      className={`px-4 py-3 font-bold cursor-pointer border-b-2 border-black last:border-0 hover:bg-bgs-yellow transition-colors ${formData.date === d ? 'bg-bgs-yellow' : ''}`}
                       onClick={() => {
                         setFormData({ ...formData, date: d });
                         setIsDateDropdownOpen(false);
@@ -143,85 +118,75 @@ export default function Register() {
               )}
             </div>
 
-            {/* Floating Label Input: Full Name */}
+            {/* Input: Full Name */}
             <div className="relative w-full">
-              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
-                <span className="material-symbols-outlined text-[20px]">person</span>
+              <label className="block text-black font-black uppercase mb-2 text-lg">Nama Lengkap</label>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-black pointer-events-none">
+                  <span className="material-symbols-outlined">person</span>
+                </div>
+                <input 
+                  className="w-full bg-white comic-border rounded-xl py-4 pl-12 pr-4 text-black font-bold outline-none focus:ring-4 focus:ring-bgs-yellow transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)]" 
+                  id="fullname" 
+                  placeholder="Masukkan nama lengkap" 
+                  required 
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
               </div>
-              <input 
-                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
-                id="fullname" 
-                placeholder="Nama Lengkap" 
-                required 
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-              <label 
-                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
-                htmlFor="fullname"
-              >
-                Nama Lengkap
-              </label>
             </div>
             
-            {/* Floating Label Input: Email */}
+            {/* Input: Email */}
             <div className="relative w-full">
-              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
-                <span className="material-symbols-outlined text-[20px]">mail</span>
+              <label className="block text-black font-black uppercase mb-2 text-lg">Alamat Email</label>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-black pointer-events-none">
+                  <span className="material-symbols-outlined">mail</span>
+                </div>
+                <input 
+                  className="w-full bg-white comic-border rounded-xl py-4 pl-12 pr-4 text-black font-bold outline-none focus:ring-4 focus:ring-bgs-yellow transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)]" 
+                  id="email" 
+                  placeholder="email@contoh.com" 
+                  required 
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
               </div>
-              <input 
-                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
-                id="email" 
-                placeholder="Alamat Email" 
-                required 
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-              <label 
-                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
-                htmlFor="email"
-              >
-                Alamat Email
-              </label>
             </div>
             
-
-            {/* Floating Label Input: City (Searchable Dropdown) */}
-            <div className="relative w-full mb-10">
-              <div className="absolute left-0 top-6 text-slate-400 pointer-events-none">
-                <span className="material-symbols-outlined text-[20px]">location_city</span>
+            {/* Input: City */}
+            <div className="relative w-full mb-8">
+              <label className="block text-black font-black uppercase mb-2 text-lg">Kota / Kabupaten</label>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-black pointer-events-none">
+                  <span className="material-symbols-outlined">location_city</span>
+                </div>
+                <input 
+                  className="w-full bg-white comic-border rounded-xl py-4 pl-12 pr-4 text-black font-bold outline-none focus:ring-4 focus:ring-bgs-yellow transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)]" 
+                  id="city" 
+                  placeholder="Ketik kota..." 
+                  required 
+                  type="text"
+                  autoComplete="off"
+                  value={citySearch}
+                  onChange={(e) => {
+                    setCitySearch(e.target.value);
+                    setFormData({ ...formData, city: e.target.value });
+                    setIsCityDropdownOpen(true);
+                  }}
+                  onFocus={() => setIsCityDropdownOpen(true)}
+                  onBlur={() => setTimeout(() => setIsCityDropdownOpen(false), 200)}
+                />
               </div>
-              <input 
-                className="peer w-full border-0 border-b-2 border-slate-300 bg-transparent pt-6 pb-2 pl-9 pr-0 text-slate-800 focus:border-primary focus:ring-0 outline-none transition-colors placeholder-transparent font-body-md" 
-                id="city" 
-                placeholder="Kota / Kabupaten" 
-                required 
-                type="text"
-                autoComplete="off"
-                value={citySearch}
-                onChange={(e) => {
-                  setCitySearch(e.target.value);
-                  setFormData({ ...formData, city: e.target.value });
-                  setIsCityDropdownOpen(true);
-                }}
-                onFocus={() => setIsCityDropdownOpen(true)}
-                onBlur={() => setTimeout(() => setIsCityDropdownOpen(false), 200)}
-              />
-              <label 
-                className="absolute left-9 top-6 text-slate-500 font-body-md transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-placeholder-shown:left-9 peer-focus:-top-4 peer-focus:left-0 peer-focus:text-xs peer-focus:text-primary peer-valid:-top-4 peer-valid:left-0 peer-valid:text-xs" 
-                htmlFor="city"
-              >
-                Kota / Kabupaten
-              </label>
               
               {isCityDropdownOpen && filteredCities.length > 0 && (
-                <ul className="absolute z-20 w-full bg-white border border-slate-200 mt-1 rounded-xl shadow-lg max-h-48 overflow-y-auto hide-scrollbar">
+                <ul className="absolute z-20 w-full bg-white comic-border comic-shadow-sm mt-2 rounded-xl max-h-48 overflow-y-auto hide-scrollbar">
                   {filteredCities.map((c, i) => (
                     <li 
                       key={i}
-                      className="px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary cursor-pointer border-b border-slate-100 last:border-0 transition-colors"
+                      className="px-4 py-3 font-bold hover:bg-bgs-yellow cursor-pointer border-b-2 border-black last:border-0 transition-colors"
                       onClick={() => {
                         setCitySearch(c);
                         setFormData({ ...formData, city: c });
@@ -232,7 +197,7 @@ export default function Register() {
                     </li>
                   ))}
                   {filteredCities.length === 0 && (
-                    <li className="px-4 py-3 text-sm text-slate-500 text-center">
+                    <li className="px-4 py-3 font-bold text-center">
                       Tidak ditemukan
                     </li>
                   )}
@@ -242,12 +207,12 @@ export default function Register() {
             
             <div className="pt-4">
               <button 
-                className={`w-full bg-[#facc15] hover:bg-[#eab308] text-[#574500] font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-3 transition-colors active:scale-[0.98] shadow-md ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`} 
+                className={`w-full bg-bgs-yellow text-black font-black text-xl py-4 rounded-xl flex items-center justify-center gap-3 transition-all comic-border comic-shadow hover:-translate-y-1 hover:comic-shadow-hover ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`} 
                 type="submit"
                 disabled={isLoading}
               >
-                {isLoading ? "Memproses..." : "Daftar Sekarang"}
-                {!isLoading && <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_forward</span>}
+                {isLoading ? "MEMPROSES..." : "DAFTAR SEKARANG"}
+                {!isLoading && <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>}
               </button>
             </div>
           </form>
@@ -256,7 +221,7 @@ export default function Register() {
       </main>
       
       {/* Footer */}
-      <div className="w-full mt-auto bg-surface relative z-10">
+      <div className="w-full mt-auto relative z-10">
         <Footer />
       </div>
     </div>

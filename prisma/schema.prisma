@@ -19,5 +19,7 @@ model Registration {
   city      String
   date      String
   whatsapp  String?
+  isAttended Boolean  @default(false)
+  attendedAt DateTime?
   createdAt DateTime @default(now())
 }

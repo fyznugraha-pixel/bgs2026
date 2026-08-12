@@ -6,65 +6,86 @@ export default function Footer() {
   return (
     <footer className="bg-bgs-blue bg-halftone text-white font-body-md w-full pt-16 pb-8 border-t-8 border-black">
       <div className="px-margin-mobile md:px-margin-desktop w-full max-w-[1536px] mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-12">
-          {/* Logo & Description */}
-          <div className="w-full md:w-1/3 lg:w-1/4">
-            <div className="bg-white p-4 rounded-xl comic-border inline-block transform -rotate-2 mb-6">
+        <div className="flex flex-col mb-16 gap-12">
+          {/* Logo Section */}
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-6">
+            <div className="bg-white p-4 rounded-xl comic-border inline-block transform -rotate-2">
               <Image 
                 src="/logo/Logo BGS 2026.webp" 
                 alt="Bandung Great Sale 2026" 
-                width={140} 
-                height={56} 
-                className="h-12 w-auto object-contain" 
+                width={180} 
+                height={64} 
+                className="h-14 md:h-16 w-auto object-contain" 
               />
             </div>
-            <p className="text-base font-bold bg-white text-black p-4 rounded-xl comic-border inline-block transform rotate-1 mb-6">
-              Pemerintah Kota Bandung × Dinas Perdagangan Kota Bandung.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm">
-              <Image src="/logo/Logo Pemkot Bandung.webp" alt="Pemkot Bandung" width={40} height={40} className="h-8 w-auto object-contain drop-shadow-md" />
-              <Image src="/logo/logo bandung horisontal.webp" alt="Kota Bandung" width={100} height={40} className="h-8 w-auto object-contain drop-shadow-md" />
-              <Image src="/logo/Logo Disdagin 2026 Final.webp" alt="Dinas Perdagangan" width={120} height={40} className="h-8 w-auto object-contain drop-shadow-md" />
-              <Image src="/logo/logo-tactlink.webp" alt="Tactlink" width={120} height={40} className="h-10 w-auto object-contain drop-shadow-md" />
+
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm">
+              <Image src="/logo/logo-tactlink.webp" alt="Tactlink" width={140} height={48} className="h-12 w-auto object-contain drop-shadow-md" />
+              <div className="w-px h-10 bg-gray-300 hidden sm:block"></div>
+              <Image src="/logo/logo nba.avif" alt="NBA" width={100} height={32} className="h-8 w-auto object-contain drop-shadow-md brightness-0" />
             </div>
           </div>
           
-          {/* Links Section */}
-          <div className="w-full md:w-2/3 lg:w-3/4 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-4">
-            <div>
-              <h4 className="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Quick Links</h4>
-              <ul className="space-y-3 font-bold text-lg">
-                <li><a className="hover:text-bgs-red transition-colors" href="#">Tentang</a></li>
-                <li><a className="hover:text-bgs-red transition-colors" href="#">Lineup</a></li>
-                <li><a className="hover:text-bgs-red transition-colors" href="#">Rute Konvoi</a></li>
-                <li><a className="hover:text-bgs-red transition-colors" href="#tenant">Tenant</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Partnership & Support</h4>
-              <ul className="space-y-3 font-bold text-lg">
-                <li className="font-black text-white">NBA Indonesia Event</li>
-                <li>Jl. H. Bardan Raya No. 33A, Bandung 40287, West Jawa</li>
-                <li>+62 813 953 382 05</li>
-                <li><a className="hover:text-bgs-blue transition-colors" href="mailto:nbaorganizer@gmail.com">nbaorganizer@gmail.com</a></li>
-              </ul>
-            </div>
-            <div className="col-span-2 sm:col-span-1">
-              <h4 className="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Legal</h4>
-              <ul className="space-y-3 font-bold text-lg">
-                <li><a className="hover:text-bgs-green transition-colors" href="#">Privacy Policy</a></li>
-                <li><a className="hover:text-bgs-green transition-colors" href="#">Terms of Service</a></li>
-              </ul>
+          {/* Social Media Section */}
+          <div className="w-full text-left">
+            <h4 className="font-black text-bgs-yellow mb-2 uppercase tracking-wider text-xl flex items-center gap-2">
+              <span className="material-symbols-outlined">photo_camera</span>
+              OFFICIAL INFORMATION CHANNELS
+            </h4>
+            <p className="mb-6 font-medium text-white/90">Untuk update resmi terbaru, pengumuman, dan informasi pengunjung, ikuti channel Instagram berikut.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Card 1 */}
+              <a href="https://www.instagram.com/bdg_greatsale/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm hover:-translate-y-1 hover:-translate-x-1 hover:comic-shadow transition-all group">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform border-2 border-black">
+                  <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 0" }}>photo_camera</span>
+                </div>
+                <div className="flex-grow">
+                  <h5 className="font-black text-lg text-black group-hover:text-bgs-blue transition-colors leading-tight">@bdg_greatsale</h5>
+                  <p className="text-sm text-gray-700 font-bold leading-tight mt-1">Bandung Great Sale</p>
+                </div>
+                <div className="bg-bgs-yellow p-1 rounded-full border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-black text-sm font-bold">open_in_new</span>
+                </div>
+              </a>
+              
+              {/* Card 2 */}
+              <a href="https://www.instagram.com/bdg.perdaganganindustri/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm hover:-translate-y-1 hover:-translate-x-1 hover:comic-shadow transition-all group">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform border-2 border-black">
+                  <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 0" }}>photo_camera</span>
+                </div>
+                <div className="flex-grow">
+                  <h5 className="font-black text-lg text-black group-hover:text-bgs-blue transition-colors leading-tight">@bdg.perdaganganindustri</h5>
+                  <p className="text-sm text-gray-700 font-bold leading-tight mt-1">Disdagin Kota Bandung</p>
+                </div>
+                <div className="bg-bgs-yellow p-1 rounded-full border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-black text-sm font-bold">open_in_new</span>
+                </div>
+              </a>
+              
+              {/* Card 3 */}
+              <a href="https://www.instagram.com/tic.bandung/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white p-4 rounded-xl comic-border comic-shadow-sm hover:-translate-y-1 hover:-translate-x-1 hover:comic-shadow transition-all group">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform border-2 border-black">
+                  <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 0" }}>photo_camera</span>
+                </div>
+                <div className="flex-grow">
+                  <h5 className="font-black text-lg text-black group-hover:text-bgs-blue transition-colors leading-tight">@tic.bandung</h5>
+                  <p className="text-sm text-gray-700 font-bold leading-tight mt-1">Tourist Info Center BDG</p>
+                </div>
+                <div className="bg-bgs-yellow p-1 rounded-full border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-black text-sm font-bold">open_in_new</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
         <div className="pt-8 border-t-4 border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col items-center md:items-start gap-1">
             <p className="font-bold text-center md:text-left">
-              © 2026 Bandung Great Sale. Hak Cipta Dilindungi. Didukung oleh Dinas Perdagangan Kota Bandung.
+              © 2026 Bandung Great Sale. Hak Cipta Dilindungi. Didukung oleh Dinas Perdagangan dan Perindustrian Kota Bandung.
             </p>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
-              <span className="font-bold opacity-70">Website by</span>
+              <span className="font-bold opacity-70 italic">Powered by</span>
               <Image src="/logo/logo-tactlink.webp" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain brightness-0 invert" />
             </div>
           </div>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BGS 2026 - Bandung Great Sale</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "bgs-blue": "#0b3c8c",
+                "bgs-yellow": "#ffd200",
+                "bgs-red": "#e62129",
+                "bgs-green": "#43b02a",
+                "on-tertiary-fixed-variant": "#574500",
+                "primary-fixed": "#d7e2ff",
+                "surface-tint": "#505f7c",
+                "tertiary": "#735c00",
+                "surface-variant": "#d9e4ee",
+                "background-deep": "#051630",
+                "on-surface-variant": "#44474d",
+                "on-primary-fixed": "#0b1b35",
+                "on-tertiary-container": "#4e3d00",
+                "surface-container": "#e5eff9",
+                "on-secondary-container": "#38627e",
+                "tertiary-container": "#cea700",
+                "surface": "#f6faff",
+                "on-primary-fixed-variant": "#384763",
+                "on-primary-container": "#7584a3",
+                "primary-container": "#0b1b35",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed": "#ffe085",
+                "error": "#ba1a1a",
+                "surface-container-low": "#eaf5ff",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#000000",
+                "on-tertiary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-tertiary-fixed": "#231b00",
+                "on-error": "#ffffff",
+                "on-secondary-fixed": "#001e2f",
+                "surface-container-high": "#dfe9f3",
+                "background": "#f6faff",
+                "surface-container-highest": "#d9e4ee",
+                "surface-dim": "#d1dbe5",
+                "error-container": "#ffdad6",
+                "on-primary": "#ffffff",
+                "on-background": "#131d24",
+                "primary-fixed-dim": "#b7c7e9",
+                "secondary-container": "#b2dcfd",
+                "on-surface": "#131d24",
+                "inverse-primary": "#b7c7e9",
+                "tertiary-fixed-dim": "#e3c466",
+                "secondary-fixed": "#c8e6ff",
+                "inverse-surface": "#283239",
+                "outline-variant": "#c5c6ce",
+                "secondary": "#39637f",
+                "surface-bright": "#f6faff",
+                "on-secondary-fixed-variant": "#1e4b66",
+                "inverse-on-surface": "#e8f2fc",
+                "outline": "#75777e",
+                "secondary-fixed-dim": "#a2ccec"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "container-max": "1280px",
+                "gutter": "24px",
+                "section-gap": "80px",
+                "margin-desktop": "64px",
+                "card-padding": "32px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg": [
+                        "Anybody", "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Hanken Grotesk"
+                ],
+                "headline-md": [
+                        "Anybody", "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Anybody", "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg-mobile": [
+                        "Anybody", "Plus Jakarta Sans"
+                ],
+                "label-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-sm": [
+                        "Anybody", "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "900"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "72px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "fontWeight": "900"
+                        }
+                ],
+                "label-lg": [
+                        "14px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "800"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Comic Style Utils */
+        .text-outline-black {
+            text-shadow: 
+                -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000,
+                 4px  4px 0 #000;
+        }
+        
+        .comic-border {
+            border: 4px solid #000;
+        }
+        
+        .comic-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        
+        .comic-shadow-sm {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+
+        .comic-shadow-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+        }
+        
+        /* Halftone pattern */
+        .bg-halftone {
+            background-color: #0b3c8c;
+            background-image: radial-gradient(#000 15%, transparent 16%), radial-gradient(#000 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        
+        .bg-halftone-yellow {
+            background-color: #ffd200;
+            background-image: radial-gradient(#000 15%, transparent 16%), radial-gradient(#000 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .bg-halftone-white {
+            background-color: #ffffff;
+            background-image: radial-gradient(#000 10%, transparent 11%), radial-gradient(#000 10%, transparent 11%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* Sunburst Pattern */
+        .bg-sunburst {
+            background-color: #e62129;
+            background-image: repeating-conic-gradient(from 0deg, #e62129 0deg 15deg, #c41c22 15deg 30deg);
+        }
+
+        .bg-sunburst-yellow {
+            background-color: #ffd200;
+            background-image: repeating-conic-gradient(from 0deg, #ffd200 0deg 15deg, #e5bd00 15deg 30deg);
+        }
+
+        .bg-grid {
+            background-color: #f6faff;
+            background-image: linear-gradient(#000 2px, transparent 2px), linear-gradient(90deg, #000 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: -2px -2px, -2px -2px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body-md min-h-screen flex flex-col">
+<!-- 1. Navbar -->
+<header class="bg-bgs-blue comic-border text-white font-body-md fixed top-0 w-full z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-3xl font-black text-white text-outline-black tracking-wider italic">BGS 2026</span>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-bgs-yellow font-bold border-b-4 border-bgs-yellow pb-1 uppercase tracking-wider text-sm" href="#">Tentang</a>
+<a class="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#">Lineup</a>
+<a class="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#">Rute Konvoi</a>
+<a class="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#">Tenant</a>
+<a class="text-white hover:text-bgs-yellow transition-colors font-bold uppercase tracking-wider text-sm" href="#">Partnership</a>
+</nav>
+<button class="hidden lg:inline-flex items-center justify-center bg-bgs-yellow text-black comic-border px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors comic-shadow-sm uppercase">
+                Jadi Partner
+            </button>
+<button class="lg:hidden p-2 text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-20">
+<!-- 2. Hero -->
+<section class="relative w-full min-h-[700px] flex items-center justify-center overflow-hidden py-24 md:py-32 bg-halftone border-b-8 border-black">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 flex items-center justify-center opacity-30">
+<img alt="Bandung Great Sale Festive Atmosphere" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0FJE55TnNJYZmxTAD4QdDC0XAgC67qqUusarm7aCBu4yelusrV2PQw2xqav8kkqVGNt63-JaKbI9g3olxg1PRp20_Iv2iy9mY-jPDVtx1GmwW1LmI3uFgRnSVGvXpyY-LXgnKPGMuJgSI0s0vXoMVPQ5tyemCAumvEiw_OaVVU1DknjVCH5IpEmjJnU5zSFmeSSzxXm608U1hWRv68Wn-LZl_To-vSCbfkOcMSejHYsnWmZt7emnFUQ"/>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 text-left space-y-8">
+<!-- Badges -->
+<div class="flex flex-wrap gap-4">
+<span class="inline-flex items-center gap-2 bg-bgs-red text-white comic-border px-5 py-2 rounded-xl text-sm font-bold uppercase comic-shadow-sm transform -rotate-2">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                21–23 AGUSTUS 2026
+            </span>
+<span class="inline-flex items-center gap-2 bg-bgs-yellow text-black comic-border px-5 py-2 rounded-xl text-sm font-bold uppercase comic-shadow-sm transform rotate-1">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                LASWI HERITAGE
+            </span>
+<span class="inline-flex items-center gap-2 bg-bgs-green text-white comic-border px-5 py-2 rounded-xl text-sm font-bold uppercase comic-shadow-sm transform -rotate-1">
+<span class="material-symbols-outlined text-[20px]">local_activity</span>
+                FREE ENTRY
+            </span>
+</div>
+<!-- Headline -->
+<div class="relative">
+<h1 class="font-headline-lg text-6xl md:text-8xl font-black text-white leading-none tracking-tighter italic text-outline-black flex flex-col">
+<span class="z-20 relative">BANDUNG</span>
+<span class="text-bgs-yellow text-[1.2em] -mt-4 z-10 relative bg-bgs-red comic-border px-6 py-2 rounded-3xl inline-block w-max transform -rotate-3 comic-shadow">GREAT SALE</span>
+<span class="z-20 relative -mt-2">2026</span>
+</h1>
+</div>
+<!-- Subheadline -->
+<p class="text-xl md:text-2xl text-white font-bold max-w-2xl leading-relaxed bg-black/50 p-4 rounded-xl comic-border border-white/20">
+            Festival belanja terbesar di Kota Kembang! Diskon spektakuler dari fashion, kuliner, hingga produk kreatif.
+        </p>
+<!-- CTAs -->
+<div class="flex flex-wrap gap-6 pt-4">
+<button class="bg-bgs-yellow text-black comic-border px-8 py-4 rounded-xl font-black text-xl uppercase transition-all comic-shadow comic-shadow-hover">
+                JELAJAHI TENANT
+            </button>
+<button class="bg-white text-black comic-border px-8 py-4 rounded-xl font-black text-xl uppercase transition-all comic-shadow comic-shadow-hover">
+                JADI EVENT PARTNER
+            </button>
+</div>
+</div>
+<!-- Mascot Area -->
+<div class="flex-1 relative w-full h-[400px] md:h-[600px] hidden md:block">
+<img alt="Robel the Rhino Mascot" class="absolute right-0 top-1/2 transform -translate-y-1/2 w-[110%] max-w-none object-contain z-20 drop-shadow-[10px_10px_0_rgba(0,0,0,1)] hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhPzGuGE-VPpREPrF_-oPVNA57JK0_Yc6cELlz-gsJlpggPBcVwopXD-e1ERT4L1g7gEeLUDk7uL78l3xNaeYQDhbu-h9YyRNLzxn0taQAWBz9Vw4YOPzOs83dAQyJjIf0xGOud5PnbyejEkFVQ80W9Z-56XCI6fAIYoevDgh1u7zUnB0MtN3798jmCXFc97ZUylLajLIp1yOqxQ5BijA3V04Ugi9yNprH6OBxpHhl6BWS1eaKsV_hbm02Umie65IZN50"/>
+</div>
+</div>
+</section>
+<!-- 3. Countdown -->
+<section class="bg-bgs-red text-white w-full py-12 relative border-b-8 border-black z-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+<p class="text-bgs-yellow text-xl font-black mb-6 uppercase tracking-widest text-outline-black italic">EVENT STARTS IN</p>
+<div class="flex justify-center items-center gap-4 md:gap-8 font-headline-md">
+<div class="flex flex-col items-center bg-white text-black comic-border p-4 md:p-6 rounded-2xl comic-shadow-sm transform -rotate-2">
+<span class="text-5xl md:text-7xl font-black">[DD]</span>
+<span class="text-sm md:text-base uppercase mt-2 font-bold">DAYS</span>
+</div>
+<span class="text-4xl md:text-6xl text-black font-black pb-6">:</span>
+<div class="flex flex-col items-center bg-white text-black comic-border p-4 md:p-6 rounded-2xl comic-shadow-sm transform rotate-1">
+<span class="text-5xl md:text-7xl font-black">[HH]</span>
+<span class="text-sm md:text-base uppercase mt-2 font-bold">HOURS</span>
+</div>
+<span class="text-4xl md:text-6xl text-black font-black pb-6">:</span>
+<div class="flex flex-col items-center bg-white text-black comic-border p-4 md:p-6 rounded-2xl comic-shadow-sm transform -rotate-1">
+<span class="text-5xl md:text-7xl font-black">[MM]</span>
+<span class="text-sm md:text-base uppercase mt-2 font-bold">MINS</span>
+</div>
+<span class="text-4xl md:text-6xl text-black font-black pb-6 hidden md:block">:</span>
+<div class="flex-col items-center bg-white text-black comic-border p-4 md:p-6 rounded-2xl comic-shadow-sm transform rotate-2 hidden md:flex">
+<span class="text-5xl md:text-7xl font-black">[SS]</span>
+<span class="text-sm md:text-base uppercase mt-2 font-bold">SECS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. About & Stats -->
+<section class="bg-halftone-white max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic mb-8 inline-block bg-bgs-blue comic-border px-6 py-3 rounded-2xl transform -rotate-2 comic-shadow">About the Festival</h2>
+<div class="bg-bgs-yellow comic-border p-8 rounded-3xl comic-shadow">
+<p class="text-xl text-black font-bold leading-relaxed">
+                    Digelar selama 3 hari puncak di bulan Agustus, event ini menjadi klimaks perayaan promo lintas sektor fashion, kuliner, dan produk kreatif. Sepanjang bulan Agustus, seluruh pelaku usaha di Bandung turut memberi penawaran spesial, menjadikan kota ini surga belanja penuh kejutan!
+                </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-halftone p-6 rounded-3xl comic-border text-center flex flex-col items-center justify-center comic-shadow transform hover:scale-105 transition-transform rotate-1">
+<span class="font-headline-md text-5xl md:text-6xl font-black text-bgs-yellow text-outline-black mb-2 italic">120+</span>
+<span class="text-sm font-black text-white uppercase tracking-wider bg-black px-3 py-1 rounded-full border-2 border-white">TENANT</span>
+</div>
+<div class="bg-sunburst p-6 rounded-3xl comic-border text-center flex flex-col items-center justify-center comic-shadow transform hover:scale-105 transition-transform -rotate-2">
+<span class="font-headline-md text-5xl md:text-6xl font-black text-white text-outline-black mb-2 italic">15+</span>
+<span class="text-sm font-black text-white uppercase tracking-wider bg-black px-3 py-1 rounded-full border-2 border-white text-center">KOMUNITAS<br/>PARTISIPAN</span>
+</div>
+<div class="bg-bgs-green p-6 rounded-3xl comic-border text-center flex flex-col items-center justify-center comic-shadow transform hover:scale-105 transition-transform rotate-2 relative overflow-hidden">
+<div class="absolute inset-0 bg-halftone opacity-20"></div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="font-headline-md text-5xl md:text-6xl font-black text-white text-outline-black mb-2 italic">11</span>
+<span class="text-sm font-black text-white uppercase tracking-wider bg-black px-3 py-1 rounded-full border-2 border-white text-center">ARTIST<br/>LINEUP</span>
+</div>
+</div>
+<div class="bg-halftone-yellow p-6 rounded-3xl comic-border text-center flex flex-col items-center justify-center comic-shadow transform hover:scale-105 transition-transform -rotate-1">
+<span class="font-headline-md text-5xl md:text-6xl font-black text-bgs-red text-outline-black mb-2 italic">3</span>
+<span class="text-sm font-black text-white uppercase tracking-wider bg-black px-3 py-1 rounded-full border-2 border-white text-center">HARI PUNCAK<br/>EVENT</span>
+</div>
+</div>
+</section>
+<!-- 5. Categories (Zones) -->
+<section class="bg-halftone-yellow py-section-gap border-y-8 border-black">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic inline-block bg-bgs-red comic-border px-8 py-4 rounded-3xl transform rotate-1 comic-shadow">Shop by Venue Zones</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Zone Cards -->
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-blue comic-border flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">checkroom</span>
+</div>
+<span class="font-black text-xl uppercase italic">Clothing Brand</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-red comic-border flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">styler</span>
+</div>
+<span class="font-black text-xl uppercase italic">Women Fashion</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-green comic-border flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">fastfood</span>
+</div>
+<span class="font-black text-xl uppercase italic">Kuliner &amp; Food Truck</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-blue comic-border flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">groups</span>
+</div>
+<span class="font-black text-xl uppercase italic">Komunitas &amp; Sponsor</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-yellow comic-border flex items-center justify-center text-black">
+<span class="material-symbols-outlined text-4xl">palette</span>
+</div>
+<span class="font-black text-xl uppercase italic">Craft</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border flex flex-col items-center text-center gap-4 comic-shadow hover:translate-y-[-8px] transition-transform cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-bgs-red comic-border flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-4xl">music_note</span>
+</div>
+<span class="font-black text-xl uppercase italic">Musik &amp; Hiburan</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Event Highlights -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop overflow-hidden bg-sunburst-yellow border-x-8 border-black">
+<div class="mb-16 text-center">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic inline-block bg-bgs-blue comic-border px-8 py-4 rounded-3xl transform -rotate-2 comic-shadow">Event Highlights</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+<!-- Highlight 1 -->
+<div class="bg-white rounded-3xl overflow-hidden comic-border flex flex-col comic-shadow hover:translate-y-[-8px] transition-transform transform rotate-1">
+<div class="h-48 bg-bgs-blue relative flex items-center justify-center border-b-4 border-black bg-halftone">
+<span class="font-headline-md text-6xl font-black text-white text-outline-black uppercase tracking-wider italic">MIRAH</span>
+</div>
+<div class="p-8 flex-grow">
+<h3 class="font-headline-md text-2xl font-black text-black mb-3 uppercase italic">Bandung Mirah Pisan</h3>
+<p class="text-black font-bold leading-relaxed border-l-4 border-bgs-blue pl-4">Bazar pelaku usaha &amp; brand lokal (fashion, kuliner, craft, komunitas)</p>
+</div>
+</div>
+<!-- Highlight 2 -->
+<div class="bg-white rounded-3xl overflow-hidden comic-border flex flex-col comic-shadow hover:translate-y-[-8px] transition-transform transform -rotate-1">
+<div class="h-48 bg-bgs-red relative flex items-center justify-center border-b-4 border-black bg-sunburst">
+<span class="font-headline-md text-6xl font-black text-white text-outline-black uppercase tracking-wider italic">MERIAH</span>
+</div>
+<div class="p-8 flex-grow">
+<h3 class="font-headline-md text-2xl font-black text-black mb-3 uppercase italic">Bandung Meriah Pisan</h3>
+<p class="text-black font-bold leading-relaxed border-l-4 border-bgs-red pl-4">Hiburan, brand activation, pertunjukan musik</p>
+</div>
+</div>
+<!-- Highlight 3 -->
+<div class="bg-white rounded-3xl overflow-hidden comic-border flex flex-col comic-shadow hover:translate-y-[-8px] transition-transform transform rotate-2">
+<div class="h-48 bg-bgs-yellow relative flex items-center justify-center border-b-4 border-black bg-halftone-yellow">
+<span class="font-headline-md text-6xl font-black text-white text-outline-black uppercase tracking-wider italic">AING</span>
+</div>
+<div class="p-8 flex-grow">
+<h3 class="font-headline-md text-2xl font-black text-black mb-3 uppercase italic">Bandung Aing Pisan</h3>
+<p class="text-black font-bold leading-relaxed border-l-4 border-bgs-yellow pl-4">Booth komunitas &amp; merchandise khas Bandung (cth. Persib Store)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Tenant Directory -->
+<section class="bg-bgs-blue py-section-gap border-y-8 border-black bg-halftone">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-10">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic mb-4">Direktori Tenant</h2>
+</div>
+<!-- Search & Filters -->
+<div class="bg-white p-6 rounded-3xl comic-border comic-shadow mb-12 flex flex-col md:flex-row gap-6 transform rotate-1">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-black text-2xl">search</span>
+<input class="w-full pl-14 pr-4 py-4 rounded-xl comic-border bg-white font-bold text-lg outline-none focus:ring-4 focus:ring-bgs-yellow transition-all" placeholder="Cari tenant..." type="text"/>
+</div>
+<div class="flex gap-4">
+<select class="px-6 py-4 rounded-xl comic-border bg-bgs-yellow text-black font-black uppercase italic outline-none appearance-none pr-10 cursor-pointer focus:ring-4 focus:ring-black">
+<option>Clothing Brand (34)</option>
+<option>Women Fashion (22)</option>
+<option>Kuliner &amp; Food Truck (64)</option>
+</select>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
+<!-- Merchant Item -->
+<div class="bg-white p-6 rounded-2xl comic-border comic-shadow hover:translate-y-[-8px] transition-transform flex flex-col items-center text-center cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-bgs-yellow comic-border mb-4 flex items-center justify-center text-black overflow-hidden transform -rotate-6 bg-halftone-yellow">
+<span class="font-headline-md text-3xl font-black italic">TVF</span>
+</div>
+<h4 class="font-black text-xl uppercase">TVF Shoes</h4>
+<span class="text-sm font-bold text-white bg-black px-3 py-1 rounded-full mt-2">Clothing</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border comic-shadow hover:translate-y-[-8px] transition-transform flex flex-col items-center text-center cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-bgs-red comic-border mb-4 flex items-center justify-center text-white overflow-hidden transform rotate-6 bg-sunburst">
+<span class="font-headline-md text-3xl font-black italic">WB</span>
+</div>
+<h4 class="font-black text-xl uppercase">Wellborn</h4>
+<span class="text-sm font-bold text-white bg-black px-3 py-1 rounded-full mt-2">Clothing</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border comic-shadow hover:translate-y-[-8px] transition-transform flex flex-col items-center text-center cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-bgs-green comic-border mb-4 flex items-center justify-center text-white overflow-hidden transform -rotate-3 relative">
+<div class="absolute inset-0 bg-halftone opacity-20"></div>
+<span class="font-headline-md text-3xl font-black italic relative z-10">RR</span>
+</div>
+<h4 class="font-black text-xl uppercase">Rocketrebels</h4>
+<span class="text-sm font-bold text-white bg-black px-3 py-1 rounded-full mt-2">Clothing</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border comic-shadow hover:translate-y-[-8px] transition-transform flex flex-col items-center text-center cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-bgs-yellow comic-border mb-4 flex items-center justify-center text-black overflow-hidden transform rotate-3 bg-halftone-yellow">
+<span class="font-headline-md text-3xl font-black italic">FF</span>
+</div>
+<h4 class="font-black text-xl uppercase">Fey by Fera</h4>
+<span class="text-sm font-bold text-white bg-black px-3 py-1 rounded-full mt-2 text-center">Women Fashion</span>
+</div>
+<div class="bg-white p-6 rounded-2xl comic-border comic-shadow hover:translate-y-[-8px] transition-transform flex flex-col items-center text-center cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-bgs-red comic-border mb-4 flex items-center justify-center text-white overflow-hidden transform -rotate-6 bg-sunburst">
+<span class="font-headline-md text-3xl font-black italic">NT</span>
+</div>
+<h4 class="font-black text-xl uppercase">Netaly</h4>
+<span class="text-sm font-bold text-white bg-black px-3 py-1 rounded-full mt-2 text-center">Women Fashion</span>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-white text-black comic-border px-10 py-4 rounded-xl font-black text-xl uppercase comic-shadow comic-shadow-hover transition-all">
+                        Load More Tenants
+                    </button>
+</div>
+</div>
+</section>
+<!-- 8. Rundown & Konvoi -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop bg-grid">
+<div class="text-center mb-16 relative z-10">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic inline-block bg-bgs-yellow comic-border px-8 py-4 rounded-3xl transform rotate-2 comic-shadow">Rundown &amp; Konvoi</h2>
+</div>
+<div class="max-w-4xl mx-auto relative z-10">
+<!-- Timeline -->
+<div class="relative border-l-8 border-black ml-4 md:ml-0 md:pl-0 space-y-12">
+<!-- Item 1 -->
+<div class="relative pl-8 md:pl-0">
+<div class="md:flex items-start justify-between">
+<div class="md:w-1/4 mb-2 md:mb-0 text-left md:text-right md:pr-8 pt-4">
+<span class="font-black text-white text-outline-black text-3xl italic bg-bgs-red px-4 py-2 rounded-xl comic-border inline-block transform -rotate-3 bg-sunburst">08:00</span>
+</div>
+<!-- Node -->
+<div class="absolute left-[-20px] md:left-1/4 md:-ml-[20px] top-6 w-8 h-8 rounded-full bg-bgs-yellow comic-border z-10 comic-shadow-sm"></div>
+<div class="md:w-3/4 md:pl-8">
+<div class="bg-white p-8 rounded-3xl comic-border comic-shadow transform hover:-translate-y-2 transition-transform">
+<h3 class="font-headline-md text-2xl font-black text-black mb-4 uppercase italic">Konvoi Bandros (Happening Art)</h3>
+<p class="text-black font-bold text-lg bg-gray-100 p-4 rounded-xl comic-border">Start dari Balai Kota Bandung, rute: Jl. Merdeka → Jl. Wastukencana → Jl. Riau → Jl. Laswi → Jl. Sukabumi, finish di Laswi Heritage, dipimpin Walikota Bandung.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative pl-8 md:pl-0">
+<div class="md:flex items-start justify-between">
+<div class="md:w-1/4 mb-2 md:mb-0 text-left md:text-right md:pr-8 pt-4">
+<span class="font-black text-white text-outline-black text-3xl italic bg-black px-4 py-2 rounded-xl comic-border inline-block transform rotate-2">[TBA]</span>
+</div>
+<div class="absolute left-[-20px] md:left-1/4 md:-ml-[20px] top-6 w-8 h-8 rounded-full bg-white comic-border z-10 comic-shadow-sm"></div>
+<div class="md:w-3/4 md:pl-8">
+<div class="bg-white p-8 rounded-3xl comic-border comic-shadow transform hover:-translate-y-2 transition-transform">
+<h3 class="font-headline-md text-2xl font-black text-black mb-4 uppercase italic">Grand Opening Ceremony</h3>
+<p class="text-black font-bold text-lg bg-gray-100 p-4 rounded-xl comic-border">Berlokasi di panggung utama Laswi Heritage.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative pl-8 md:pl-0">
+<div class="md:flex items-start justify-between">
+<div class="md:w-1/4 mb-2 md:mb-0 text-left md:text-right md:pr-8 pt-4">
+<span class="font-black text-white text-outline-black text-3xl italic bg-bgs-blue px-4 py-2 rounded-xl comic-border inline-block transform -rotate-1 bg-halftone">[TBA]</span>
+</div>
+<div class="absolute left-[-20px] md:left-1/4 md:-ml-[20px] top-6 w-8 h-8 rounded-full bg-bgs-red comic-border z-10 comic-shadow-sm"></div>
+<div class="md:w-3/4 md:pl-8">
+<div class="bg-white p-8 rounded-3xl comic-border comic-shadow transform hover:-translate-y-2 transition-transform">
+<h3 class="font-headline-md text-2xl font-black text-black mb-4 uppercase italic">Live Music Performance</h3>
+<p class="text-black font-bold text-lg bg-gray-100 p-4 rounded-xl comic-border">Menampilkan: The Changcuters, Kuburan, The Sigit, PAS Band, Rocket Rockers, Danilla.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Hide md border -->
+<div class="hidden md:block absolute left-1/4 top-0 bottom-0 w-2 bg-black -ml-1"></div>
+</div>
+</div>
+</section>
+<!-- 9. Venue Layout Map -->
+<section class="py-section-gap relative border-y-8 border-black bg-sunburst">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12 z-10 relative text-center">
+<h2 class="font-headline-md text-5xl font-black text-white text-outline-black uppercase italic inline-block bg-white text-black px-8 py-4 rounded-3xl comic-border transform -rotate-1 comic-shadow">Venue Layout: Laswi Heritage</h2>
+</div>
+<div class="w-full max-w-5xl mx-auto h-[600px] bg-white relative rounded-3xl overflow-hidden comic-border comic-shadow transform rotate-1 z-10">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100">
+<span class="material-symbols-outlined text-8xl mb-6 text-black">map</span>
+<span class="text-4xl font-black tracking-widest uppercase italic text-center text-black text-outline-white">VENUE MAP DIAGRAM<br/><span class="text-bgs-red">COMING SOON</span></span>
+</div>
+</div>
+</section>
+</main>
+<!-- 17. Footer -->
+<footer class="bg-black text-white font-body-md w-full pt-16 pb-8 border-t-8 border-bgs-yellow">
+<div class="px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="md:col-span-1">
+<span class="font-headline-md text-4xl font-black text-white text-outline-black block mb-4 italic">BGS 2026</span>
+<p class="text-base font-bold bg-white text-black p-4 rounded-xl comic-border inline-block transform -rotate-2">
+                        Pemerintah Kota Bandung × Disdagin Kota Bandung.
+                    </p>
+</div>
+<div>
+<h4 class="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Quick Links</h4>
+<ul class="space-y-3 font-bold text-lg">
+<li class=""><a class="hover:text-bgs-red transition-colors" href="#">Tentang</a></li>
+<li class=""><a class="hover:text-bgs-red transition-colors" href="#">Lineup</a></li>
+<li class=""><a class="hover:text-bgs-red transition-colors" href="#">Rute Konvoi</a></li>
+<li class=""><a class="hover:text-bgs-red transition-colors" href="#">Tenant</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Support</h4>
+<ul class="space-y-3 font-bold text-lg">
+<li class=""><a class="hover:text-bgs-blue transition-colors" href="#">FAQ</a></li>
+<li class=""><a class="hover:text-bgs-blue transition-colors" href="#">Partnership</a></li>
+<li class=""><a class="hover:text-bgs-blue transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-bgs-yellow mb-4 uppercase tracking-wider text-xl italic">Legal</h4>
+<ul class="space-y-3 font-bold text-lg">
+<li class=""><a class="hover:text-bgs-green transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="hover:text-bgs-green transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t-4 border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-bold text-center md:text-left">
+                    © 2026 Bandung Great Sale. All rights reserved.
+                </p>
+<div class="flex gap-4">
+<a class="bg-white text-black p-2 rounded-full comic-border hover:bg-bgs-yellow transition-colors" href="#"><span class="material-symbols-outlined text-2xl">share</span></a>
+<a class="bg-white text-black p-2 rounded-full comic-border hover:bg-bgs-red transition-colors" href="#"><span class="material-symbols-outlined text-2xl">mail</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

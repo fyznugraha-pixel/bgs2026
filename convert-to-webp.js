@@ -5,6 +5,7 @@ const sharp = require('sharp');
 const publicDirs = [
   path.join(__dirname, 'public', 'aset visual'),
   path.join(__dirname, 'public', 'logo'),
+  path.join(__dirname, 'public', 'aset logo'), // Added the new logo directory
   path.join(__dirname, 'public') // root public for any floating pngs
 ];
 

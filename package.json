@@ -15,6 +15,7 @@
     "@tailwindcss/postcss": "^4.3.3",
     "framer-motion": "^13.0.0",
     "html-to-image": "^1.11.13",
+    "html5-qrcode": "^2.3.8",
     "next": "16.3.0",
     "pg": "^8.22.0",
     "postcss": "^8.5.25",
@@ -22,7 +23,8 @@
     "react-dom": "19.2.8",
     "react-qr-code": "^2.2.0",
     "sharp": "^0.35.3",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.3",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^20",

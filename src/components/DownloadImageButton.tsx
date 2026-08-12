@@ -24,7 +24,7 @@ export default function DownloadImageButton({ children, className, targetId }: {
       });
       
       const link = document.createElement('a');
-      link.download = 'BGS26-Ticket.webp';
+      link.download = 'BGS26-Ticket.png';
       link.href = dataUrl;
       link.click();
     } catch (err) {

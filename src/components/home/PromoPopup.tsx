@@ -9,7 +9,6 @@ export default function PromoPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Show popup after 1.5 seconds every time the component mounts
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 1500);

@@ -19,12 +19,12 @@ export default async function Ticket({ searchParams }: { searchParams: Promise<{
 
   if (!registration) {
     return (
-      <div className="min-h-screen bg-[#003751] flex items-center justify-center text-white p-6 text-center">
-        <div>
-          <h1 className="text-3xl font-bold mb-4">Tiket Tidak Ditemukan</h1>
-          <p className="mb-6 text-primary-fixed">Maaf, data pendaftaran Anda tidak dapat ditemukan. Silakan daftar kembali.</p>
-          <Link href="/register" className="bg-primary text-on-primary py-3 px-6 rounded-full inline-block">
-            Kembali ke Pendaftaran
+      <div className="min-h-screen bg-halftone flex items-center justify-center text-white p-6 text-center">
+        <div className="bg-white text-black p-8 rounded-2xl comic-border border-8 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] max-w-md">
+          <h1 className="text-3xl font-black mb-4 uppercase italic">Tiket Ga Ketemu!</h1>
+          <p className="mb-8 font-bold text-gray-700">Waduh, data pendaftaran Anda hilang atau salah alamat. Silakan daftar lagi ya.</p>
+          <Link href="/register" className="bg-bgs-yellow text-black py-4 px-8 rounded-xl inline-block font-black uppercase tracking-wider comic-border border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+            Daftar Ulang
           </Link>
         </div>
       </div>
@@ -35,153 +35,106 @@ export default async function Ticket({ searchParams }: { searchParams: Promise<{
   const shortId = `BGS26-${registration.id.split("-")[0].toUpperCase()}-VIP`;
 
   return (
-    <div className="bg-[#003751] min-h-screen flex flex-col font-body-md text-on-surface relative overflow-x-hidden">
-      {/* Background Confetti/Festive Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center z-0">
-        <div className="w-[800px] h-[800px] bg-gradient-to-tr from-tertiary-container/20 to-transparent rounded-full blur-3xl absolute -top-[200px] -left-[200px]"></div>
-        <div className="w-[600px] h-[600px] bg-gradient-to-bl from-primary-container/30 to-transparent rounded-full blur-3xl absolute -bottom-[100px] -right-[100px]"></div>
-      </div>
-      
-      {/* Header / Back Navigation */}
-      <header className="w-full px-6 md:px-12 py-6 flex items-center justify-start max-w-[1280px] mx-auto relative z-10">
-        <Link className="flex items-center gap-2 text-primary-fixed hover:opacity-80 transition-opacity font-label-lg text-label-lg" href="/">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_back_ios</span>
-          Kembali ke Beranda
-        </Link>
-      </header>
+    <div className="bg-halftone min-h-screen flex flex-col font-body-md relative overflow-x-hidden">
       
       {/* Main Content Area */}
-      <main className="flex-grow flex flex-col items-center justify-center px-6 py-12 w-full max-w-5xl mx-auto relative z-10">
+      <main className="flex-grow flex flex-col items-center justify-center px-4 py-8 md:py-12 w-full max-w-5xl mx-auto relative z-10">
         {/* Success Header */}
         <div className="text-center mb-12 flex flex-col items-center gap-4 relative">
-          <div className="absolute -top-12 -left-8 text-tertiary-fixed opacity-80 material-symbols-outlined text-4xl animate-bounce">auto_awesome</div>
-          <div className="absolute -bottom-8 -right-8 text-tertiary-fixed opacity-80 material-symbols-outlined text-4xl animate-pulse">auto_awesome</div>
-          <div className="w-20 h-20 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container shadow-[0_0_30px_rgba(206,167,0,0.4)]">
-            <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+          <div className="w-20 h-20 rounded-full bg-bgs-green comic-border border-4 border-black flex items-center justify-center text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <span className="material-symbols-outlined text-5xl font-black">check_circle</span>
           </div>
-          <h1 className="font-headline-lg text-headline-lg md:font-display-lg text-white drop-shadow-md">Berhasil Mendaftar!</h1>
-          <p className="font-body-lg text-body-lg text-primary-fixed max-w-md">Tiket digital Anda sudah siap. Simpan tiket ini atau tunjukkan QR code kepada petugas saat kedatangan.</p>
+          <h1 className="font-black text-4xl md:text-6xl text-white uppercase tracking-tighter italic text-outline-black drop-shadow-xl transform -rotate-2">
+            BERHASIL<br/><span className="text-bgs-yellow">MENDAFTAR!</span>
+          </h1>
         </div>
         
-        {/* Ticket Container - Horizontal Layout */}
+        {/* Ticket Container */}
         <div 
           id="ticket-element"
-          className="flex flex-col md:flex-row w-full max-w-4xl rounded-[24px] mb-12 relative overflow-hidden bg-transparent"
-          style={{ boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.2)" }}
+          className="flex flex-col md:flex-row w-full max-w-5xl rounded-2xl mb-12 relative overflow-hidden bg-white comic-border border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transform md:-rotate-1"
         >
           {/* Left Side: Event Details */}
-          <div 
-            className="bg-surface-container-lowest p-8 md:p-[32px] md:w-[65%] flex flex-col justify-between relative z-10 border-r-2 border-dashed border-outline-variant rounded-t-[24px] md:rounded-l-[24px] md:rounded-tr-none min-h-[400px]"
-            style={{ 
-              backgroundImage: "radial-gradient(circle at 2px 2px, rgba(0, 76, 110, 0.05) 1px, transparent 0)", 
-              backgroundSize: "20px 20px" 
-            }}
-          >
-            {/* Top Cutouts (Vertical layout only visible on mobile) */}
-            <div className="absolute -bottom-4 left-[50%] w-8 h-8 bg-[#003751] rounded-full -translate-x-1/2 md:hidden"></div>
+          <div className="p-5 md:p-8 md:w-[70%] flex flex-col justify-between relative bg-white bg-[radial-gradient(#cbd5e1_3px,transparent_3px)] [background-size:24px_24px]">
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <span className="bg-yellow-400 text-white px-4 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider font-bold shadow-sm">E-TIKET</span>
-                <span className="material-symbols-outlined text-primary text-3xl opacity-20">festival</span>
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <span className="bg-bgs-red text-white px-3 py-1 rounded-lg font-black text-[10px] sm:text-xs uppercase tracking-wider comic-border border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2">E-TIKET</span>
+                <span className="material-symbols-outlined text-bgs-blue text-3xl font-black" style={{ fontVariationSettings: "'FILL' 1" }}>local_activity</span>
               </div>
-              <h2 className="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 leading-tight">Bandung Great Sale 2026</h2>
-              <p className="text-on-surface-variant font-body-md mb-8">Tiket Akses Eksklusif</p>
               
-              <div className="flex flex-col sm:flex-row gap-6 mb-6">
-                <div className="flex-1">
-                  <span className="text-tertiary font-label-md text-label-md uppercase block mb-1">NAMA PESERTA</span>
-                  <span className="font-headline-md text-headline-md text-on-surface flex items-center gap-2 break-words">
-                    <span className="material-symbols-outlined text-primary shrink-0">person</span>
+              <h2 className="font-black text-2xl md:text-3xl text-bgs-blue mb-1 leading-tight uppercase italic tracking-tighter">Bandung Great Sale 2026</h2>
+              <p className="text-gray-600 font-bold mb-4 md:mb-6 uppercase tracking-widest text-[10px] sm:text-xs">Tiket Akses Eksklusif</p>
+              
+              <div className="grid grid-cols-2 gap-3 md:gap-4 mb-2 md:mb-4">
+                <div className="bg-white p-3 md:p-3 rounded-xl comic-border border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-bgs-red font-black text-[9px] md:text-[10px] uppercase block mb-1">NAMA PESERTA</span>
+                  <span className="font-bold text-black flex flex-col md:flex-row md:items-center gap-1 md:gap-2 break-words text-xs md:text-base">
+                    <span className="material-symbols-outlined text-bgs-blue font-black text-sm md:text-base hidden md:block">person</span>
                     {registration.name}
                   </span>
                 </div>
-                <div className="flex-1">
-                  <span className="text-tertiary font-label-md text-label-md uppercase block mb-1">ALAMAT EMAIL</span>
-                  <span className="font-headline-md text-headline-md text-on-surface flex items-center gap-2 break-all">
-                    <span className="material-symbols-outlined text-primary shrink-0">mail</span>
+                <div className="bg-white p-3 md:p-3 rounded-xl comic-border border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-bgs-red font-black text-[9px] md:text-[10px] uppercase block mb-1">ALAMAT EMAIL</span>
+                  <span className="font-bold text-black flex flex-col md:flex-row md:items-center gap-1 md:gap-2 break-all text-[10px] md:text-sm">
+                    <span className="material-symbols-outlined text-bgs-blue font-black text-sm md:text-base hidden md:block">mail</span>
                     {registration.email}
                   </span>
                 </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-6 mb-4">
-                <div className="flex-1">
-                  <span className="text-tertiary font-label-md text-label-md uppercase block mb-1">LOKASI / GEDUNG</span>
-                  <span className="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary shrink-0">location_on</span>
+                <div className="bg-white p-3 md:p-3 rounded-xl comic-border border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-bgs-red font-black text-[9px] md:text-[10px] uppercase block mb-1">LOKASI / GEDUNG</span>
+                  <span className="font-bold text-black flex flex-col md:flex-row md:items-center gap-1 md:gap-2 text-xs md:text-base leading-tight">
+                    <span className="material-symbols-outlined text-bgs-blue font-black text-sm md:text-base hidden md:block">location_on</span>
                     Laswi Heritage
                   </span>
                 </div>
-                <div className="flex-1">
-                  <span className="text-tertiary font-label-md text-label-md uppercase block mb-1">TANGGAL HADIR</span>
-                  <span className="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary shrink-0">calendar_month</span>
+                <div className="bg-white p-3 md:p-3 rounded-xl comic-border border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-bgs-red font-black text-[9px] md:text-[10px] uppercase block mb-1">TANGGAL HADIR</span>
+                  <span className="font-bold text-black flex flex-col md:flex-row md:items-center gap-1 md:gap-2 text-xs md:text-base leading-tight">
+                    <span className="material-symbols-outlined text-bgs-blue font-black text-sm md:text-base hidden md:block">calendar_month</span>
                     {registration.date}
                   </span>
                 </div>
               </div>
             </div>
             
-            <div className="mt-8 pt-6 border-t border-outline-variant/30 text-sm text-outline font-label-md">
-              ID: {shortId}
+            <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t-4 border-dashed border-gray-300 font-black text-gray-400 text-xs md:text-sm flex justify-between items-center">
+              <span>ID: {shortId}</span>
+              <span className="uppercase tracking-widest">{registration.whatsapp ? "TERVERIFIKASI" : "STANDAR"}</span>
             </div>
           </div>
           
           {/* Right Side: QR Stub */}
-          <div className="bg-surface-bright p-8 md:p-[32px] md:w-[35%] flex flex-col items-center justify-center text-center relative z-10 rounded-b-[24px] md:rounded-r-[24px] md:rounded-bl-none min-h-[400px]">
-            {/* Side Cutouts (Horizontal layout visible on desktop) */}
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#003751] rounded-full hidden md:block"></div>
-            <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-[#003751] rounded-full hidden md:block"></div>
-            <span className="text-primary font-label-lg text-label-lg uppercase mb-6 tracking-widest font-bold">SCAN DI SINI</span>
+          <div className="bg-bgs-yellow p-5 md:p-8 md:w-[30%] flex flex-col items-center justify-center text-center relative border-t-8 md:border-t-0 md:border-l-8 border-dashed border-black">
+            <span className="text-black font-black text-base md:text-lg uppercase mb-4 tracking-widest bg-white px-3 py-1 rounded-xl comic-border border-2 border-black transform rotate-2">SCAN SINI!</span>
             
-            {/* Real QR Code generated from UID */}
-            <div className="w-56 h-56 bg-white border-4 border-primary rounded-xl p-3 mb-6 flex items-center justify-center shadow-lg relative group overflow-hidden">
-              <div className="absolute inset-0 border-2 border-tertiary opacity-0 group-hover:opacity-100 transition-opacity rounded-xl m-2 pointer-events-none"></div>
+            <div className="w-40 h-40 md:w-48 md:h-48 bg-white border-4 border-black rounded-xl p-2 md:p-3 mb-4 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <QRCode
                 value={registration.id}
-                size={256}
+                size={192}
                 style={{ height: "100%", width: "100%" }}
                 viewBox={`0 0 256 256`}
-                fgColor="#003751"
+                fgColor="#000000"
               />
             </div>
-            <p className="font-body-md text-body-md text-on-surface-variant text-sm max-w-[200px]">
-              Tunjukkan kode ini kepada petugas pendaftaran
+            <p className="font-bold text-black text-sm max-w-[200px] bg-white p-2 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+              Tunjukkan kode ini kepada petugas
             </p>
           </div>
         </div>
         
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full justify-center max-w-3xl">
-          <DownloadImageButton targetId="ticket-element" className="bg-primary text-on-primary rounded-full py-4 px-8 font-label-lg text-label-lg hover:opacity-80 transition-colors flex items-center justify-center gap-2 shadow-lg">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>download</span>
-            Unduh PNG
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full justify-center max-w-3xl mt-4">
+          <DownloadImageButton targetId="ticket-element" className="bg-bgs-blue text-white rounded-xl py-4 px-8 font-black text-lg uppercase tracking-wider hover:-translate-y-1 hover:-translate-x-1 transition-transform flex items-center justify-center gap-2 comic-border border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+            <span className="material-symbols-outlined font-black">download</span>
+            Simpan Tiket
           </DownloadImageButton>
-          <Link href="/" className="bg-transparent border-2 border-primary-fixed text-primary-fixed rounded-full py-4 px-8 font-label-lg text-label-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors flex items-center justify-center gap-2">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>home</span>
-            Kembali ke Beranda
+          <Link href="/" className="bg-white text-black rounded-xl py-4 px-8 font-black text-lg uppercase tracking-wider hover:-translate-y-1 hover:-translate-x-1 transition-transform flex items-center justify-center gap-2 comic-border border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+            <span className="material-symbols-outlined font-black">home</span>
+            Ke Beranda
           </Link>
         </div>
       </main>
       
-      {/* Footer */}
-      <footer className="bg-inverse-surface/90 backdrop-blur-sm text-inverse-on-surface font-body-md text-body-md w-full mt-auto relative z-10 border-t border-outline/20">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 py-12 w-full max-w-[1280px] mx-auto">
-          <div className="mb-6 md:mb-0 text-center md:text-left flex flex-col gap-2">
-            <span className="font-headline-md text-headline-md font-bold text-inverse-primary">Bandung Great Sale 2026</span>
-            <span className="text-sm opacity-80">© 2026 Bandung Great Sale. Hak Cipta Dilindungi. Didukung oleh Dinas Perdagangan Kota Bandung.</span>
-            <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
-              <span className="text-xs opacity-70">Website by</span>
-              <Image src="/logo/LOGO TACTLINK.webp" alt="Tactlink" width={100} height={28} className="h-6 w-auto object-contain" />
-            </div>
-          </div>
-          <nav className="flex flex-wrap justify-center gap-6">
-            <Link className="text-surface-variant hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100 font-label-md text-label-md uppercase" href="#">Kebijakan Privasi</Link>
-            <Link className="text-surface-variant hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100 font-label-md text-label-md uppercase" href="#">Syarat & Ketentuan</Link>
-            <Link className="text-surface-variant hover:text-inverse-primary transition-colors opacity-80 hover:opacity-100 font-label-md text-label-md uppercase" href="#">Bantuan</Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }

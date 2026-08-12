@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center md:items-end gap-2">
             <a href="https://byfayiz.web.id/portofolio" target="_blank" rel="author noopener noreferrer" className="font-bold hover:text-bgs-yellow transition-colors mt-2 md:mt-0">
-              Made by <span className="font-black">Fayiz Apriwansyah Nugraha</span>
+              Dev by <span className="font-black">Fayiz Apriwansyah Nugraha</span>
             </a>
           </div>
         </div>

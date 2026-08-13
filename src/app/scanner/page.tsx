@@ -78,6 +78,14 @@ export default function ScannerPage() {
   };
 
   const onScanSuccess = async (decodedText: string) => {
+    // Play beep sound
+    try {
+      const audio = new Audio('/sound/store-scanner-beep-sound-effect.mp3');
+      audio.play().catch(e => console.error("Could not play sound:", e));
+    } catch (err) {
+      // Ignore audio errors
+    }
+
     // Pause scanner and freeze video frame
     if (scannerRef.current) {
       scannerRef.current.pause(true);

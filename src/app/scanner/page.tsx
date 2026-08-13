@@ -3,6 +3,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { Html5Qrcode, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import Link from 'next/link';
+import ScannerHeader from './components/ScannerHeader';
+import TutorialModal from './components/TutorialModal';
+import RecentScansList, { RecentScan } from './components/RecentScansList';
 
 interface ScanResult {
   success: boolean;
@@ -10,12 +13,7 @@ interface ScanResult {
   data?: any;
 }
 
-interface RecentScan {
-  id: string;
-  name: string;
-  status: 'valid' | 'invalid';
-  time: Date;
-}
+
 
 export default function ScannerPage() {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
@@ -135,93 +133,12 @@ export default function ScannerPage() {
 
   return (
     <div className="bg-[#051630] text-white min-h-screen flex flex-col font-sans overflow-x-hidden relative">
-      <style dangerouslySetInnerHTML={{__html: `
-        .halftone-bg {
-            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2.5px);
-            background-size: 12px 12px;
-        }
-        .sunburst-bg {
-            background: repeating-conic-gradient(
-                rgba(255,255,255,0.02) 0deg 15deg,
-                rgba(255,255,255,0.05) 15deg 30deg
-            );
-        }
-        .scan-line {
-            animation: scan 2s linear infinite;
-        }
-        @keyframes scan {
-            0% { top: 0; }
-            50% { top: 100%; }
-            100% { top: 0; }
-        }
-        #qr-reader {
-          width: 100%;
-          height: 100%;
-        }
-        #qr-reader video {
-          object-fit: cover;
-          width: 100% !important;
-          height: 100% !important;
-        }
-      `}} />
-
-      <header className="bg-[#051630] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-b-4 border-black flex justify-between items-center w-full px-5 h-16 z-50 fixed top-0">
-        <div className="w-8"></div>
-        <div className="text-xl font-black italic uppercase tracking-tighter text-bgs-yellow">
-            BGS 2026 STAFF
-        </div>
-        <div className="flex gap-4">
-          <button 
-            onClick={() => setIsHelpOpen(true)}
-            className="text-bgs-yellow hover:bg-white/10 p-2 rounded-full transition-transform duration-100 hover:translate-y-1"
-          >
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>help</span>
-          </button>
-        </div>
-      </header>
-
-      {isHelpOpen && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-5">
-          <div className="bg-white border-4 border-black rounded-2xl p-6 max-w-sm w-full shadow-[8px_8px_0px_0px_#ffe085] relative transform rotate-1">
-            <button 
-              onClick={() => setIsHelpOpen(false)}
-              className="absolute -top-4 -right-4 bg-bgs-red text-white border-4 border-black w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform font-black text-xl shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
-            <div className="flex items-center gap-3 mb-4 text-black">
-              <span className="material-symbols-outlined text-4xl text-bgs-blue" style={{ fontVariationSettings: "'FILL' 1" }}>help</span>
-              <h2 className="text-2xl font-black uppercase italic">Tutorial Scan</h2>
-            </div>
-            <ul className="space-y-4 text-black font-bold">
-              <li className="flex gap-3">
-                <span className="bg-bgs-yellow w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-black text-sm">1</span>
-                <span>Pastikan Anda telah memberikan <strong>izin kamera</strong> pada browser.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-bgs-yellow w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-black text-sm">2</span>
-                <span>Pilih opsi <strong>Jadwal Event Aktif</strong> sesuai hari ini di layar utama.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-bgs-yellow w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-black text-sm">3</span>
-                <span>Arahkan kamera ke <strong>QR Code tiket</strong> milik pengunjung.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-bgs-yellow w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-black text-sm">4</span>
-                <span>Tunggu animasi <em>Validating</em> hingga muncul hasil <strong>Valid (Hijau)</strong> atau <strong>Invalid (Merah)</strong>.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-bgs-yellow w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-black text-sm">5</span>
-                <span>Klik <strong>Lanjut</strong> untuk bersiap men-scan pengunjung berikutnya.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
+      <ScannerHeader onHelpClick={() => setIsHelpOpen(true)} />
+      {isHelpOpen && <TutorialModal onClose={() => setIsHelpOpen(false)} />}
 
       <main className="flex-grow pt-24 pb-12 relative overflow-hidden flex flex-col items-center justify-center">
-        <div className="absolute inset-0 sunburst-bg opacity-50 pointer-events-none"></div>
-        <div className="absolute inset-0 halftone-bg opacity-20 pointer-events-none"></div>
+        <div className="absolute inset-0 scanner-sunburst-bg opacity-50 pointer-events-none"></div>
+        <div className="absolute inset-0 scanner-halftone-bg opacity-20 pointer-events-none"></div>
         
         <div className="w-full max-w-md px-5 flex flex-col items-center z-10 space-y-6">
           
@@ -321,28 +238,7 @@ export default function ScannerPage() {
             {isScanning ? 'Arahkan QR Code tiket ke dalam bingkai kamera untuk memvalidasi.' : 'Tekan Buka Kamera untuk memulai verifikasi tiket.'}
           </p>
 
-          <div className="w-full bg-white text-black border-4 border-black rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden mt-4">
-            <div className="bg-black text-white px-4 py-3 font-black text-lg border-b-4 border-black flex items-center gap-2 uppercase">
-              <span className="material-symbols-outlined text-xl">history</span> Recent Scans
-            </div>
-            <div className="max-h-40 overflow-y-auto p-3 space-y-3 bg-gray-50">
-              {recentScans.length === 0 ? (
-                <p className="text-center text-gray-500 font-bold py-4">Belum ada riwayat scan.</p>
-              ) : (
-                recentScans.map((scan, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-white p-3 rounded-lg border-2 border-black shadow-sm">
-                    <span className="font-bold text-base text-black truncate max-w-[150px]">{scan.name}</span>
-                    <span className={`font-black text-sm flex items-center gap-1 ${scan.status === 'valid' ? 'text-bgs-green' : 'text-bgs-red'}`}>
-                      <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
-                        {scan.status === 'valid' ? 'check_circle' : 'cancel'}
-                      </span> 
-                      {scan.status === 'valid' ? 'VALID' : 'INVALID'}
-                    </span>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
+          <RecentScansList scans={recentScans} />
           
         </div>
       </main>

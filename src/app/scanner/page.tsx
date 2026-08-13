@@ -172,7 +172,7 @@ export default function ScannerPage() {
 
       {/* TopAppBar */}
       <header className="bg-[#051630] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-b-4 border-black flex justify-between items-center w-full px-5 h-16 z-50 fixed top-0">
-        <Link href="/bgs-hq-panel-2026" className="flex items-center gap-2 text-white hover:text-bgs-yellow transition-colors">
+        <Link href="/" className="flex items-center gap-2 text-white hover:text-bgs-yellow transition-colors">
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>
         <div className="text-xl font-black italic uppercase tracking-tighter text-bgs-yellow">

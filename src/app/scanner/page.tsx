@@ -20,6 +20,7 @@ interface RecentScan {
 export default function ScannerPage() {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   const [isScanning, setIsScanning] = useState(false);
+  const [isValidating, setIsValidating] = useState(false);
   const [cameraPermissionGranted, setCameraPermissionGranted] = useState(false);
   const [recentScans, setRecentScans] = useState<RecentScan[]>([]);
   const [selectedDate, setSelectedDate] = useState('21 Agustus 2026');
@@ -83,6 +84,8 @@ export default function ScannerPage() {
       setIsScanning(false);
     }
 
+    setIsValidating(true);
+
     try {
       const response = await fetch('/api/scan', {
         method: 'POST',
@@ -110,6 +113,8 @@ export default function ScannerPage() {
         success: false,
         message: 'Gagal menghubungi server. Silakan coba lagi.'
       });
+    } finally {
+      setIsValidating(false);
     }
   };
 
@@ -233,7 +238,7 @@ export default function ScannerPage() {
             </div>
 
             {/* Overlay if not scanning */}
-            {!cameraPermissionGranted && !isScanning && !scanResult && (
+            {!cameraPermissionGranted && !isScanning && !scanResult && !isValidating && (
               <div className="absolute inset-0 bg-[#051630]/80 backdrop-blur-sm flex flex-col items-center justify-center z-30 p-6 text-center">
                 <span className="material-symbols-outlined text-white opacity-50 mb-4" style={{ fontSize: '64px' }}>qr_code_scanner</span>
                 <button 
@@ -242,6 +247,17 @@ export default function ScannerPage() {
                 >
                   Buka Kamera
                 </button>
+              </div>
+            )}
+
+            {/* Overlay Validating */}
+            {isValidating && (
+              <div className="absolute inset-0 bg-[#051630]/80 backdrop-blur-md flex flex-col items-center justify-center z-40 p-6 text-center">
+                <div className="w-12 h-12 border-4 border-bgs-yellow border-t-transparent rounded-full animate-spin mb-4 shadow-[2px_2px_0_0_rgba(0,0,0,1)]"></div>
+                <h3 className="text-xl font-black text-white uppercase italic text-outline-black-sm mb-1">
+                  Validating...
+                </h3>
+                <p className="text-white font-bold text-sm">Sedang mengecek data tiket</p>
               </div>
             )}
 
@@ -267,7 +283,7 @@ export default function ScannerPage() {
 
           {/* Status Message */}
           <div className="bg-bgs-yellow text-black border-4 border-black px-8 py-3 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-black text-xl transform -rotate-2 uppercase">
-            {isScanning ? 'Scanning...' : (scanResult ? (scanResult.success ? 'Verified' : 'Rejected') : 'Ready to Scan')}
+            {isScanning ? 'Scanning...' : (isValidating ? 'Validating...' : (scanResult ? (scanResult.success ? 'Verified' : 'Rejected') : 'Ready to Scan'))}
           </div>
 
           {/* Instructional Text */}

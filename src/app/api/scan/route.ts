@@ -24,7 +24,18 @@ export async function POST(request: Request) {
       );
     }
 
-    if (scanDate && registration.date !== scanDate) {
+    // Normalisasi tanggal untuk kompatibilitas tiket lama
+    let normalizedDbDate = registration.date;
+    const dateMap: Record<string, string> = {
+      'August 21, 2026': '21 Agustus 2026',
+      'August 22, 2026': '22 Agustus 2026',
+      'August 23, 2026': '23 Agustus 2026',
+    };
+    if (dateMap[normalizedDbDate]) {
+      normalizedDbDate = dateMap[normalizedDbDate];
+    }
+
+    if (scanDate && normalizedDbDate !== scanDate) {
       return NextResponse.json(
         { 
           success: false, 

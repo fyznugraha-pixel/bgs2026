@@ -77,9 +77,9 @@ export default function ScannerPage() {
   };
 
   const onScanSuccess = async (decodedText: string) => {
-    // Pause scanner
-    if (scannerRef.current && scannerRef.current.isScanning) {
-      scannerRef.current.pause();
+    // Pause scanner and freeze video frame
+    if (scannerRef.current) {
+      scannerRef.current.pause(true);
       setIsScanning(false);
     }
 
@@ -259,7 +259,7 @@ export default function ScannerPage() {
                   onClick={handleResumeScan}
                   className="bg-white text-black border-4 border-black px-6 py-2 rounded-xl font-black uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
-                  Scan Lagi
+                  {scanResult.success ? 'Lanjut' : 'Scan Lagi'}
                 </button>
               </div>
             )}

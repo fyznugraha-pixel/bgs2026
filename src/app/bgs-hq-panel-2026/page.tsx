@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import prisma from '@/lib/prisma';
 import ExportButton from '@/components/admin/ExportButton';
-import DeleteButton from '@/components/admin/DeleteButton';
 import { redirect } from 'next/navigation';
+import DashboardStats from './components/DashboardStats';
+import DashboardTable from './components/DashboardTable';
+import DashboardPagination from './components/DashboardPagination';
 
 export const dynamic = 'force-dynamic';
 
@@ -84,42 +86,7 @@ export default async function AdminDashboard(props: {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 mb-8">
-          <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200">
-            <div className="px-4 py-5 sm:p-6">
-              <dt className="text-sm font-medium text-gray-500 truncate">Total Pendaftar</dt>
-              <dd className="mt-1 text-3xl font-semibold text-gray-900">{totalRegistrations}</dd>
-            </div>
-          </div>
-          
-          <div className="bg-blue-50 overflow-hidden shadow-sm rounded-lg border border-blue-200">
-            <div className="px-4 py-5 sm:p-6">
-              <dt className="text-sm font-bold text-blue-700 truncate">Total Check-in (Semua)</dt>
-              <dd className="mt-1 text-3xl font-black text-blue-900">{totalAttended}</dd>
-            </div>
-          </div>
-          
-          <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200">
-            <div className="px-4 py-5 sm:p-6">
-              <dt className="text-sm font-medium text-gray-500 truncate">Check-in 21 Ags</dt>
-              <dd className="mt-1 text-2xl font-semibold text-gray-900">{count21}</dd>
-            </div>
-          </div>
-          
-          <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200">
-            <div className="px-4 py-5 sm:p-6">
-              <dt className="text-sm font-medium text-gray-500 truncate">Check-in 22 Ags</dt>
-              <dd className="mt-1 text-2xl font-semibold text-gray-900">{count22}</dd>
-            </div>
-          </div>
-
-          <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200">
-            <div className="px-4 py-5 sm:p-6">
-              <dt className="text-sm font-medium text-gray-500 truncate">Check-in 23 Ags</dt>
-              <dd className="mt-1 text-2xl font-semibold text-gray-900">{count23}</dd>
-            </div>
-          </div>
-        </div>
+        <DashboardStats stats={{ totalRegistrations, totalAttended, count21, count22, count23 }} />
 
         {/* Filters and Table */}
         <div className="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
@@ -148,120 +115,15 @@ export default async function AdminDashboard(props: {
             <ExportButton data={exportData} />
           </div>
           
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Nama & Email
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Kota
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Tanggal Event
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Status Hadir
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Aksi
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {currentRegistrations.length === 0 ? (
-                  <tr>
-                    <td colSpan={4} className="px-6 py-12 text-center text-gray-500">
-                      Belum ada data pada filter ini.
-                    </td>
-                  </tr>
-                ) : (
-                  currentRegistrations.map((reg) => (
-                    <tr key={reg.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">{reg.name}</div>
-                        <div className="text-sm text-gray-500">{reg.email}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        {reg.city}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                          {reg.date}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        {reg.isAttended ? (
-                          <div>
-                            <span className="px-2 inline-flex text-xs leading-5 font-bold rounded-full bg-green-100 text-green-800">
-                              Hadir
-                            </span>
-                            <div className="text-xs text-gray-500 mt-1">
-                              {reg.attendedAt ? new Date(reg.attendedAt).toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'}) : ''}
-                            </div>
-                          </div>
-                        ) : (
-                          <span className="px-2 inline-flex text-xs leading-5 font-medium rounded-full bg-gray-100 text-gray-600">
-                            Belum Hadir
-                          </span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <DeleteButton id={reg.id} />
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
+          <DashboardTable registrations={currentRegistrations} />
           
-          {/* Pagination Controls */}
-          {totalPages > 1 && (
-            <div className="px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 bg-gray-50">
-              <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm text-gray-700">
-                    Menampilkan <span className="font-medium">{(page - 1) * limit + 1}</span> hingga <span className="font-medium">{Math.min(page * limit, totalFiltered)}</span> dari <span className="font-medium">{totalFiltered}</span> data
-                  </p>
-                </div>
-                <div>
-                  <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                    <Link
-                      href={`/bgs-hq-panel-2026?page=${page > 1 ? page - 1 : 1}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
-                      className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${page <= 1 ? 'text-gray-300 cursor-not-allowed pointer-events-none' : 'text-gray-500 hover:bg-gray-50'}`}
-                    >
-                      <span className="sr-only">Previous</span>
-                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                    </Link>
-                    
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                      <Link
-                        key={i}
-                        href={`/bgs-hq-panel-2026?page=${i + 1}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
-                        className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                          page === i + 1
-                            ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                            : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                        }`}
-                      >
-                        {i + 1}
-                      </Link>
-                    ))}
-
-                    <Link
-                      href={`/bgs-hq-panel-2026?page=${page < totalPages ? page + 1 : totalPages}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
-                      className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${page >= totalPages ? 'text-gray-300 cursor-not-allowed pointer-events-none' : 'text-gray-500 hover:bg-gray-50'}`}
-                    >
-                      <span className="sr-only">Next</span>
-                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                    </Link>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          )}
+          <DashboardPagination 
+            page={page} 
+            limit={limit} 
+            totalFiltered={totalFiltered} 
+            totalPages={totalPages} 
+            filterDate={filterDate} 
+          />
         </div>
       </main>
     </div>

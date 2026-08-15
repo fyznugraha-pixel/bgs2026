@@ -77,8 +77,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           <CustomCursor />
           {children}
-          <Analytics />
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );

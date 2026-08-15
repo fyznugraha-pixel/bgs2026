@@ -4,6 +4,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import { Analytics } from "@vercel/analytics/react";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           <CustomCursor />
           {children}
+          <Analytics />
         </SmoothScroll>
       </body>
     </html>

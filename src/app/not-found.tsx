@@ -8,8 +8,8 @@ export default function NotFound() {
       <div className="absolute top-1/4 left-10 w-32 h-32 bg-bgs-yellow rounded-full comic-border border-4 border-black mix-blend-multiply opacity-50 blur-lg animate-pulse" />
       <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-bgs-blue rounded-full comic-border border-4 border-black mix-blend-multiply opacity-50 blur-lg animate-pulse delay-700" />
       
-      <main className="flex-grow flex flex-col items-center justify-center px-4 py-8 relative z-10">
-        <div className="bg-white text-black p-8 md:p-12 rounded-2xl comic-border border-8 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] max-w-2xl w-full text-center relative overflow-hidden transform md:-rotate-1">
+      <main className="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 py-8 relative z-10 overflow-hidden w-full max-w-[100vw]">
+        <div className="bg-white text-black p-6 sm:p-8 md:p-12 rounded-2xl comic-border border-4 md:border-8 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] max-w-2xl w-[90%] md:w-full text-center relative transform md:-rotate-1 mx-auto my-4">
           {/* Decorative shapes inside card */}
           <div className="absolute -top-10 -right-10 text-bgs-yellow opacity-20">
             <span className="material-symbols-outlined text-[150px]" style={{ fontVariationSettings: "'FILL' 1" }}>error</span>

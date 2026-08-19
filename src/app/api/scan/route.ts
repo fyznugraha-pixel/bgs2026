@@ -12,10 +12,14 @@ export async function POST(request: Request) {
       );
     }
 
-    // Cari tiket di database
-    const registration = await prisma.registration.findUnique({
+    // Cari tiket di database (pengunjung atau UMKM)
+    const visitorRegistration = await prisma.registration.findUnique({
       where: { id },
     });
+    const isUmkm = !visitorRegistration;
+    const registration = visitorRegistration ?? (await prisma.umkmRegistration.findUnique({
+      where: { id },
+    }));
 
     if (!registration) {
       return NextResponse.json(
@@ -58,13 +62,10 @@ export async function POST(request: Request) {
     }
 
     // Update status kehadiran
-    const updatedRegistration = await prisma.registration.update({
-      where: { id },
-      data: {
-        isAttended: true,
-        attendedAt: new Date(),
-      },
-    });
+    const updateData = { isAttended: true, attendedAt: new Date() };
+    const updatedRegistration = isUmkm
+      ? await prisma.umkmRegistration.update({ where: { id }, data: updateData })
+      : await prisma.registration.update({ where: { id }, data: updateData });
 
     return NextResponse.json(
       { 

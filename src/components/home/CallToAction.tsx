@@ -59,7 +59,7 @@ export default function CallToAction() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center relative z-30">
-              <Link href="/register" className="bg-bgs-yellow text-black px-10 py-4 rounded-xl font-black comic-border comic-shadow hover:bg-white hover:-translate-y-1 transition-all text-center uppercase">
+              <Link href="/daftar" className="bg-bgs-yellow text-black px-10 py-4 rounded-xl font-black comic-border comic-shadow hover:bg-white hover:-translate-y-1 transition-all text-center uppercase">
                 DAFTAR SEKARANG
               </Link>
               <a href="#tenant" className="bg-bgs-blue text-white px-10 py-4 rounded-xl font-black comic-border comic-shadow hover:bg-white hover:text-black hover:-translate-y-1 transition-all text-center uppercase">

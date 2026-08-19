@@ -60,8 +60,8 @@ export default function PromoPopup() {
               Jadilah bagian dari festival belanja dan hiburan terbesar di Bandung. Daftar sekarang dan dapatkan akses prioritas!
             </p>
 
-            <Link 
-              href="/register"
+            <Link
+              href="/daftar"
               onClick={() => setIsOpen(false)}
               className="w-full sm:w-auto bg-bgs-yellow text-black px-8 py-4 rounded-xl font-black uppercase tracking-wider comic-border border-4 border-black hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center gap-2"
             >

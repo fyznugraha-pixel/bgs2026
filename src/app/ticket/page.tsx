@@ -11,14 +11,20 @@ export default async function Ticket({ searchParams }: { searchParams: Promise<{
   const id = params?.id;
 
   if (!id) {
-    redirect("/register");
+    redirect("/daftar");
   }
 
   const registration = await prisma.registration.findUnique({
     where: { id },
   });
 
-  if (!registration) {
+  const umkmRegistration = registration
+    ? null
+    : await prisma.umkmRegistration.findUnique({ where: { id } });
+
+  const ticket = registration ?? umkmRegistration;
+
+  if (!ticket) {
     return <TicketNotFound />;
   }
 
@@ -37,7 +43,7 @@ export default async function Ticket({ searchParams }: { searchParams: Promise<{
           </h1>
         </div>
         
-        <TicketCard registration={registration} />
+        <TicketCard registration={ticket} type={registration ? "visitor" : "umkm"} />
         
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full justify-center max-w-3xl mt-4">

@@ -164,7 +164,7 @@ export default function Hero() {
           <a href="#tenant" className="bg-bgs-yellow text-black comic-border px-2 min-[375px]:px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-[10px] min-[375px]:text-[11px] sm:text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             JELAJAHI TENANT
           </a>
-          <Link href="/register" className="bg-white text-black comic-border px-2 min-[375px]:px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-[10px] min-[375px]:text-[11px] sm:text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
+          <Link href="/daftar" className="bg-white text-black comic-border px-2 min-[375px]:px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-black text-[10px] min-[375px]:text-[11px] sm:text-lg md:text-xl uppercase transition-all comic-shadow comic-shadow-hover inline-flex justify-center items-center whitespace-nowrap z-20 flex-1 sm:flex-none">
             REGISTER NOW
           </Link>
         </div>

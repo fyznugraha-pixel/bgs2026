@@ -23,3 +23,16 @@ model Registration {
   attendedAt DateTime?
   createdAt DateTime @default(now())
 }
+
+model UmkmRegistration {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  whatsapp     String
+  businessName String
+  category     String
+  date         String
+  isAttended   Boolean  @default(false)
+  attendedAt   DateTime?
+  createdAt    DateTime @default(now())
+}

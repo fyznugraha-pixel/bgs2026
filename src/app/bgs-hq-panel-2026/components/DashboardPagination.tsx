@@ -6,9 +6,10 @@ interface PaginationProps {
   totalFiltered: number;
   totalPages: number;
   filterDate: string;
+  type?: string;
 }
 
-export default function DashboardPagination({ page, limit, totalFiltered, totalPages, filterDate }: PaginationProps) {
+export default function DashboardPagination({ page, limit, totalFiltered, totalPages, filterDate, type = 'visitor' }: PaginationProps) {
   if (totalPages <= 1) return null;
 
   return (
@@ -22,7 +23,7 @@ export default function DashboardPagination({ page, limit, totalFiltered, totalP
         <div>
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
             <Link
-              href={`/bgs-hq-panel-2026?page=${page > 1 ? page - 1 : 1}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
+              href={`/bgs-hq-panel-2026?page=${page > 1 ? page - 1 : 1}&type=${type}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
               className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${page <= 1 ? 'text-gray-300 cursor-not-allowed pointer-events-none' : 'text-gray-500 hover:bg-gray-50'}`}
             >
               <span className="sr-only">Previous</span>
@@ -32,7 +33,7 @@ export default function DashboardPagination({ page, limit, totalFiltered, totalP
             {Array.from({ length: totalPages }).map((_, i) => (
               <Link
                 key={i}
-                href={`/bgs-hq-panel-2026?page=${i + 1}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
+                href={`/bgs-hq-panel-2026?page=${i + 1}&type=${type}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
                 className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                   page === i + 1
                     ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
@@ -44,7 +45,7 @@ export default function DashboardPagination({ page, limit, totalFiltered, totalP
             ))}
 
             <Link
-              href={`/bgs-hq-panel-2026?page=${page < totalPages ? page + 1 : totalPages}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
+              href={`/bgs-hq-panel-2026?page=${page < totalPages ? page + 1 : totalPages}&type=${type}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`}
               className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${page >= totalPages ? 'text-gray-300 cursor-not-allowed pointer-events-none' : 'text-gray-500 hover:bg-gray-50'}`}
             >
               <span className="sr-only">Next</span>

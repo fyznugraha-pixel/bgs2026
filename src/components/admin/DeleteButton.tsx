@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { deleteRegistration } from '@/app/actions/admin'
+import { deleteRegistration, deleteUmkmRegistration } from '@/app/actions/admin'
 
-export default function DeleteButton({ id }: { id: string }) {
+export default function DeleteButton({ id, type = 'visitor' }: { id: string, type?: 'visitor' | 'umkm' }) {
   const [isDeleting, setIsDeleting] = useState(false)
 
   const handleDelete = async () => {
     if (!confirm('Apakah Anda yakin ingin menghapus data peserta ini? Data yang dihapus tidak bisa dikembalikan.')) return
     
     setIsDeleting(true)
-    const result = await deleteRegistration(id)
+    const result = type === 'umkm' ? await deleteUmkmRegistration(id) : await deleteRegistration(id)
     if (!result.success) {
       alert(result.error)
       setIsDeleting(false)

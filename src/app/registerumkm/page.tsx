@@ -10,7 +10,7 @@ export default function RegisterUmkm() {
     <div className="font-body-md text-black antialiased relative min-h-screen flex flex-col bg-bgs-yellow bg-polka">
 
       {/* Main Content Area */}
-      <main className="flex-grow flex items-center justify-center py-20 px-6 md:px-[64px] relative z-10">
+      <main className="flex-grow flex items-center justify-center py-20 px-6 md:px-[64px] relative z-30">
         {/* Registration Card */}
         <div className="w-full max-w-[672px] bg-white rounded-3xl comic-border comic-shadow-lg relative transform rotate-1 mt-8">
 

@@ -4,31 +4,40 @@ import ExportButton from '@/components/admin/ExportButton';
 import { redirect } from 'next/navigation';
 import DashboardStats from './components/DashboardStats';
 import DashboardTable from './components/DashboardTable';
+import UmkmDashboardTable from './components/UmkmDashboardTable';
 import DashboardPagination from './components/DashboardPagination';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard(props: {
-  searchParams: Promise<{ page?: string; date?: string }>;
+  searchParams: Promise<{ page?: string; date?: string; type?: string }>;
 }) {
   const searchParams = await props.searchParams;
   const page = parseInt(searchParams?.page || '1', 10);
   const limit = 50;
   const filterDate = searchParams?.date || 'all';
+  const type = searchParams?.type || 'visitor';
 
   // Build where clause based on filter
   const whereClause = filterDate !== 'all' ? { date: filterDate } : {};
 
   // Get data
-  const allRegistrations = await prisma.registration.findMany({
-    where: whereClause,
-    orderBy: {
-      createdAt: 'desc'
-    }
-  });
+  let allRegistrations: any[] = [];
+  let globalStatsData: any[] = [];
 
-  // Calculate stats based on ALL data (ignoring current filter for global stats)
-  const globalStatsData = await prisma.registration.findMany();
+  if (type === 'umkm') {
+    allRegistrations = await prisma.umkmRegistration.findMany({
+      where: whereClause,
+      orderBy: { createdAt: 'desc' }
+    });
+    globalStatsData = await prisma.umkmRegistration.findMany();
+  } else {
+    allRegistrations = await prisma.registration.findMany({
+      where: whereClause,
+      orderBy: { createdAt: 'desc' }
+    });
+    globalStatsData = await prisma.registration.findMany();
+  }
   
   const totalRegistrations = globalStatsData.length;
   const totalAttended = globalStatsData.filter(r => r.isAttended).length;
@@ -46,7 +55,18 @@ export default async function AdminDashboard(props: {
 
   const currentRegistrations = allRegistrations.slice((page - 1) * limit, page * limit);
 
-  const exportData = allRegistrations.map((reg) => ({
+  const exportData = type === 'umkm' ? allRegistrations.map((reg) => ({
+    'ID': reg.id,
+    'Nama Lengkap': reg.name,
+    'Email': reg.email,
+    'Nama Usaha': reg.businessName,
+    'Kategori': reg.category,
+    'No. WhatsApp': reg.whatsapp,
+    'Tanggal Event': reg.date,
+    'Status Hadir': reg.isAttended ? 'Hadir' : 'Belum Hadir',
+    'Waktu Scan (Hadir)': reg.attendedAt ? new Date(reg.attendedAt).toLocaleString('id-ID') : '-',
+    'Waktu Daftar': new Date(reg.createdAt).toLocaleString('id-ID')
+  })) : allRegistrations.map((reg) => ({
     'ID': reg.id,
     'Nama Lengkap': reg.name,
     'Email': reg.email,
@@ -88,14 +108,25 @@ export default async function AdminDashboard(props: {
         {/* Stats */}
         <DashboardStats stats={{ totalRegistrations, totalAttended, count21, count22, count23 }} />
 
+        {/* Tabs */}
+        <div className="mb-6 flex gap-4 border-b border-gray-200 mt-8">
+          <Link href={`/bgs-hq-panel-2026?type=visitor&date=${filterDate}`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'visitor' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+            Pengunjung Umum
+          </Link>
+          <Link href={`/bgs-hq-panel-2026?type=umkm&date=${filterDate}`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'umkm' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+            Data UMKM
+          </Link>
+        </div>
+
         {/* Filters and Table */}
         <div className="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
           <div className="px-4 py-5 sm:px-6 border-b border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50/50">
             <div className="flex items-center gap-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">Data Pengunjung</h3>
+              <h3 className="text-lg leading-6 font-medium text-gray-900">{type === 'umkm' ? 'Data UMKM' : 'Data Pengunjung'}</h3>
               
               {/* Date Filter */}
               <form method="GET" action="/bgs-hq-panel-2026" className="flex items-center gap-2">
+                <input type="hidden" name="type" value={type} />
                 <select 
                   name="date" 
                   defaultValue={filterDate}
@@ -112,10 +143,14 @@ export default async function AdminDashboard(props: {
               </form>
             </div>
 
-            <ExportButton data={exportData} />
+            <ExportButton data={exportData} type={type} />
           </div>
           
-          <DashboardTable registrations={currentRegistrations} />
+          {type === 'umkm' ? (
+            <UmkmDashboardTable registrations={currentRegistrations} />
+          ) : (
+            <DashboardTable registrations={currentRegistrations} />
+          )}
           
           <DashboardPagination 
             page={page} 

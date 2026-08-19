@@ -2,18 +2,7 @@
 
 import * as XLSX from 'xlsx';
 
-interface RegistrationData {
-  'ID': string;
-  'Nama Lengkap': string;
-  'Email': string;
-  'Kota/Kabupaten': string;
-  'Tanggal Event': string;
-  'Status Hadir': string;
-  'Waktu Scan (Hadir)': string;
-  'Waktu Daftar': string;
-}
-
-export default function ExportButton({ data }: { data: RegistrationData[] }) {
+export default function ExportButton({ data, type = 'visitor' }: { data: any[], type?: string }) {
   const handleExport = () => {
     if (data.length === 0) {
       alert("Tidak ada data untuk diexport.");
@@ -28,7 +17,8 @@ export default function ExportButton({ data }: { data: RegistrationData[] }) {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Data Pendaftar");
     
     // 3. Simpan sebagai file .xlsx
-    XLSX.writeFile(workbook, "Data_Pendaftar_BGS_2026.xlsx");
+    const filename = type === 'umkm' ? "Data_UMKM_BGS_2026.xlsx" : "Data_Pengunjung_BGS_2026.xlsx";
+    XLSX.writeFile(workbook, filename);
   };
 
   return (

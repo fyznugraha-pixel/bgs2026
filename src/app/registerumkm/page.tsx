@@ -1,10 +1,15 @@
-"use client";
-
+import Link from "next/link";
+import prisma from "@/lib/prisma";
+import { UMKM_REGISTRATION_QUOTA } from "@/lib/constants";
 import SearchTicketForm from "@/app/register/components/SearchTicketForm";
 import RegistrationFormUmkm from "./components/RegistrationFormUmkm";
 import Footer from "@/components/layout/Footer";
 
-export default function RegisterUmkm() {
+export const dynamic = "force-dynamic";
+
+export default async function RegisterUmkm() {
+  const totalUmkm = await prisma.umkmRegistration.count();
+  const isQuotaFull = totalUmkm >= UMKM_REGISTRATION_QUOTA;
 
   return (
     <div className="font-body-md text-black antialiased relative min-h-screen flex flex-col bg-bgs-yellow bg-polka">
@@ -33,7 +38,26 @@ export default function RegisterUmkm() {
 
           <SearchTicketForm />
 
-          <RegistrationFormUmkm />
+          {isQuotaFull ? (
+            <div className="mt-6 text-center relative z-10">
+              <div className="bg-bgs-red text-white p-6 rounded-2xl comic-border comic-shadow-sm transform -rotate-1">
+                <span className="material-symbols-outlined text-4xl mb-2 block">block</span>
+                <h2 className="font-black text-xl uppercase italic mb-2">Pendaftaran UMKM Ditutup</h2>
+                <p className="font-bold text-sm opacity-90">
+                  Kuota {UMKM_REGISTRATION_QUOTA} pendaftar UMKM sudah penuh. Kamu masih bisa hadir sebagai pengunjung!
+                </p>
+              </div>
+              <Link
+                href="/register"
+                className="mt-6 inline-flex items-center justify-center gap-2 w-full bg-bgs-yellow text-black px-6 py-4 rounded-xl font-black uppercase tracking-wider comic-border border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                Daftar Sebagai Visitor
+                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>
+              </Link>
+            </div>
+          ) : (
+            <RegistrationFormUmkm />
+          )}
 
           </div>
         </div>

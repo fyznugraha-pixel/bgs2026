@@ -1,0 +1,1 @@
+export const UMKM_REGISTRATION_QUOTA = 310;

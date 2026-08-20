@@ -1,1 +1,2 @@
 export const UMKM_REGISTRATION_QUOTA = 310;
+export const UMKM_REGISTRATION_ENABLED = false;

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { UMKM_REGISTRATION_QUOTA } from '@/lib/constants';
+import { UMKM_REGISTRATION_ENABLED, UMKM_REGISTRATION_QUOTA } from '@/lib/constants';
 
 export async function POST(request: Request) {
   try {
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     const totalUmkm = await prisma.umkmRegistration.count();
-    if (totalUmkm >= UMKM_REGISTRATION_QUOTA) {
+    if (!UMKM_REGISTRATION_ENABLED || totalUmkm >= UMKM_REGISTRATION_QUOTA) {
       return NextResponse.json(
         { error: 'Pendaftaran UMKM sudah ditutup. Silakan daftar sebagai visitor.' },
         { status: 403 }

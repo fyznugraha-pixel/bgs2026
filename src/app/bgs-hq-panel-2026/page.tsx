@@ -135,9 +135,6 @@ export default async function AdminDashboard(props: {
           <Link href={`/bgs-hq-panel-2026?type=visitor&date=${filterDate}`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'visitor' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
             Pengunjung Umum
           </Link>
-          <Link href={`/bgs-hq-panel-2026?type=umkm&date=${filterDate}`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'umkm' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
-            Data UMKM
-          </Link>
           <Link href={`/bgs-hq-panel-2026?type=whoosh`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'whoosh' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
             Data Voucher Whoosh
           </Link>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
-import { UMKM_REGISTRATION_QUOTA } from "@/lib/constants";
+import { UMKM_REGISTRATION_ENABLED, UMKM_REGISTRATION_QUOTA } from "@/lib/constants";
 import SearchTicketForm from "@/app/register/components/SearchTicketForm";
 import RegistrationFormUmkm from "./components/RegistrationFormUmkm";
 import Footer from "@/components/layout/Footer";
@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default async function RegisterUmkm() {
   const totalUmkm = await prisma.umkmRegistration.count();
-  const isQuotaFull = totalUmkm >= UMKM_REGISTRATION_QUOTA;
+  const isQuotaFull = !UMKM_REGISTRATION_ENABLED || totalUmkm >= UMKM_REGISTRATION_QUOTA;
 
   return (
     <div className="font-body-md text-black antialiased relative min-h-screen flex flex-col bg-bgs-yellow bg-polka">
@@ -44,7 +44,7 @@ export default async function RegisterUmkm() {
                 <span className="material-symbols-outlined text-4xl mb-2 block">block</span>
                 <h2 className="font-black text-xl uppercase italic mb-2">Pendaftaran UMKM Ditutup</h2>
                 <p className="font-bold text-sm opacity-90">
-                  Kuota {UMKM_REGISTRATION_QUOTA} pendaftar UMKM sudah penuh. Kamu masih bisa hadir sebagai pengunjung!
+                  Kuota pendaftar UMKM sudah penuh. Kamu masih bisa hadir sebagai pengunjung!
                 </p>
               </div>
               <Link

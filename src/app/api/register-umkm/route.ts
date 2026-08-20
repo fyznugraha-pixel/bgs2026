@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { UMKM_REGISTRATION_QUOTA } from '@/lib/constants';
 
 export async function POST(request: Request) {
   try {
@@ -11,6 +12,14 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: 'Semua field wajib diisi' },
         { status: 400 }
+      );
+    }
+
+    const totalUmkm = await prisma.umkmRegistration.count();
+    if (totalUmkm >= UMKM_REGISTRATION_QUOTA) {
+      return NextResponse.json(
+        { error: 'Pendaftaran UMKM sudah ditutup. Silakan daftar sebagai visitor.' },
+        { status: 403 }
       );
     }
 

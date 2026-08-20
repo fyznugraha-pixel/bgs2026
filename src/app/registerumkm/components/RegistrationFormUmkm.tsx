@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const categories = [
@@ -18,6 +18,7 @@ export default function RegistrationFormUmkm() {
   const [error, setError] = useState("");
   const [isDateDropdownOpen, setIsDateDropdownOpen] = useState(false);
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -28,10 +29,29 @@ export default function RegistrationFormUmkm() {
     date: "21 Agustus 2026",
   });
 
+  useEffect(() => {
+    if (!isCategoryDropdownOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(e.target as Node)) {
+        setIsCategoryDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isCategoryDropdownOpen]);
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     setError("");
+
+    if (!formData.category) {
+      setError("Kategori usaha wajib dipilih");
+      return;
+    }
+
+    setIsLoading(true);
 
     try {
       const res = await fetch("/api/register-umkm", {
@@ -177,14 +197,12 @@ export default function RegistrationFormUmkm() {
         </div>
 
         {/* Custom Dropdown: Category Selection */}
-        <div className="relative w-full">
+        <div className="relative w-full" ref={categoryDropdownRef}>
           <label className="block text-black font-black uppercase mb-2 text-lg">Kategori Usaha</label>
 
           <div
             className={`w-full bg-white comic-border p-4 rounded-xl font-bold text-black cursor-pointer flex justify-between items-center transition-all ${isCategoryDropdownOpen ? 'comic-shadow-sm' : 'shadow-[2px_2px_0_0_rgba(0,0,0,1)]'}`}
             onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
-            tabIndex={0}
-            onBlur={() => setTimeout(() => setIsCategoryDropdownOpen(false), 200)}
           >
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-black">category</span>

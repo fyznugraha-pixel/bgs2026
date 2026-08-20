@@ -56,6 +56,62 @@ export default function Daftar() {
         </div>
       </main>
 
+     {/* Whoosh Section */}
+        <div className="mt-6 mb-24">
+
+          <div className="text-center mb-10">
+            <h2 className="font-headline-lg text-3xl md:text-4xl font-black uppercase italic transform -rotate-1">
+              Promo Khusus Whoosh
+            </h2>
+
+            <p className="font-body-md text-black font-bold max-w-md mx-auto bg-white p-3 rounded-xl comic-border comic-shadow-sm mt-4 inline-block">
+              Ajukan paket perjalanan rombongan dan dapatkan promo spesial Whoosh.
+            </p>
+          </div>
+
+
+          <Link
+            href="/promo-whoosh"
+            className="group mx-auto max-w-xl bg-white rounded-3xl comic-border comic-shadow-lg p-8 md:p-10 flex flex-col items-center text-center transform hover:-translate-y-2 transition-all"
+          >
+
+            <div className="w-20 h-20 rounded-full bg-bgs-red comic-border comic-shadow-sm mb-6 flex items-center justify-center">
+              <span
+                className="material-symbols-outlined text-4xl text-white"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                train
+              </span>
+            </div>
+
+
+            <h3 className="font-black text-2xl md:text-3xl uppercase italic mb-3">
+              Paket Rombongan Whoosh
+            </h3>
+
+
+            <p className="text-black font-bold text-sm md:text-base opacity-80 mb-8 max-w-sm">
+              Nikmati perjalanan cepat dan nyaman bersama Whoosh dengan diskon khusus Bandung Great Sale 2026.
+            </p>
+
+
+            <span className="w-full max-w-sm bg-bgs-yellow text-black px-6 py-4 rounded-xl font-black uppercase tracking-wider comic-border border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center gap-2">
+
+              Ajukan Sekarang
+
+              <span
+                className="material-symbols-outlined"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                arrow_forward
+              </span>
+
+            </span>
+
+          </Link>
+
+        </div>
+
       {/* Footer */}
       <div className="w-full mt-auto relative z-10">
         <Footer />

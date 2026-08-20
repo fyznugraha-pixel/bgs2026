@@ -36,3 +36,13 @@ model UmkmRegistration {
   attendedAt   DateTime?
   createdAt    DateTime @default(now())
 }
+
+model WhooshRegistration {
+  id           String   @id @default(uuid())
+  name         String
+  email        String
+  whatsapp     String
+  packageType  String
+  visitorCount Int
+  createdAt    DateTime @default(now())
+}

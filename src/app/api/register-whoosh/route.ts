@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
@@ -29,26 +30,20 @@ export async function POST(request: Request) {
       );
     }
 
-    // sementara belum simpan database
-    console.log("WHOOSH REGISTRATION:", {
-      name,
-      email,
-      whatsapp,
-      packageType,
-      visitorCount,
-    });
-
-    return NextResponse.json({
-      success: true,
-      registration: {
-        id: "TEMP-WHOOSH-001",
+    const registration = await prisma.whooshRegistration.create({
+      data: {
         name,
         email,
         whatsapp,
         packageType,
-        visitorCount,
+        visitorCount: Number(visitorCount),
       },
     });
+
+    return NextResponse.json({
+      success: true,
+      registration,
+    }, { status: 201 });
 
   } catch (error) {
     console.error(error);

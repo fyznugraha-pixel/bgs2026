@@ -25,12 +25,12 @@ export default function Daftar() {
               <div className="w-20 h-20 rounded-full bg-bgs-blue comic-border comic-shadow-sm mb-6 flex items-center justify-center transform rotate-2 group-hover:rotate-0 transition-transform">
                 <span className="material-symbols-outlined text-4xl text-white" style={{ fontVariationSettings: "'FILL' 1" }}>confirmation_number</span>
               </div>
-              <h2 className="font-black text-2xl md:text-3xl uppercase italic mb-3">Visitor</h2>
+              <h2 className="font-black text-2xl md:text-3xl uppercase italic mb-3">Pengunjung</h2>
               <p className="text-black font-bold text-sm md:text-base opacity-80 mb-8">
                 Daftar sebagai pengunjung untuk dapatkan tiket masuk gratis ke Bandung Great Sale 2026.
               </p>
               <span className="mt-auto w-full bg-bgs-yellow text-black px-6 py-4 rounded-xl font-black uppercase tracking-wider comic-border border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center gap-2">
-                Register as Visitor
+                Register as Pengunjung
                 <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>
               </span>
             </Link>
@@ -60,20 +60,9 @@ export default function Daftar() {
         <div className="mt-4 mb-16 md:mb-24">
 
           <div className="text-center mb-10">
-          <h2 className="
-          font-headline-lg 
-          text-2xl
-          sm:text-3xl
-          md:text-4xl
-          font-black 
-          uppercase 
-          italic 
-          whitespace-nowrap
-          transform 
-          -rotate-1
-        ">
-          Promo Khusus Whoosh
-        </h2>
+            <h2 className="font-headline-lg text-2xl md:text-4xl font-black uppercase italic transform -rotate-1">
+              Promo Khusus Whoosh
+            </h2>
 
         <p className="
           font-body-md

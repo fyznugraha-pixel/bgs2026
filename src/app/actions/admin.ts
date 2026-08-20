@@ -27,3 +27,16 @@ export async function deleteUmkmRegistration(id: string) {
     return { success: false, error: 'Gagal menghapus data' }
   }
 }
+
+export async function deleteWhooshRegistration(id: string) {
+  try {
+    await prisma.whooshRegistration.delete({
+      where: { id }
+    })
+    revalidatePath('/bgs-hq-panel-2026')
+    return { success: true }
+  } catch (error) {
+    console.error('Delete error:', error)
+    return { success: false, error: 'Gagal menghapus data' }
+  }
+}

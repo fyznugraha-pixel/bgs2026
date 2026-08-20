@@ -248,7 +248,7 @@ const saveConfirmation = useReactToPrint({
           </span>
 
           <span className="text-lg md:text-xl text-bgs-red font-black">
-            31 Agustus 2026
+            30 Agustus 2026
           </span>
 
         </div>
@@ -304,26 +304,38 @@ const saveConfirmation = useReactToPrint({
     {showTerms && (
       <div className="mt-4 bg-[#fff8d7] comic-border rounded-xl p-5 font-bold">
 
+        <h4 className="font-black mb-3">
+          Syarat dan Ketentuan Diskon 20%
+        </h4>
+
         <ul className="space-y-2">
 
           <li>
-            • Promo berlaku untuk pengajuan paket rombongan sesuai ketentuan.
+            • Diskon berlaku khusus untuk pemesanan perjalanan secara grup dengan jumlah minimal <strong>10 orang untuk perjalanan pulang-pergi (round trip)</strong> atau <strong>20 orang untuk perjalanan satu arah (one way)</strong>.
           </li>
 
           <li>
-            • Diskon khusus sebesar 20% selama periode promo.
+            • Diskon berlaku untuk rute <strong>Jakarta–Bandung dan Bandung–Jakarta</strong>.
           </li>
 
           <li>
-            • Paket pulang-pergi memiliki minimum 10 peserta.
+            • Program diskon berlaku hingga <strong>30 September 2026</strong>.
           </li>
 
           <li>
-            • Paket sekali jalan memiliki minimum 20 peserta.
+            • Pemesanan dilakukan melalui <strong>Contact Center Whoosh</strong>.
           </li>
 
           <li>
-            • Promo berlaku sampai 31 Agustus 2026.
+            • Pemesanan wajib dilakukan paling lambat <strong>H-3 sebelum tanggal keberangkatan</strong>.
+          </li>
+
+          <li>
+            • Pada saat melakukan pemesanan, pelanggan wajib menunjukkan <strong>barcode/entry pass Bandung Great Sale</strong> dan <strong>Bukti Pengajuan ini</strong> kepada <strong>Contact Center Whoosh</strong> sebagai bukti untuk mendapatkan diskon.
+          </li>
+
+          <li>
+            • No. Contact center KCIC : 08118888111
           </li>
 
         </ul>
@@ -929,7 +941,7 @@ Simpan Bukti Konfirmasi
                 </li>
 
                 <li>
-                  • Promo berlaku sampai 31 Agustus 2026.
+                  • Promo berlaku sampai 30 Agustus 2026.
                 </li>
 
                 <li>

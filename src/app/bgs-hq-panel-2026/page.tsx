@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import DashboardStats from './components/DashboardStats';
 import DashboardTable from './components/DashboardTable';
 import UmkmDashboardTable from './components/UmkmDashboardTable';
+import WhooshDashboardTable from './components/WhooshDashboardTable';
 import DashboardPagination from './components/DashboardPagination';
 
 export const dynamic = 'force-dynamic';
@@ -18,8 +19,8 @@ export default async function AdminDashboard(props: {
   const filterDate = searchParams?.date || 'all';
   const type = searchParams?.type || 'visitor';
 
-  // Build where clause based on filter
-  const whereClause = filterDate !== 'all' ? { date: filterDate } : {};
+  // Build where clause based on filter (Whoosh registrations have no event date)
+  const whereClause = type !== 'whoosh' && filterDate !== 'all' ? { date: filterDate } : {};
 
   // Get data
   let allRegistrations: any[] = [];
@@ -31,6 +32,10 @@ export default async function AdminDashboard(props: {
       orderBy: { createdAt: 'desc' }
     });
     globalStatsData = await prisma.umkmRegistration.findMany();
+  } else if (type === 'whoosh') {
+    allRegistrations = await prisma.whooshRegistration.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
   } else {
     allRegistrations = await prisma.registration.findMany({
       where: whereClause,
@@ -38,7 +43,7 @@ export default async function AdminDashboard(props: {
     });
     globalStatsData = await prisma.registration.findMany();
   }
-  
+
   const totalRegistrations = globalStatsData.length;
   const totalAttended = globalStatsData.filter(r => r.isAttended).length;
   const count21 = globalStatsData.filter(r => r.date === "21 Agustus 2026" && r.isAttended).length;
@@ -47,10 +52,10 @@ export default async function AdminDashboard(props: {
 
   const totalFiltered = allRegistrations.length;
   const totalPages = Math.max(1, Math.ceil(totalFiltered / limit));
-  
+
   // Protect against out of bounds page
   if (page > totalPages && totalPages > 0) {
-    redirect(`/bgs-hq-panel-2026?page=${totalPages}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`);
+    redirect(`/bgs-hq-panel-2026?page=${totalPages}&type=${type}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`);
   }
 
   const currentRegistrations = allRegistrations.slice((page - 1) * limit, page * limit);
@@ -65,6 +70,14 @@ export default async function AdminDashboard(props: {
     'Tanggal Event': reg.date,
     'Status Hadir': reg.isAttended ? 'Hadir' : 'Belum Hadir',
     'Waktu Scan (Hadir)': reg.attendedAt ? new Date(reg.attendedAt).toLocaleString('id-ID') : '-',
+    'Waktu Daftar': new Date(reg.createdAt).toLocaleString('id-ID')
+  })) : type === 'whoosh' ? allRegistrations.map((reg) => ({
+    'ID': reg.id,
+    'Nama Lengkap': reg.name,
+    'Email': reg.email,
+    'No. WhatsApp': reg.whatsapp,
+    'Paket': reg.packageType === 'roundtrip' ? 'Opsi 1 - Round Trip (10 Orang)' : 'Opsi 2 - One Way (20 Orang)',
+    'Jumlah Peserta': reg.visitorCount,
     'Waktu Daftar': new Date(reg.createdAt).toLocaleString('id-ID')
   })) : allRegistrations.map((reg) => ({
     'ID': reg.id,
@@ -106,7 +119,16 @@ export default async function AdminDashboard(props: {
         </div>
 
         {/* Stats */}
-        <DashboardStats stats={{ totalRegistrations, totalAttended, count21, count22, count23 }} />
+        {type === 'whoosh' ? (
+          <div className="bg-white overflow-hidden shadow-sm rounded-lg border border-gray-200 mb-8 max-w-xs">
+            <div className="px-4 py-5 sm:p-6">
+              <dt className="text-sm font-medium text-gray-500 truncate">Total Pengajuan Voucher</dt>
+              <dd className="mt-1 text-3xl font-semibold text-gray-900">{allRegistrations.length}</dd>
+            </div>
+          </div>
+        ) : (
+          <DashboardStats stats={{ totalRegistrations, totalAttended, count21, count22, count23 }} />
+        )}
 
         {/* Tabs */}
         <div className="mb-6 flex gap-4 border-b border-gray-200 mt-8">
@@ -116,48 +138,58 @@ export default async function AdminDashboard(props: {
           <Link href={`/bgs-hq-panel-2026?type=umkm&date=${filterDate}`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'umkm' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
             Data UMKM
           </Link>
+          <Link href={`/bgs-hq-panel-2026?type=whoosh`} className={`pb-2 px-4 border-b-2 font-medium text-sm transition-colors ${type === 'whoosh' ? 'border-bgs-blue text-bgs-blue' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+            Data Voucher Whoosh
+          </Link>
         </div>
 
         {/* Filters and Table */}
         <div className="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
           <div className="px-4 py-5 sm:px-6 border-b border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50/50">
             <div className="flex items-center gap-4">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">{type === 'umkm' ? 'Data UMKM' : 'Data Pengunjung'}</h3>
-              
-              {/* Date Filter */}
-              <form method="GET" action="/bgs-hq-panel-2026" className="flex items-center gap-2">
-                <input type="hidden" name="type" value={type} />
-                <select 
-                  name="date" 
-                  defaultValue={filterDate}
-                  className="text-sm border-gray-300 rounded-md shadow-sm focus:border-bgs-blue focus:ring-bgs-blue py-1.5 pl-3 pr-8"
-                >
-                  <option value="all">Semua Tanggal</option>
-                  <option value="21 Agustus 2026">21 Agustus 2026</option>
-                  <option value="22 Agustus 2026">22 Agustus 2026</option>
-                  <option value="23 Agustus 2026">23 Agustus 2026</option>
-                </select>
-                <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1.5 rounded-md font-medium border border-gray-300 transition-colors">
-                  Filter
-                </button>
-              </form>
+              <h3 className="text-lg leading-6 font-medium text-gray-900">
+                {type === 'umkm' ? 'Data UMKM' : type === 'whoosh' ? 'Data Voucher Whoosh' : 'Data Pengunjung'}
+              </h3>
+
+              {/* Date Filter (tidak berlaku untuk Voucher Whoosh) */}
+              {type !== 'whoosh' && (
+                <form method="GET" action="/bgs-hq-panel-2026" className="flex items-center gap-2">
+                  <input type="hidden" name="type" value={type} />
+                  <select
+                    name="date"
+                    defaultValue={filterDate}
+                    className="text-sm border-gray-300 rounded-md shadow-sm focus:border-bgs-blue focus:ring-bgs-blue py-1.5 pl-3 pr-8"
+                  >
+                    <option value="all">Semua Tanggal</option>
+                    <option value="21 Agustus 2026">21 Agustus 2026</option>
+                    <option value="22 Agustus 2026">22 Agustus 2026</option>
+                    <option value="23 Agustus 2026">23 Agustus 2026</option>
+                  </select>
+                  <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1.5 rounded-md font-medium border border-gray-300 transition-colors">
+                    Filter
+                  </button>
+                </form>
+              )}
             </div>
 
             <ExportButton data={exportData} type={type} />
           </div>
-          
+
           {type === 'umkm' ? (
             <UmkmDashboardTable registrations={currentRegistrations} />
+          ) : type === 'whoosh' ? (
+            <WhooshDashboardTable registrations={currentRegistrations} />
           ) : (
             <DashboardTable registrations={currentRegistrations} />
           )}
-          
-          <DashboardPagination 
-            page={page} 
-            limit={limit} 
-            totalFiltered={totalFiltered} 
-            totalPages={totalPages} 
-            filterDate={filterDate} 
+
+          <DashboardPagination
+            page={page}
+            limit={limit}
+            totalFiltered={totalFiltered}
+            totalPages={totalPages}
+            filterDate={filterDate}
+            type={type}
           />
         </div>
       </main>

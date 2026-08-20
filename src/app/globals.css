@@ -257,6 +257,15 @@
     100% { top: 0; }
 }
 
+.blink-red-black {
+    animation: blink-red-black 0.8s step-start infinite;
+}
+
+@keyframes blink-red-black {
+    0%, 100% { color: var(--color-bgs-red); }
+    50% { color: #000000; }
+}
+
 #qr-reader {
   width: 100%;
   height: 100%;

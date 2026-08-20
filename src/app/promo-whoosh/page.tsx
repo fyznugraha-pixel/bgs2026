@@ -15,6 +15,7 @@ export default function PromoWhooshPage() {
 
   const [showTerms, setShowTerms] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export default function PromoWhooshPage() {
     setError("");
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -50,13 +51,39 @@ export default function PromoWhooshPage() {
       return;
     }
 
-    setIsSubmitted(true);
+    setIsSubmitting(true);
 
-    setTimeout(() => {
-      document
-        .getElementById("whoosh-ticket")
-        ?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 100);
+    try {
+      const res = await fetch("/api/register-whoosh", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          whatsapp: formData.whatsapp,
+          packageType: selectedPackage,
+          visitorCount,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Gagal mengirim pengajuan");
+      }
+
+      setIsSubmitted(true);
+
+      setTimeout(() => {
+        document
+          .getElementById("whoosh-ticket")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const ticketCode = `BGS-WHOOSH-${formData.name
@@ -628,18 +655,21 @@ const saveConfirmation = useReactToPrint({
                 <div className="md:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-bgs-red text-white font-black text-xl py-4 rounded-xl flex items-center justify-center gap-3 transition-all comic-border comic-shadow hover:-translate-y-1 hover:comic-shadow-hover uppercase"
+                    disabled={isSubmitting}
+                    className={`w-full bg-bgs-red text-white font-black text-xl py-4 rounded-xl flex items-center justify-center gap-3 transition-all comic-border comic-shadow hover:-translate-y-1 hover:comic-shadow-hover uppercase ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
                   >
-                    Ajukan Sekarang
+                    {isSubmitting ? "MENGIRIM..." : "Ajukan Sekarang"}
 
-                    <span
-                      className="material-symbols-outlined"
-                      style={{
-                        fontVariationSettings: "'FILL' 1",
-                      }}
-                    >
-                      send
-                    </span>
+                    {!isSubmitting && (
+                      <span
+                        className="material-symbols-outlined"
+                        style={{
+                          fontVariationSettings: "'FILL' 1",
+                        }}
+                      >
+                        send
+                      </span>
+                    )}
                   </button>
 
                   <div className="mt-4 flex items-center justify-center gap-2 text-sm font-bold opacity-70 text-center">

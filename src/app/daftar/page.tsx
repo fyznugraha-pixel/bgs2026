@@ -60,7 +60,7 @@ export default function Daftar() {
         <div className="mt-6 mb-24">
 
           <div className="text-center mb-10">
-            <h2 className="font-headline-lg text-3xl md:text-4xl font-black uppercase italic transform -rotate-1">
+            <h2 className="blink-red-black font-headline-lg text-3xl md:text-4xl font-black uppercase italic transform -rotate-1">
               Promo Khusus Whoosh
             </h2>
 

@@ -17,7 +17,11 @@ export default function ExportButton({ data, type = 'visitor' }: { data: any[], 
     XLSX.utils.book_append_sheet(workbook, worksheet, "Data Pendaftar");
     
     // 3. Simpan sebagai file .xlsx
-    const filename = type === 'umkm' ? "Data_UMKM_BGS_2026.xlsx" : "Data_Pengunjung_BGS_2026.xlsx";
+    const filename = type === 'umkm'
+      ? "Data_UMKM_BGS_2026.xlsx"
+      : type === 'whoosh'
+      ? "Data_Voucher_Whoosh_BGS_2026.xlsx"
+      : "Data_Pengunjung_BGS_2026.xlsx";
     XLSX.writeFile(workbook, filename);
   };
 

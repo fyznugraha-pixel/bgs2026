@@ -16,7 +16,6 @@ export default function RegistrationFormUmkm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [isDateDropdownOpen, setIsDateDropdownOpen] = useState(false);
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   const categoryDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +25,7 @@ export default function RegistrationFormUmkm() {
     whatsapp: "",
     businessName: "",
     category: "",
-    date: "21 Agustus 2026",
+    date: "23 Agustus 2026",
   });
 
   useEffect(() => {
@@ -85,39 +84,16 @@ export default function RegistrationFormUmkm() {
       )}
 
       <form onSubmit={handleRegister} className="space-y-6 relative z-10 mt-6 text-left">
-        {/* Custom Dropdown: Date Selection */}
+        {/* Info: Fixed Date */}
         <div className="relative w-full">
           <label className="block text-black font-black uppercase mb-2 text-lg">Tanggal Kehadiran</label>
 
-          <div
-            className={`w-full bg-white comic-border p-4 rounded-xl font-bold text-black cursor-pointer flex justify-between items-center transition-all ${isDateDropdownOpen ? 'comic-shadow-sm' : 'shadow-[2px_2px_0_0_rgba(0,0,0,1)]'}`}
-            onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
-            tabIndex={0}
-            onBlur={() => setTimeout(() => setIsDateDropdownOpen(false), 200)}
-          >
+          <div className="w-full bg-white comic-border p-4 rounded-xl font-bold text-black flex justify-between items-center shadow-[2px_2px_0_0_rgba(0,0,0,1)]">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-black">calendar_today</span>
               {formData.date}
             </div>
-            <span className={`material-symbols-outlined transition-transform duration-200 ${isDateDropdownOpen ? "rotate-180" : ""}`}>expand_more</span>
           </div>
-
-          {isDateDropdownOpen && (
-            <ul className="absolute z-20 w-full bg-white comic-border comic-shadow-sm mt-2 rounded-xl overflow-hidden">
-              {["21 Agustus 2026", "22 Agustus 2026", "23 Agustus 2026"].map((d, i) => (
-                <li
-                  key={i}
-                  className={`px-4 py-3 font-bold cursor-pointer border-b-2 border-black last:border-0 hover:bg-bgs-yellow transition-colors ${formData.date === d ? 'bg-bgs-yellow' : ''}`}
-                  onClick={() => {
-                    setFormData({ ...formData, date: d });
-                    setIsDateDropdownOpen(false);
-                  }}
-                >
-                  {d}
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
 
         {/* Input: Full Name */}

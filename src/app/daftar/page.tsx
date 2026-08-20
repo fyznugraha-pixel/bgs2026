@@ -100,12 +100,12 @@ export default function Daftar() {
               comic-shadow-lg
               p-5
               md:p-10
-              flex 
-              flex-col 
-              items-center 
-              text-center 
-              transform 
-              hover:-translate-y-2 
+              flex
+              flex-col
+              items-center
+              text-center
+              transform
+              hover:-translate-y-2
               transition-all
             "
           >
@@ -113,13 +113,13 @@ export default function Daftar() {
             <div className="
               w-16 h-16
               md:w-20 md:h-20
-              rounded-full 
-              bg-bgs-red 
-              comic-border 
-              comic-shadow-sm 
-              mb-5 
-              flex 
-              items-center 
+              rounded-full
+              bg-bgs-red
+              comic-border
+              comic-shadow-sm
+              mb-5
+              flex
+              items-center
               justify-center
             ">
               <span
@@ -145,12 +145,12 @@ export default function Daftar() {
 
 
             <p className="
-              text-black 
-              font-bold 
-              text-sm 
-              md:text-base 
-              opacity-80 
-              mb-8 
+              text-black
+              font-bold
+              text-sm
+              md:text-base
+              opacity-80
+              mb-8
               max-w-sm
             ">
               Nikmati perjalanan cepat dan nyaman bersama Whoosh dengan diskon khusus Bandung Great Sale 2026.
@@ -159,27 +159,27 @@ export default function Daftar() {
 
             <span className="
               w-full
-              bg-bgs-yellow 
-              text-black 
-              px-5 
+              bg-bgs-yellow
+              text-black
+              px-5
               py-3
-              md:px-6 
+              md:px-6
               md:py-4
-              rounded-xl 
-              font-black 
+              rounded-xl
+              font-black
               text-sm
               md:text-base
-              uppercase 
-              tracking-wider 
-              comic-border 
-              border-4 
-              border-black 
+              uppercase
+              tracking-wider
+              comic-border
+              border-4
+              border-black
               shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
               group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
-              transition-all 
-              flex 
-              items-center 
-              justify-center 
+              transition-all
+              flex
+              items-center
+              justify-center
               gap-2
             ">
 

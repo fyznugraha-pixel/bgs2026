@@ -68,7 +68,27 @@ export default function PromoPopup() {
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>app_registration</span>
               Registrasi Sekarang
             </Link>
-            
+
+            <Link
+              href="/promo-whoosh"
+              onClick={() => setIsOpen(false)}
+              className="w-full sm:w-auto mt-3 bg-bgs-red text-white px-8 py-4 rounded-xl font-black uppercase tracking-wider comic-border border-4 border-black hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-1"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <Image
+                  src="/aset visual/logo-whoosh-1.png"
+                  alt="Whoosh"
+                  width={28}
+                  height={15}
+                  className="h-4 w-auto object-contain"
+                />
+                Lihat Voucher Whoosh
+              </span>
+              <span className="text-white/80 text-[10px] font-bold normal-case tracking-normal">
+                Diskon 20% khusus rombongan
+              </span>
+            </Link>
+
             <p className="text-white/60 text-xs font-bold mt-4 uppercase tracking-widest">
               GRATIS & CEPAT
             </p>

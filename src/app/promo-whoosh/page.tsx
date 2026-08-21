@@ -164,7 +164,7 @@ export default function PromoWhooshPage() {
                 <p className="text-gray-700 text-sm font-semibold leading-snug">
                   Diskon 20% khusus rombongan
                   <br />
-                  berlaku s/d 30 Agustus 2026
+                  berlaku s/d 30 September 2026
                 </p>
               </div>
 
@@ -567,7 +567,7 @@ export default function PromoWhooshPage() {
               • Diskon 20% hanya berlaku untuk pembelian paket rombongan sesuai ketentuan.
             </li>
             <li>
-              • Promo berlaku sampai 30 Agustus 2026.
+              • Promo berlaku sampai 30 September 2026.
             </li>
             <li>
               • Bukti pengajuan bukan tiket keberangkatan Whoosh.

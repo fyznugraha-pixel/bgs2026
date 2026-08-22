@@ -11,16 +11,19 @@ import DashboardPagination from './components/DashboardPagination';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard(props: {
-  searchParams: Promise<{ page?: string; date?: string; type?: string }>;
+  searchParams: Promise<{ page?: string; date?: string; type?: string; package?: string }>;
 }) {
   const searchParams = await props.searchParams;
   const page = parseInt(searchParams?.page || '1', 10);
   const limit = 50;
   const filterDate = searchParams?.date || 'all';
   const type = searchParams?.type || 'visitor';
+  const filterPackage = searchParams?.package || 'all';
 
-  // Build where clause based on filter (Whoosh registrations have no event date)
-  const whereClause = type !== 'whoosh' && filterDate !== 'all' ? { date: filterDate } : {};
+  // Build where clause based on filter (Whoosh registrations are filtered by package, not event date)
+  const whereClause = type === 'whoosh'
+    ? (filterPackage !== 'all' ? { packageType: filterPackage } : {})
+    : (filterDate !== 'all' ? { date: filterDate } : {});
 
   // Get data
   let allRegistrations: any[] = [];
@@ -34,6 +37,7 @@ export default async function AdminDashboard(props: {
     globalStatsData = await prisma.umkmRegistration.findMany();
   } else if (type === 'whoosh') {
     allRegistrations = await prisma.whooshRegistration.findMany({
+      where: whereClause,
       orderBy: { createdAt: 'desc' }
     });
   } else {
@@ -44,7 +48,9 @@ export default async function AdminDashboard(props: {
     globalStatsData = await prisma.registration.findMany();
   }
 
-  const totalRegistrations = globalStatsData.length;
+  const totalRegistrations = filterDate === 'all'
+    ? globalStatsData.length
+    : globalStatsData.filter(r => r.date === filterDate).length;
   const totalAttended = globalStatsData.filter(r => r.isAttended).length;
   const count21 = globalStatsData.filter(r => r.date === "21 Agustus 2026" && r.isAttended).length;
   const count22 = globalStatsData.filter(r => r.date === "22 Agustus 2026" && r.isAttended).length;
@@ -55,7 +61,10 @@ export default async function AdminDashboard(props: {
 
   // Protect against out of bounds page
   if (page > totalPages && totalPages > 0) {
-    redirect(`/bgs-hq-panel-2026?page=${totalPages}&type=${type}${filterDate !== 'all' ? `&date=${filterDate}` : ''}`);
+    const extraParam = type === 'whoosh'
+      ? (filterPackage !== 'all' ? `&package=${filterPackage}` : '')
+      : (filterDate !== 'all' ? `&date=${filterDate}` : '');
+    redirect(`/bgs-hq-panel-2026?page=${totalPages}&type=${type}${extraParam}`);
   }
 
   const currentRegistrations = allRegistrations.slice((page - 1) * limit, page * limit);
@@ -148,7 +157,7 @@ export default async function AdminDashboard(props: {
                 {type === 'umkm' ? 'Data UMKM' : type === 'whoosh' ? 'Data Voucher Whoosh' : 'Data Pengunjung'}
               </h3>
 
-              {/* Date Filter (tidak berlaku untuk Voucher Whoosh) */}
+              {/* Date Filter (untuk Pengunjung Umum & UMKM) */}
               {type !== 'whoosh' && (
                 <form method="GET" action="/bgs-hq-panel-2026" className="flex items-center gap-2">
                   <input type="hidden" name="type" value={type} />
@@ -161,6 +170,25 @@ export default async function AdminDashboard(props: {
                     <option value="21 Agustus 2026">21 Agustus 2026</option>
                     <option value="22 Agustus 2026">22 Agustus 2026</option>
                     <option value="23 Agustus 2026">23 Agustus 2026</option>
+                  </select>
+                  <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1.5 rounded-md font-medium border border-gray-300 transition-colors">
+                    Filter
+                  </button>
+                </form>
+              )}
+
+              {/* Package Filter (untuk Voucher Whoosh) */}
+              {type === 'whoosh' && (
+                <form method="GET" action="/bgs-hq-panel-2026" className="flex items-center gap-2">
+                  <input type="hidden" name="type" value={type} />
+                  <select
+                    name="package"
+                    defaultValue={filterPackage}
+                    className="text-sm border-gray-300 rounded-md shadow-sm focus:border-bgs-blue focus:ring-bgs-blue py-1.5 pl-3 pr-8"
+                  >
+                    <option value="all">Semua Paket</option>
+                    <option value="roundtrip">Opsi 1 - Round Trip</option>
+                    <option value="oneway">Opsi 2 - One Way</option>
                   </select>
                   <button type="submit" className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1.5 rounded-md font-medium border border-gray-300 transition-colors">
                     Filter
@@ -186,6 +214,7 @@ export default async function AdminDashboard(props: {
             totalFiltered={totalFiltered}
             totalPages={totalPages}
             filterDate={filterDate}
+            filterPackage={filterPackage}
             type={type}
           />
         </div>
